@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import { Switch, withRouter, Route } from 'react-router-dom';
 import './App.css';
+import Layout from './components/Layout/Layout';
+import MainPage from './components/MainPage/MainPage';
+import FAQPage from './components/FAQPage/FAQPage';
+import MenuPage from './components/MenuPage/MenuPage';
+import OrderPage from './components/OrderPage/OrderPage';
+import OurStory from './components/OurStory/OurStory';
+import ReservationsPage from './components/ResevationsPage/ReservationsPage';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Auxi from './hoc/Auxi';
+class App extends Component {
+  render() {
+    let routes = (
+      <Switch>
+        <Route path="/" exact component={MainPage} />
+        <Route path="/reservations" exact component={ReservationsPage} />
+        <Route path="/ourstory" exact component={OurStory} />
+        <Route path="/menu" exact component={MenuPage} />
+        <Route path="/orderonline" exact component={OrderPage} />
+        <Route path="/faq" exact component={FAQPage} />
+      </Switch>
+    );
+    return (
+      <Auxi>
+        <Layout>
+          {routes}
+        </Layout>
+      </Auxi>
+    )
+  }
 }
-
-export default App;
+export default withRouter(App);

@@ -1,0 +1,56 @@
+section{
+    height: calc(100vh - 40px);
+    margin-left: 60px;
+    display: flex;
+    flex-flow: row;
+}
+.Left, .Right{
+    width: 50%;
+    height: 100%;
+}
+.Right{
+background-color: purple;
+}
+.Left h1{
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    font-size: 90px;
+    color: rgb(220, 55, 39);
+    margin-bottom: 0;
+    margin-top:  calc(50% - 125px );
+    letter-spacing: 3px;
+}
+.Left p{
+    font-family: 'Poppins', sans-serif;
+    margin-top: 0;
+    text-align: center;
+    font-size: 30px;
+    color: black;
+    font-weight: 300;
+}
+a.buttonMainPage {
+	background-color:transparent;
+	border:solid rgba(220, 55, 39, 1) 1px;
+	display:inline-block;
+	cursor:pointer;
+	color: rgb(220, 55, 39);
+	font-family:Arial;
+	font-size:16px;
+	font-weight:bold;
+	padding:9px 55px;
+    text-decoration:none;
+    margin-left: calc(50% - 110px);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    transition: 0.15s ease-in;
+}
+a.buttonMainPage:hover {
+    background-color: rgb(220, 55, 39);
+    color: white;
+}
+a.buttonMainPage:active {
+	position:relative;
+	top:1px;
+}
+
+        
