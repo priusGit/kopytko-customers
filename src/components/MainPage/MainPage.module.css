@@ -1,6 +1,5 @@
 section{
     height: calc(100vh - 40px);
-    margin-left: 60px;
     display: flex;
     flex-flow: row;
 }
@@ -8,8 +7,36 @@ section{
     width: 50%;
     height: 100%;
 }
+
 .Right{
-background-color: purple;
+    background-color: purple;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.Right div{
+    flex-basis: 50%;  
+    justify-content: center;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.topleft{
+    background-image: url(../../assets/babka.jpg);
+    background-position: top;
+}
+.topright{
+    background-image: url(../../assets/grochowka.webp);
+    background-position: top;
+}
+.botleft{
+    background-image: url(../../assets/zurek.jpg);
+    background-position: top;
+}
+
+.botright{
+    background-image: url(../../assets/murzynek.jpg);
+    background-position: top;
 }
 .Left h1{
     font-family: 'Oswald', sans-serif;

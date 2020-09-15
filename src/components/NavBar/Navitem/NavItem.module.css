@@ -15,12 +15,14 @@ li{
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
     transition: 0.15s ease-in;
-    
+    top: 0;
+    position:relative;
+    font-size: 17px;
 }
 .navlink:hover {
+    transition: 0.15s ease-in;
     color: black;
 }
-.navlink:active {
-	position:relative;
-	top:1px;
+.navlinkActive {
+    color: black;
 }

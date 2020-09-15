@@ -8,8 +8,8 @@ const NavBar = (props) => (
         <NavigationItem link="/reservations" active>Zarezerwuj stolik</NavigationItem>
         <NavigationItem link="/ourstory" active>Nasza historia</NavigationItem>
         <NavigationItem link="/menu" active>Menu</NavigationItem>
-        <NavigationItem link="/order" active>Zamów do domu!</NavigationItem>
-        <NavigationItem link="/contact" active>Jakieś pytania?</NavigationItem>
+        <NavigationItem link="/orderonline" active>Zamów do domu!</NavigationItem>
+        <NavigationItem link="/faq" active>Jakieś pytania?</NavigationItem>
 
     </ul>
 );

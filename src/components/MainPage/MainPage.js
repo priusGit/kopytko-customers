@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import Auxi from '../../hoc/Auxi'
 import classes from './MainPage.module.css'
+import babka from '../../assets/babka.jpg'
+import grochowka from '../../assets/grochowka.webp'
+import murzynek from '../../assets/murzynek.jpg'
+import zurek from '../../assets/zurek.jpg'
+
 class MainPage extends Component {
     render() {
         return (
@@ -15,7 +20,18 @@ class MainPage extends Component {
                         <a className={classes.buttonMainPage}>Zobacz Menu</a>
                     </div>
                     <div className={classes.Right}>
-
+                        <div className={classes.topleft}>
+                            {/* <img src={babka} alt="babka ciasto" /> */}
+                        </div>
+                        <div className={classes.topright}>
+                            {/* <img src={grochowka} alt="babka ciasto" /> */}
+                        </div>
+                        <div className={classes.botleft}>
+                            {/* <img src={murzynek} alt="babka ciasto" /> */}
+                        </div>
+                        <div className={classes.botright}>
+                            {/* <img src={zurek} alt="babka ciasto" /> */}
+                        </div>
                     </div>
                 </section>
                 {/* jakas babcia jako szef */}
