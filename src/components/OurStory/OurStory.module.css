@@ -1,7 +1,7 @@
 div{
     margin: 0 auto;
 }
-.image{
+.image1{
     background-image: url(../../assets/cracowimage.jpg);
     height: 600px;
     width: 1000px;
@@ -9,28 +9,106 @@ div{
     background-size: cover;
     background-repeat: no-repeat;
 }
+.image2{
+    background-image: url(../../assets/chef.jpg);
+    height: 500px;
+    width: 750px;
+    position: relative;
+    top: -25px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transform: translateX(50%);
+}
+.wideBar{
+    margin-top: 100px;
+    z-index:-1;
+    position: relative;
+    width: 90vw;
+    height: 450px;
+    background-color: rgb(220, 55, 39);
+    margin-bottom: 80px;
+}
+.wideBar p{
+    position: absolute;
+    color: white;
+    margin-left: 30%;
+}
+.text .quote{
+    width: 49%;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    padding: 20px 40px;
+    box-sizing: border-box;
+    display: block;
+}
+.text .quote h2{
+    color: white;
+    letter-spacing: 3px;
+    font-size: 50px;
+    z-index: 3;
+}
+.text .quote .quoteChef{
+    font-family: 'Lora', serif;
+    margin-top: 50px;
+    margin-left: 0;
+    position: relative;
+    font-size: 25px;
+}
 .text{
     position: absolute;
-    top: 75%;
+    top: 72.5%;
     left: 50%;
     transform: translateX(-50%);
     margin-top: 40px;
     text-align: center;
 }
 .text h2{
+    color: rgb(220, 55, 39);
     font-family: 'Merriweather', serif;
     font-weight: 400;
-    font-size: 36px;
+    font-size: 40px;
     margin-top: 40px;
     text-align: center;
+    letter-spacing: 2px;
 }
 .text h3{
     font-weight: 400;
     font-family: 'Poppins', sans-serif;
     text-align: center;
     font-size: 24px;
+
+}
+.move{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    transform: translateX(-50%);
+    width: 50%;
+    text-align: justify;
 }
 .text p{
     font-family: 'Poppins', sans-serif;
     font-size: 20px;
 }
+.animateScroller{
+    margin-top: 20px;
+    animation: scrollAni 1.5s linear infinite;
+    position: relative;
+    opacity: 0;
+}
+.bar{
+    margin-top: 50px;
+    height: 2px;
+    width: 60px;
+    background-color: black;
+}
+h2.owner{
+    margin-top: 100px;
+}
+@keyframes scrollAni {
+    0%   {opacity: 0;top:0;}
+    10%  {opacity: 1;}
+    90%  {opacity: 1;}
+    100% {opacity: 0;top:20px;}
+  }

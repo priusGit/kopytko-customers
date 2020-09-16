@@ -4,4 +4,17 @@ div.AsideIconBar{
     background-color: rgba(220, 55, 39);
     float: left;
     position: fixed;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+div.AsideIconBar div{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+div.AsideIconBar svg{
+
+    margin-bottom: 15px;
+    font-size: 25px;
 }
