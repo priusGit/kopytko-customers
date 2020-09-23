@@ -1,0 +1,47 @@
+
+section.Menu{
+    margin-top: 20px;
+    border: 60px solid rgba(220, 55, 39);
+}
+.Container{
+    width: 70%;
+    margin-left: 15%;
+}
+.Title, .subTitle,.categoryTitle{  
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+.Title{
+    font-size: 30px;
+    margin-top: 60px;
+    color: rgba(220, 55, 39);
+    font-family: 'Lora', serif;
+    font-weight: 400;
+}
+.subTitle{
+    font-size: 17px;
+    margin-top: 40px;
+    font-family: 'Poppins', serif;
+}
+.categoryTitle{
+    font-size: 30px;
+    margin-top: 60px;
+    color: rgba(220, 55, 39);
+    font-family: 'Lora', serif;
+    font-weight: 400;
+}
+.DishesTable{
+    margin-top: 60px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.bar{
+    margin: 0 auto;
+    margin-top: 50px;
+    height: 2px;
+    width: 60px;
+    background-color: black;
+}

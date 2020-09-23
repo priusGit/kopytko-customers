@@ -1,4 +1,4 @@
-section{
+section.MainPage{
     height: calc(100vh - 40px);
     display: flex;
     flex-flow: row;

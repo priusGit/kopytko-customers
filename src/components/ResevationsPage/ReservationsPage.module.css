@@ -1,0 +1,38 @@
+.ReservationsPage{
+    /* border: 1px solid green; */
+    width: 100vw;
+    box-sizing: border-box;
+}
+.ReservationsPage h1{
+    color: rgb(220, 55, 39);
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+    font-size: 40px;
+    margin-top: 40px;
+    text-align: center;
+    letter-spacing: 2px;
+}
+.ReservationsPage p{
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    font-size: 24px;
+}
+
+.prewiew{
+    border: 3px solid black;
+    height: calc(80vh - 40px);
+    width: 70vw;
+    margin-top: 60px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    box-sizing: border-box;
+}
+.datePicker{
+    height: 200px;
+    width: 70vw;
+    margin-top: 60px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    box-sizing: border-box;
+}

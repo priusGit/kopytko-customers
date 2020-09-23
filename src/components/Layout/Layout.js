@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import AsideIconBar from '../AsideIconBar/AsideIconBar'
 import NavBar from '../NavBar/NavBar'
 import Auxi from '../../hoc/Auxi'
+// eslint-disable-next-line
 import classes from './Layout.module.css'
 class Layout extends Component {
     render() {

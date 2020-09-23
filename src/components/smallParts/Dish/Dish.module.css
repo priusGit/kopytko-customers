@@ -1,0 +1,22 @@
+.Dish{
+    text-align: center;
+    flex-basis: 26%;
+    margin-bottom: 40px;
+}
+.DishTitle{
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-family: 'Lora', serif;
+    color: rgba(220, 55, 39);
+}
+.DishDisc{
+    font-size: 15px;
+    text-align: justify;
+    margin-bottom: 10px;
+}
+.DishPrice{
+    font-size: 18px;
+}
+.DishDisc, .DishPrice{
+    font-family: 'Poppins', serif;
+}

@@ -6,7 +6,7 @@ class OurStory extends Component {
     render() {
         const element = <FontAwesomeIcon icon={faAngleDown} />
         return (
-            <section>
+            <section className={classes.OurStory}>
                 <div className={classes.image1}>
                 </div>
                 <div className={classes.text}>

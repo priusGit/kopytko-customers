@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
-import NavItem from './Navitem/NavItem';
+import React from 'react';
 import NavigationItem from './Navitem/NavItem'
 import classes from './NavBar.module.css'
 const NavBar = (props) => (
-    <ul>
+    <ul className={classes.NavBar}>
         <NavigationItem link="/" active>Home</NavigationItem>
         <NavigationItem link="/reservations" active>Zarezerwuj stolik</NavigationItem>
         <NavigationItem link="/ourstory" active>Nasza historia</NavigationItem>

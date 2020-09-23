@@ -1,4 +1,4 @@
-div{
+.OurStory div{
     margin: 0 auto;
 }
 .image1{
@@ -19,7 +19,7 @@ div{
     background-repeat: no-repeat;
     transform: translateX(50%);
 }
-.wideBar{
+.OurStory .wideBar{
     margin-top: 100px;
     z-index:-1;
     position: relative;
