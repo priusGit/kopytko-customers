@@ -4,14 +4,24 @@ import classes from './ReservationsPage.module.css';
 import axios from '../../axios-orders';
 import * as actions from '../../store/actions/index';
 import { connect } from 'react-redux';
+import Auxi from '../../hoc/Auxi';
+import Spinner from '../smallParts/Spinner/Spinner';
 class ReservationsPage extends Component {
     componentDidMount() {
-        this.props.onFetchReservations();
+        let link = this.getDate();
+        this.props.onFetchReservations(link);
     }
-
     state = {
         reservationForm: {
+            reservationDate: {
+                label: "Podaj datę, na jaką ma być rezerwacja:",
+                elementType: 'date',
+                validation: {},
+                value: this.getDate(),
+                valid: true
+            },
             name: {
+                label: "Imię:",
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
@@ -25,6 +35,7 @@ class ReservationsPage extends Component {
                 touched: false
             },
             surName: {
+                label: "Nazwisko:",
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
@@ -38,6 +49,7 @@ class ReservationsPage extends Component {
                 touched: false
             },
             phoneNumber: {
+                label: "Numer telefonu:",
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
@@ -50,14 +62,24 @@ class ReservationsPage extends Component {
                 },
                 valid: false,
                 touched: false
-            },
-            reservationDate: {
-                elementType: 'date',
-                validation: {},
-                valid: true
             }
         },
         formIsValid: false
+    }
+
+    getDate() {
+        let date = new Date();
+        let day = String(date.getDate());
+        let month = String(date.getMonth() + 1);
+        let year = String(date.getFullYear());
+        if (date.getDate() < 10) {
+            day = '0' + day;
+        }
+        if (date.getMonth() + 1 < '10') {
+            month = 0 + month;
+        }
+        let link = year + '-' + month + '-' + day;
+        return link;
     }
 
     checkValidity(value, rules) {
@@ -72,7 +94,7 @@ class ReservationsPage extends Component {
         return isValid;
     }
 
-    inputChangedHandler = (event, inputIdentifier) => {
+    inputChangedHandler = (elementType, event, inputIdentifier) => {
         const updatedreservationForm = {
             ...this.state.reservationForm
         };
@@ -89,16 +111,16 @@ class ReservationsPage extends Component {
             formIsValid = updatedreservationForm[inputIdentifier].valid && formIsValid;
         }
         this.setState({ reservationForm: updatedreservationForm, formIsValid: formIsValid });
+        if (elementType === "date") {
+            this.props.onFetchReservations(updatedreservationForm.reservationDate.value);
+        }
     }
     reservationHandler = (event) => {
         event.preventDefault();
-
         const formData = {};
         for (let formElementIdentifier in this.state.reservationForm) {
             formData[formElementIdentifier] = this.state.reservationForm[formElementIdentifier].value;
         }
-        console.log(formData);
-        console.log(this.props.numberOfReservations);
         this.props.onReservationSent(formData);
     }
 
@@ -119,23 +141,46 @@ class ReservationsPage extends Component {
                         elementType={formElement.config.elementType}
                         elementConfig={formElement.config.elementConfig}
                         value={formElement.config.value}
+                        label={formElement.config.label}
                         invalid={!formElement.config.valid}
                         shouldValidate={formElement.config.validation}
                         touched={formElement.config.touched}
-                        changed={(event) => this.inputChangedHandler(event, formElement.id)} />
+                        changed={(event) => this.inputChangedHandler(formElement.config.elementType, event, formElement.id)} />
                 ))}
-                <button>guzik</button>
+                <button>ZAREZERWUJ!</button>
             </form>
         );
-        let wolneStoliki = 34;
+        let content = <Spinner />;
+        let wolneStoliki = 32 - this.props.numberOfReservations;
+        if (!this.props.loading) {
+            if (wolneStoliki > 0) {
+                wolneStoliki = "Liczba wolnych stolików na dziś: " + wolneStoliki;
+                content = (
+                    <Auxi>
+                        <p>{wolneStoliki}</p>
+                        <div className={classes.datePicker}>
+                            {form}
+                        </div>
+                    </Auxi>
+                );
+            }
+            else {
+                wolneStoliki = "Niestety, na dzisiejszy wieczór wszystkie stoliki zostały już zarezerwowane";
+                content = (
+                    <Auxi>
+                        <p>{wolneStoliki}</p>
+                        <div className={classes.datePicker}>
+
+                        </div>
+                    </Auxi>
+                );
+            }
+        }
         return (
             <section className={classes.ReservationsPage}>
                 <h1>Zarezerwuj stolik!</h1>
                 <p>Rezerwacja dostępna od godziny 20:00!</p>
-                <p>Liczba wolnych stolików na dziś:  {wolneStoliki} </p>
-                <div className={classes.datePicker}>
-                    {form}
-                </div>
+                {content}
                 {/* <div className={classes.prewiew}>
 
                 </div> */}
@@ -146,14 +191,15 @@ class ReservationsPage extends Component {
 
 const mapStateToProps = state => {
     return {
-        numberOfReservations: state.numberOfReservations
+        numberOfReservations: state.numberOfReservations,
+        loading: state.loading
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         onReservationSent: (reservationDate) => dispatch(actions.sendReservation(reservationDate)),
-        onFetchReservations: () => dispatch(actions.fetchReservations())
+        onFetchReservations: (link) => dispatch(actions.fetchReservations(link))
     };
 };
 

@@ -3,7 +3,7 @@ import { updateObject } from '../utility';
 
 const initialState = {
     loading: false,
-    numberOfReservations: 0
+    numberOfReservations: ""
 };
 
 const sendMessageStart = (state, action) => {
@@ -38,7 +38,7 @@ const fetchReservationSuccess = (state, action) => {
 };
 
 const fetchReservationFail = (state, action) => {
-    return updateObject(state, { loading: false });
+    return updateObject(state, { loading: false, numberOfReservations: action.numberOfReservations });
 };
 
 const reducer = (state = initialState, action) => {

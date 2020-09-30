@@ -23,10 +23,8 @@ export const sendMessageFail = (error) => {
 export const sendMessage = (messageData) => {
     return dispatch => {
         dispatch(sendMessageStart());
-        console.log(messageData);
         axios.post('/messages.json', messageData)
             .then(response => {
-                console.log("success");
                 dispatch(sendMessageSuccess());
             })
             .catch(error => {
@@ -36,18 +34,21 @@ export const sendMessage = (messageData) => {
 };
 
 export const sendReservationStart = () => {
+
     return {
         type: actionTypes.SEND_RESERVATION_START
     };
 };
 
 export const sendReservationSuccess = () => {
+
     return {
         type: actionTypes.SEND_RESERVATION_SUCCESS
     };
 };
 
 export const sendReservationFail = (error) => {
+
     return {
         type: actionTypes.SEND_RESERVATION_FAIL,
         error: error
@@ -56,47 +57,48 @@ export const sendReservationFail = (error) => {
 
 export const sendReservation = (reservationData) => {
     return dispatch => {
-        dispatch(sendMessageStart());
-        console.log(reservationData);
-        axios.post('/reservations.json', reservationData)
+        let link = reservationData.reservationDate;
+        dispatch(sendReservationStart());
+        axios.post('/reservations/' + link + '.json', reservationData)
             .then(response => {
-                console.log("success");
-                dispatch(sendMessageSuccess());
+                dispatch(sendReservationSuccess());
+                dispatch(fetchReservations());
             })
             .catch(error => {
-                dispatch(sendMessageFail(error));
+                dispatch(sendReservationFail(error));
             });
     };
 };
 
 export const fetchReservationStart = () => {
+
     return {
-        type: actionTypes.SEND_RESERVATION_START
+        type: actionTypes.FETCH_RESERVATION_START
     };
 };
 
-export const fetchReservationSuccess = () => {
+export const fetchReservationSuccess = (numberOfReservations) => {
+
     return {
-        type: actionTypes.SEND_RESERVATION_SUCCESS
+        type: actionTypes.FETCH_RESERVATION_SUCCESS,
+        numberOfReservations: numberOfReservations
     };
 };
 
 export const fetchReservationFail = (error) => {
     return {
-        type: actionTypes.SEND_RESERVATION_FAIL,
+        type: actionTypes.FETCH_RESERVATION_FAIL,
+        numberOfReservations: 0,
         error: error
     };
 }
 
-export const fetchReservations = () => {
+export const fetchReservations = (link) => {
     return dispatch => {
         dispatch(fetchReservationStart());
-        axios.get('/reservations.json')
+        axios.get('/reservations/' + link + '.json')
             .then(res => {
-                let numberOfReservations;
-                for (let key in res.data) {
-                    numberOfReservations++;
-                }
+                let numberOfReservations = Object.keys(res.data).length;
                 dispatch(fetchReservationSuccess(numberOfReservations));
             })
             .catch(err => {
@@ -104,4 +106,3 @@ export const fetchReservations = () => {
             });
     }
 }
-

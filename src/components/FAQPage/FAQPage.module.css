@@ -1,6 +1,6 @@
 
 section.FAQ{
-    margin-top: 20px;
+    margin-top: 50px;
 }
 .Container{
     width: 70%;
@@ -11,7 +11,8 @@ section.FAQ{
     font-family: 'Merriweather', serif;
     font-weight: 400;
     font-size: 30px;
-    margin-top: 60px;
+    margin-top: 40px;
+    margin-bottom: 60px;
     text-align: center;
     letter-spacing: 2px;
 }
@@ -42,4 +43,40 @@ section.FAQ{
 .QuestionAnswer{
     font-family: 'Poppins', serif;
     text-align:justify;
+}
+.FAQ form{
+    box-sizing: border-box;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+}
+.FAQ button{
+    background-color:transparent;
+	border:solid rgba(220, 55, 39, 1) 1px;
+	display:inline-block;
+	cursor:pointer;
+	color: rgb(220, 55, 39);
+	font-family:Arial;
+	font-size:16px;
+	font-weight:bold;
+	padding:9px 55px;
+    text-decoration:none;
+    margin-left: calc(50% - 110px);
+    margin-top: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    outline:none;
+    transition: 0.15s ease-in;
+    margin-bottom: 80px;
+}
+.FAQ button:focus{
+	border:solid rgba(220, 55, 39, 1) 1px;
+	
+}
+.FAQ button:hover{
+	background-color: rgb(220, 55, 39);
+    color: white;
+}
+textarea{
+    height: 100px;
 }

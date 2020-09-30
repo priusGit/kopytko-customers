@@ -108,7 +108,6 @@ class FAQPage extends Component {
         for (let formElementIdentifier in this.state.messageForm) {
             formData[formElementIdentifier] = this.state.messageForm[formElementIdentifier].value;
         }
-        console.log(formData);
         this.props.onMessageSent(formData);
     }
 
@@ -133,7 +132,7 @@ class FAQPage extends Component {
                         touched={formElement.config.touched}
                         changed={(event) => this.inputChangedHandler(event, formElement.id)} />
                 ))}
-                <button>guzik</button>
+                <button>WYŚLIJ</button>
             </form>
         );
         return (
@@ -144,40 +143,43 @@ class FAQPage extends Component {
                     </h2>
                     <div className={classes.QuestionsContainer}>
                         <div className={classes.Question}>
-                            <p className={classes.QuestionTitle}>Czy chodzi panu lodówka?</p>
-                            <p className={classes.QuestionAnswer}>To lepiej niech ją pan złapie, bo panu ucieknie LOREM IPSUM DLOR SIT AMET JA PIERDOLE ILE JESZCZE TEGO TEKSTU DO NOWEJ LINIIXD</p>
-                        </div>
-                        <div className={classes.Question} style={{ height: "80px" }}>
-                            <p className={classes.QuestionTitle} >Czy chodzi panu lodówka?</p>
-                            <p className={classes.QuestionAnswer} >To lepiej niech ją pan złapie XD</p>
-                        </div>
-                        <div className={classes.Question}>
-                            <p className={classes.QuestionTitle}>Czy chodzi panu lodówka?</p>
-                            <p className={classes.QuestionAnswer}>To lepiej niech ją pan złapie XD</p>
+                            <p className={classes.QuestionTitle}>Jakie są wasze godziny otwarcia?</p>
+                            <div className={classes.QuestionAnswer}>
+                                <p>Poniedziałek - Czwartek: 10:00 - 22:00</p>
+                                <p>Piątek - Niedziela: 12:00 - 24:00</p>
+                            </div>
                         </div>
                         <div className={classes.Question}>
-                            <p className={classes.QuestionTitle}>Czy chodzi panu lodówka?</p>
-                            <p className={classes.QuestionAnswer}>To lepiej niech ją pan złapie XD</p>
+                            <p className={classes.QuestionTitle} >Gdzie was znaleść?</p>
+                            <p className={classes.QuestionAnswer} >Ul. Polna 24, Wrocław. Tuż obok Kościoła Iksińskiego, w samym centrum miasta.</p>
                         </div>
                         <div className={classes.Question}>
-                            <p className={classes.QuestionTitle}>Czy chodzi panu lodówka?</p>
-                            <p className={classes.QuestionAnswer}>To lepiej niech ją pan złapie XD</p>
+                            <p className={classes.QuestionTitle}>Czy jest dostępny parking?</p>
+                            <p className={classes.QuestionAnswer}>Na terenie lokalu dostępny jest parking dla 20 pojazdów, a w okolicy są dodatkowe parkingi miejskie.</p>
                         </div>
                         <div className={classes.Question}>
-                            <p className={classes.QuestionTitle}>Czy chodzi panu lodówka?</p>
-                            <p className={classes.QuestionAnswer}>To lepiej niech ją pan złapie XD</p>
+                            <p className={classes.QuestionTitle}>Czy jest dostępna tablica alergenów?</p>
+                            <p className={classes.QuestionAnswer}>Jak najbardziej, link do dokumentu znajduje się <a target="blank" href="https://www.google.com/search?q=tablica+alergen%C3%B3w&oq=tablica+aler&aqs=chrome.0.0l3j69i57j0l4.2872j0j7&sourceid=chrome&ie=UTF-8">tutaj</a></p>
                         </div>
                         <div className={classes.Question}>
-                            <p className={classes.QuestionTitle}>Czy chodzi panu lodówka?</p>
-                            <p className={classes.QuestionAnswer}>To lepiej niech ją pan złapie XD</p>
+                            <p className={classes.QuestionTitle}>Czy są opcje wegetariańskie?</p>
+                            <p className={classes.QuestionAnswer}>Oczywiście, w zakładce "Menu" każda potrawa posiada stosowne oznaczenie, jest też opcja filtrowania dań wg. własnych preferencji</p>
                         </div>
                         <div className={classes.Question}>
-                            <p className={classes.QuestionTitle}>Czy chodzi panu lodówka?</p>
-                            <p className={classes.QuestionAnswer}>To lepiej niech ją pan złapie XD</p>
+                            <p className={classes.QuestionTitle}>Czy jest dostępna wynajem lokalu?</p>
+                            <p className={classes.QuestionAnswer}>W celu wynajęcia, prosimy o kontakt przez formularz niżej, bądź na adres: kontakt@kopytko.pl</p>
+                        </div>
+                        <div className={classes.Question}>
+                            <p className={classes.QuestionTitle}>Czy są opcje wegetariańskie?</p>
+                            <p className={classes.QuestionAnswer}>Oczywiście, w zakładce "Menu" każda potrawa posiada stosowne oznaczenie, jest też opcja filtrowania dań wg. własnych preferencji</p>
+                        </div>
+                        <div className={classes.Question}>
+                            <p className={classes.QuestionTitle}>Czy jest dostępna wynajem lokalu?</p>
+                            <p className={classes.QuestionAnswer}>W celu wynajęcia, prosimy o kontakt przez formularz niżej, bądź na adres: kontakt@kopytko.pl</p>
                         </div>
                     </div>
                     <div>
-                        <h2 className={classes.Title}>
+                        <h2 className={classes.Title} style={{ marginBottom: "20px" }}>
                             Więcej pytań? Skontaktuj się z nami!
                     </h2>
                         {form}

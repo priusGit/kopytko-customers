@@ -36,3 +36,41 @@
     transform: translateX(-50%);
     box-sizing: border-box;
 }
+.ReservationsPage form{
+    box-sizing: border-box;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+}
+.ReservationsPage button{
+    background-color:transparent;
+	border:solid rgba(220, 55, 39, 1) 1px;
+	display:inline-block;
+	cursor:pointer;
+	color: rgb(220, 55, 39);
+	font-family:Arial;
+	font-size:16px;
+	font-weight:bold;
+	padding:9px 55px;
+    text-decoration:none;
+    margin-left: calc(50% - 110px);
+    margin-top: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    outline:none;
+    transition: 0.15s ease-in;
+}
+.ReservationsPage button:focus{
+	border:solid rgba(220, 55, 39, 1) 1px;
+	
+}
+.ReservationsPage button:hover{
+	background-color: rgb(220, 55, 39);
+    color: white;
+}
+label{
+    font-family: 'Poppins', sans-serif;
+}
+input[type="date"]{
+    font-family: 'Poppins', sans-serif;
+}

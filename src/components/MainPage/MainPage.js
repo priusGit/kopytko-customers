@@ -11,7 +11,7 @@ class MainPage extends Component {
                             KOPYTKO
                         </h1>
                         <p>Ciepła, polska i rodzinna restauracja!</p>
-                        <a className={classes.buttonMainPage} href="/">Zobacz Menu</a>
+                        <a className={classes.buttonMainPage} href="/menu">Zobacz Menu</a>
                     </div>
                     <div className={classes.Right}>
                         <div className={classes.topleft}>

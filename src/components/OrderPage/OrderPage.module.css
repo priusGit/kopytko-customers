@@ -1,0 +1,97 @@
+
+section.OrderPage{
+    margin-top: 20px;
+}
+.Container{
+    width: 80%;
+    margin-left: 5%;
+}
+.Title, .subTitle,.categoryTitle{  
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+.Title{
+    font-size: 30px;
+    margin-top: 60px;
+    color: rgba(220, 55, 39);
+    font-family: 'Lora', serif;
+    font-weight: 400;
+    margin-left: -50px;
+}
+.subTitle{
+    font-size: 17px;
+    margin-top: 40px;
+    width: 50%;
+    margin-left: 50%;
+    transform: translateX(-57%);
+    font-family: 'Poppins', serif;
+}
+.categoryTitle{
+    
+    margin-left: -50px;
+    font-size: 30px;
+    margin-top: 60px;
+    color: rgba(220, 55, 39);
+    font-family: 'Lora', serif;
+    font-weight: 400;
+}
+.DishesTable{
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-left: 7.5%;
+}
+.bar{
+    margin: 0 auto;
+    transform: translateX(-50px);
+    margin-top: 50px;
+    height: 2px;
+    width: 60px;
+    background-color: black;
+}
+.DishesTable *{
+    text-align: left;
+}
+.DishesTable > *{
+    border: 1px solid#ccc;
+    width: 60vw;
+    padding: 10px 20px;
+    transition: 0.05s linear;
+}
+.DishesTable > *:hover{
+    background-color: #ccc;
+    cursor: pointer;
+}
+.OrderPage aside{
+    position: fixed;
+    top: 60px;
+    right: 0;
+    height: calc(100vh - 60px);
+    border: 1px solid #c0c0c0;
+    width: 20vw;
+    background-color: #fff;
+}
+.OrderCategories{
+    display: flex;
+    width: 90%;
+    margin-left: 0%;
+    margin-top: 30px;
+    font-size: 17px;
+}
+.OrderCategories li{
+    display: inline-block;
+    height: 60px;
+    flex-basis: 20%;
+    text-align: center;
+    padding-top:20px;
+    background-color: white;
+    font-weight: 500;
+    color:  rgba(220, 55, 39);
+}
+.OrderCategories li:hover{
+    color: black;
+    cursor: pointer;
+}
