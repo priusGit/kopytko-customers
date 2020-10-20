@@ -1,6 +1,6 @@
 ## Kopytko
 
-live: [Kopytko Live](kopytko-priusgit.netlify.app)
+live: [Kopytko](kopytko-priusgit.netlify.app)
 
 Project i'm currently working at.
 
