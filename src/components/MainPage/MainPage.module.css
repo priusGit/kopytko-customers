@@ -9,7 +9,7 @@ section.MainPage{
 }
 
 .Right{
-    background-color: purple;
+    background-color:white;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
