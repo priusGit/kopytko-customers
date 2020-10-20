@@ -121,6 +121,7 @@ class ReservationsPage extends Component {
         for (let formElementIdentifier in this.state.reservationForm) {
             formData[formElementIdentifier] = this.state.reservationForm[formElementIdentifier].value;
         }
+        console.log(formData);
         this.props.onReservationSent(formData);
     }
 

@@ -62,7 +62,7 @@ export const sendReservation = (reservationData) => {
         axios.post('/reservations/' + link + '.json', reservationData)
             .then(response => {
                 dispatch(sendReservationSuccess());
-                dispatch(fetchReservations());
+                dispatch(fetchReservations(link));
             })
             .catch(error => {
                 dispatch(sendReservationFail(error));
@@ -95,6 +95,7 @@ export const fetchReservationFail = (error) => {
 
 export const fetchReservations = (link) => {
     return dispatch => {
+        console.log(link);
         dispatch(fetchReservationStart());
         axios.get('/reservations/' + link + '.json')
             .then(res => {

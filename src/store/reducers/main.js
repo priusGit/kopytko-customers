@@ -3,7 +3,8 @@ import { updateObject } from '../utility';
 
 const initialState = {
     loading: false,
-    numberOfReservations: ""
+    numberOfReservations: "",
+    orderedItems: [],
 };
 
 const sendMessageStart = (state, action) => {
@@ -40,6 +41,17 @@ const fetchReservationSuccess = (state, action) => {
 const fetchReservationFail = (state, action) => {
     return updateObject(state, { loading: false, numberOfReservations: action.numberOfReservations });
 };
+const addItem = (state, action) => {
+    const newOrder = updateObject(action.orderData, { id: action.orderId });
+    return updateObject(state, {
+        orders: state.orders.concat(newOrder)
+    });
+};
+const deleteItem = (state, action) => {
+    return updateObject(state, {
+        orders: state.orders.splice(action.index, 1)
+    });
+};
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
@@ -52,6 +64,8 @@ const reducer = (state = initialState, action) => {
         case actionTypes.FETCH_RESERVATION_START: return fetchReservationStart(state, action);
         case actionTypes.FETCH_RESERVATION_SUCCESS: return fetchReservationSuccess(state, action);
         case actionTypes.FETCH_RESERVATION_FAIL: return fetchReservationFail(state, action);
+        case actionTypes.ADD_ITEM: return addItem(state, action);
+        case actionTypes.DELETE_ITEM: return deleteItem(state, action);
         default: return state;
     }
 };
