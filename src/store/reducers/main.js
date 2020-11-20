@@ -42,14 +42,17 @@ const fetchReservationFail = (state, action) => {
     return updateObject(state, { loading: false, numberOfReservations: action.numberOfReservations });
 };
 const addItem = (state, action) => {
-    const newOrder = updateObject(action.orderData, { id: action.orderId });
+    console.log(action.orderedItems);
+    console.log(state.orderedItems);
+    console.log("/////////////////");
+    const newItem = updateObject(action.orderedItems, { item: action.item });
     return updateObject(state, {
-        orders: state.orders.concat(newOrder)
+        orderedItems: state.orderedItems.concat(newItem)
     });
 };
 const deleteItem = (state, action) => {
     return updateObject(state, {
-        orders: state.orders.splice(action.index, 1)
+        orderedItems: state.orderedItems.splice(action.index, 1)
     });
 };
 

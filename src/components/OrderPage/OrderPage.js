@@ -1,13 +1,25 @@
 import React, { Component } from 'react';
 import classes from './OrderPage.module.css';
 import Dish from '../smallParts/Dish/Dish';
+import axios from '../../axios-orders';
+import * as actions from '../../store/actions/index';
+import OrderElement from '../smallParts/OrderElement/OrderElement'
+import { connect } from 'react-redux';
 class OrderPage extends Component {
+    updateBasket() {
+
+    }
     render() {
+        let basket = (
+            <aside>
+                {this.props.orderedItems.map(orderItem => (
+                    <OrderElement title={orderItem.item} />
+                ))}
+            </aside>
+        );
         return (
             <section className={classes.OrderPage}>
-                <aside>
-                    <p>koszyk czy cos</p>
-                </aside>
+                {basket}
                 <section className={classes.Container}>
                     <h1 className={classes.Title}>Zamów do domu!</h1>
                     <p className={classes.subTitle}>Masz ochotę zjeść w domowym zaciszu? Nic trudnego, twoje zamówienie dowieziemy ci pod sam dom! Codziennie, w godzinach działalności restauracji. Dodaj danie do koszyka poprzez kliknięcie na nie, tak po prostu!</p>
@@ -15,10 +27,10 @@ class OrderPage extends Component {
                         <li id="recommended" onClick={() => document.getElementById('recommended').scrollIntoView({ behavior: 'smooth', block: 'center' })}>Szef Kuchni Poleca</li>
                         <li id="soups" onClick={() => document.getElementById('soup').scrollIntoView({ behavior: 'smooth', block: 'center' })}>Zupy</li>
                         <li id="mainmeals" onClick={() => document.getElementById('main').scrollIntoView({ behavior: 'smooth', block: 'center' })}>Dania Główne</li>
-                        <li id="kids" onClick={() => document.getElementById('kids').scrollIntoView({ behavior: 'smooth', block: 'center' })}>Dla najmłodszych</li>
-                        <li id="deserts" onClick={() => document.getElementById('sweet').scrollIntoView({ behavior: 'smooth' })}>Desery</li>
-                        <li id="drinks" onClick={() => document.getElementById('drinks').scrollIntoView({ behavior: 'smooth' })}>Napoje</li>
-                        <li id="alcohol" onClick={() => document.getElementById('alco').scrollIntoView({ behavior: 'smooth' })}>Alkohol</li>
+                        <li id="kidss" onClick={() => document.getElementById('kids').scrollIntoView({ behavior: 'smooth', block: 'center' })}>Dla najmłodszych</li>
+                        <li id="deserts" onClick={() => document.getElementById('sweet').scrollIntoView({ behavior: 'smooth', block: 'center' })}>Desery</li>
+                        <li id="alcohol" onClick={() => document.getElementById('alco').scrollIntoView({ behavior: 'smooth', block: 'center' })}>Alkohole</li>
+                        <li id="drink" onClick={() => document.getElementById('drinks').scrollIntoView({ behavior: 'smooth', block: 'center' })}>Napoje</li>
                     </ul>
                     <h1 className={classes.categoryTitle}>Szef Kuchni Poleca</h1>
                     <div className={classes.bar}></div>
@@ -75,17 +87,6 @@ class OrderPage extends Component {
                         <Dish title="6Sweet" price="12zł" />
                         <Dish title="7Sweet" price="12zł" />
                     </div>
-                    <h1 className={classes.categoryTitle} id="drinks">Napoje</h1>
-                    <div className={classes.bar}></div>
-                    <div className={classes.DishesTable}>
-                        <Dish title="1Drink" price="12zł" />
-                        <Dish title="2Drink" price="12zł" />
-                        <Dish title="3Drink" price="12zł" />
-                        <Dish title="4Drink" price="12zł" />
-                        <Dish title="5Drink" price="12zł" />
-                        <Dish title="6Drink" price="12zł" />
-                        <Dish title="7Drink" price="12zł" />
-                    </div>
                     <h1 className={classes.categoryTitle} id="alco">Alkohol</h1>
                     <div className={classes.bar}></div>
                     <div className={classes.DishesTable}>
@@ -97,10 +98,27 @@ class OrderPage extends Component {
                         <Dish title="6Alcohol" price="12zł" />
                         <Dish title="7Alcohol" price="12zł" />
                     </div>
+                    <h1 className={classes.categoryTitle} id="drinks">Napoje</h1>
+                    <div className={classes.bar}></div>
+                    <div className={classes.DishesTable}>
+                        <Dish title="1Drink" price="12zł" />
+                        <Dish title="2Drink" price="12zł" />
+                        <Dish title="3Drink" price="12zł" />
+                        <Dish title="4Drink" price="12zł" />
+                        <Dish title="5Drink" price="12zł" />
+                        <Dish title="6Drink" price="12zł" />
+                        <Dish title="7Drink" price="12zł" />
+                    </div>
                 </section>
             </section>
         )
     }
 }
 
-export default OrderPage;
+const mapStateToProps = state => {
+    return {
+        orderedItems: state.orderedItems
+    };
+};
+
+export default connect(mapStateToProps, null)(OrderPage, axios);

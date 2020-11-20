@@ -95,7 +95,6 @@ export const fetchReservationFail = (error) => {
 
 export const fetchReservations = (link) => {
     return dispatch => {
-        console.log(link);
         dispatch(fetchReservationStart());
         axios.get('/reservations/' + link + '.json')
             .then(res => {
@@ -105,5 +104,17 @@ export const fetchReservations = (link) => {
             .catch(err => {
                 dispatch(fetchReservationFail(err));
             });
+    }
+}
+export const addItem = (item) => {
+    return {
+        type: actionTypes.ADD_ITEM,
+        item: item
+    };
+};
+
+export const addItemOnClickAction = (item) => {
+    return dispatch => {
+        dispatch(addItem(item));
     }
 }
