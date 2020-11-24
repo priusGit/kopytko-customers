@@ -2,18 +2,14 @@ import React, { Component } from 'react';
 import classes from './OrderPage.module.css';
 import Dish from '../smallParts/Dish/Dish';
 import axios from '../../axios-orders';
-import * as actions from '../../store/actions/index';
 import OrderElement from '../smallParts/OrderElement/OrderElement'
 import { connect } from 'react-redux';
 class OrderPage extends Component {
-    updateBasket() {
-
-    }
     render() {
         let basket = (
             <aside>
-                {this.props.orderedItems.map(orderItem => (
-                    <OrderElement title={orderItem.item} />
+                {this.props.orderedItems.map((orderItem, i) => (
+                    <OrderElement key={i} id={i} title={orderItem.item} />
                 ))}
             </aside>
         );

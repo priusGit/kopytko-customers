@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import classes from './MenuPage.module.css'
 import Dish from '../smallParts/Dish/Dish'
+import Bar from '../smallParts/Bar/Bar'
 class MenuPage extends Component {
     render() {
         return (
@@ -9,7 +10,7 @@ class MenuPage extends Component {
                     <h1 className={classes.Title}>Menu</h1>
                     <p className={classes.subTitle}>Lorem ipsum dolor sit amet</p>
                     <h1 className={classes.categoryTitle}>Zupy</h1>
-                    <div className={classes.bar}></div>
+                    <Bar style={{ backgroundColor: "red" }} />
                     <div className={classes.DishesTable}>
                         <Dish title="Kopytka" price="12zł" />
                         <Dish title="Kopytka" price="12zł" />
@@ -20,7 +21,7 @@ class MenuPage extends Component {
                         <Dish title="Kopytka" price="12zł" />
                     </div>
                     <h1 className={classes.categoryTitle}>Zupy</h1>
-                    <div className={classes.bar}></div>
+                    <Bar />
                     <div className={classes.DishesTable}>
                         <Dish title="Kopytka" price="12zł" />
                         <Dish title="Kopytka" price="12zł" />
@@ -31,7 +32,7 @@ class MenuPage extends Component {
                         <Dish title="Kopytka" price="12zł" />
                     </div>
                     <h1 className={classes.categoryTitle}>Zupy</h1>
-                    <div className={classes.bar}></div>
+                    <Bar />
                     <div className={classes.DishesTable}>
                         <Dish title="Kopytka" price="12zł" />
                         <Dish title="Kopytka" price="12zł" />

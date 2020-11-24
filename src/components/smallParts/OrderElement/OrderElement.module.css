@@ -4,3 +4,10 @@
     font-family: 'Lora', serif;
     color: rgba(220, 55, 39);
 }
+.endLine{
+        margin: 0 auto;
+        margin-top: 10px;
+        height: 1px;
+        width: 90%;
+        background-color: lightgray;
+}

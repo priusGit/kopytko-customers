@@ -1,0 +1,7 @@
+.bar{
+    margin: 0 auto;
+    margin-top: 50px;
+    height: 2px;
+    width: 60px;
+    background-color: black;
+}

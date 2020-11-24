@@ -118,3 +118,14 @@ export const addItemOnClickAction = (item) => {
         dispatch(addItem(item));
     }
 }
+export const deleteItem = (item) => {
+    return {
+        type: actionTypes.DELETE_ITEM,
+        item: item
+    };
+};
+export const deleteItemFromBasketAction = (item) => {
+    return dispatch => {
+        dispatch(deleteItem(item));
+    }
+}
