@@ -4,7 +4,9 @@ import { updateObject } from '../utility';
 const initialState = {
     loading: false,
     numberOfReservations: "",
-    orderedItems: [],
+    orderedItems: [
+    ],
+    fullPrice: 0
 };
 
 const sendMessageStart = (state, action) => {
@@ -42,17 +44,20 @@ const fetchReservationFail = (state, action) => {
     return updateObject(state, { loading: false, numberOfReservations: action.numberOfReservations });
 };
 const addItem = (state, action) => {
-    const newItem = updateObject(action.orderedItems, { item: action.item });
+    const newItem = { item: action.item, price: 12 };
+    const newPrice = Number(action.price) + state.fullPrice;
     return updateObject(state, {
-        orderedItems: state.orderedItems.concat(newItem)
+        orderedItems: state.orderedItems.concat(newItem),
+        fullPrice: newPrice
     });
 };
 
 const deleteItem = (state, action) => {
     let test = [...state.orderedItems];
+    const newPrice = state.fullPrice - Number(action.price);
     test.splice(action.item, 1);
     return {
-        ...state, orderedItems: test
+        ...state, orderedItems: test, fullPrice: newPrice
     };
 };
 

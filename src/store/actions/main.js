@@ -106,26 +106,28 @@ export const fetchReservations = (link) => {
             });
     }
 }
-export const addItem = (item) => {
+export const addItem = (item, price) => {
     return {
         type: actionTypes.ADD_ITEM,
-        item: item
+        item: item,
+        price: price
     };
 };
 
-export const addItemOnClickAction = (item) => {
+export const addItemOnClickAction = (item, price) => {
     return dispatch => {
-        dispatch(addItem(item));
+        dispatch(addItem(item, price));
     }
 }
-export const deleteItem = (item) => {
+export const deleteItem = (item, price) => {
     return {
         type: actionTypes.DELETE_ITEM,
-        item: item
+        item: item,
+        price: price
     };
 };
-export const deleteItemFromBasketAction = (item) => {
+export const deleteItemFromBasketAction = (item, price) => {
     return dispatch => {
-        dispatch(deleteItem(item));
+        dispatch(deleteItem(item, price));
     }
 }

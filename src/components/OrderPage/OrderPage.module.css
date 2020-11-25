@@ -65,7 +65,7 @@ section.OrderPage{
     background-color: #ccc;
     cursor: pointer;
 }
-.OrderPage aside{
+.Basket{
     position: fixed;
     top: 60px;
     right: 0;
@@ -73,6 +73,7 @@ section.OrderPage{
     border: 1px solid #c0c0c0;
     width: 20vw;
     background-color: #fff;
+    overflow-y:auto
 }
 .OrderCategories{
     display: flex;
@@ -105,3 +106,30 @@ section.OrderPage{
     top: 0;
     width: 100%;
   }
+  
+.endLine{
+    margin: 0 auto;
+    margin-top: 10px;
+    height: 1px;
+    width: 90%;
+    background-color: lightgray;
+}
+.orderButton {
+	background-color: rgb(236, 51, 34);
+	border-radius:4px;
+	border:1px solid rgb(189, 46, 33);
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:'Poppins';
+    font-size:17px;
+    width: 98%;
+    text-align: center;
+    padding:8px 35px;
+    margin-left: 1%;
+	text-decoration:none;
+}
+.orderButton:active {
+	background-color: rgba(220, 55, 39);
+	top:1px;
+}

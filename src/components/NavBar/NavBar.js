@@ -33,7 +33,7 @@ class NavBar extends Component {
                 <NavigationItem link="/menu" active>Menu</NavigationItem>
                 <NavigationItem link="/orderonline" active>Zamów do domu!</NavigationItem>
                 <NavigationItem link="/faq" active>Jakieś pytania?</NavigationItem>
-
+                {/* <NavigationItem link="/checkout" active>Kasa</NavigationItem> */}
             </ul>
         )
     }

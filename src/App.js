@@ -8,7 +8,7 @@ import MenuPage from './components/MenuPage/MenuPage';
 import OrderPage from './components/OrderPage/OrderPage';
 import OurStory from './components/OurStory/OurStory';
 import ReservationsPage from './components/ResevationsPage/ReservationsPage';
-
+import Checkout from './components/CheckoutPage/CheckoutPage';
 import Auxi from './hoc/Auxi';
 class App extends Component {
   render() {
@@ -20,6 +20,7 @@ class App extends Component {
         <Route path="/menu" exact component={MenuPage} />
         <Route path="/orderonline" exact component={OrderPage} />
         <Route path="/faq" exact component={FAQPage} />
+        <Route path="/checkout" exact component={Checkout} />
       </Switch>
     );
     return (

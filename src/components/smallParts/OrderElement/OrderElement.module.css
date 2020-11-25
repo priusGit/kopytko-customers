@@ -1,8 +1,16 @@
+.OrderElement{
+    transition: .1s linear;
+}
+.OrderElement:hover{
+    background-color: lightcoral;
+    cursor: pointer;
+}
 .DishTitle{
     font-size: 24px;
     margin-bottom: 10px;
     font-family: 'Lora', serif;
     color: rgba(220, 55, 39);
+    
 }
 .endLine{
         margin: 0 auto;

@@ -6,10 +6,10 @@ import classes from './Dish.module.css'
 class Dish extends Component {
     render() {
         return (
-            <div className={classes.Dish} onClick={() => this.props.onItemClicked(this.props.title)}>
+            <div className={classes.Dish} onClick={() => this.props.onItemClicked(this.props.title, this.props.price)}>
                 <p className={classes.DishTitle}>{this.props.title}</p>
                 <p className={classes.DishDisc}>I’m a dish description. Click “Edit Menu” to open the Restaurant Menu editor and change my text.</p>
-                <p className={classes.DishPrice}>{this.props.price}</p>
+                <p className={classes.DishPrice}>{this.props.price}zł</p>
             </div>
         )
     }
@@ -17,7 +17,7 @@ class Dish extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onItemClicked: (item) => dispatch(actions.addItemOnClickAction(item))
+        onItemClicked: (item, price) => dispatch(actions.addItemOnClickAction(item, price))
     };
 };
 export default connect(null, mapDispatchToProps)(Dish, axios);
