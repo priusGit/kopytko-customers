@@ -6,7 +6,9 @@ const initialState = {
     numberOfReservations: "",
     orderedItems: [
     ],
-    fullPrice: 0
+    fullPrice: 0,
+    windowWidth: undefined,
+    language: "pl"
 };
 
 const sendMessageStart = (state, action) => {
@@ -52,6 +54,14 @@ const addItem = (state, action) => {
     });
 };
 
+const screenResize = (state, action) => {
+    const newWidth = action.width;
+    console.log(newWidth);
+    return updateObject(state, {
+        windowWidth: newWidth
+    });
+};
+
 const deleteItem = (state, action) => {
     let test = [...state.orderedItems];
     const newPrice = state.fullPrice - Number(action.price);
@@ -74,6 +84,7 @@ const reducer = (state = initialState, action) => {
         case actionTypes.FETCH_RESERVATION_FAIL: return fetchReservationFail(state, action);
         case actionTypes.ADD_ITEM: return addItem(state, action);
         case actionTypes.DELETE_ITEM: return deleteItem(state, action);
+        case actionTypes.SCREEN_RESIZE: return screenResize(state, action);
         default: return state;
     }
 };

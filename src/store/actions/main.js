@@ -130,4 +130,10 @@ export const deleteItemFromBasketAction = (item, price) => {
     return dispatch => {
         dispatch(deleteItem(item, price));
     }
-}
+};
+export const onScreenResize = () => {
+    return {
+        type: actionTypes.SCREEN_RESIZE,
+        width: window.innerWidth
+    };
+};
