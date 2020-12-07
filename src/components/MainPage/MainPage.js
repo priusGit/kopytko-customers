@@ -18,7 +18,7 @@ class MainPage extends Component {
                     <section className={classes.MainPage}>
                         <div className={classes.Left}>
                             <div className={classes.mobileMain}>
-                                <h1>MOBILNIAK</h1>
+                                <h1>KOPYTKO</h1>
                                 <p>Rodzinnie i cieple - po polsku!</p>
                                 <a className={classes.buttonMainPage} href="/menu">Zobacz Menu</a>
                             </div>
@@ -33,7 +33,7 @@ class MainPage extends Component {
                     <section className={classes.MainPage}>
                         <div className={classes.Left}>
                             <div className={classes.leftContent}>
-                                <h1>{this.props.width}</h1>
+                                <h1>KOPYTKO</h1>
                                 <p>Rodzinnie i cieple - po polsku!</p>
                                 <a className={classes.buttonMainPage} href="/menu">Zobacz Menu</a>
                             </div>

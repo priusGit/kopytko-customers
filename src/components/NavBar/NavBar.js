@@ -4,8 +4,6 @@ import classes from './NavBar.module.css'
 import Auxi from '../../hoc/Auxi';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
 class NavBar extends Component {
 
     componentDidMount() {
@@ -16,9 +14,15 @@ class NavBar extends Component {
     componentWillUnmount() {
         window.removeEventListener('resize', this.props.onScreenResize);
     }
+    handleClick() {
+        document.getElementById("mobileMenu").classList.toggle(classes.mobileMenuActive);
+        document.getElementById("menuToggleIcon").classList.toggle(classes.open);
+        document.getElementById("darkBG").classList.toggle(classes.activeBG);
+    }
     render() {
         let prevScrollpos = window.pageYOffset;
         window.onscroll = function () {
+            console.log(window.pageYOffset);
             let flag;
             if (document.getElementById("OrderCategories")) {
                 flag = true;
@@ -41,14 +45,34 @@ class NavBar extends Component {
         if (this.props.width < 768) {
             return (
                 <Auxi>
-                    <ul className={classes.NavBar} id="NavBar">
-                        <FontAwesomeIcon className={classes.Bars} icon={faBars} onClick={() => console.log("Bars Clicked")} />
-                        <NavigationItem link="/" active>Home</NavigationItem>
-                        <span onClick={() => console.log("Language Change Clicked")}>EN</span>
-                    </ul>
                     <ul className={classes.MobileBotBar} id="BotNavBar">
                         NO POKAZ SIE
                     </ul>
+                    <ul className={classes.NavBar} id="NavBar" >
+                        <div className={classes.navIconCont}><div className={classes.navIcon4}
+                            id="menuToggleIcon"
+                            onClick={this.handleClick}>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div></div>
+                        <div className={classes.niewiem}><a href="/">KOPYTKO</a></div>
+                        <div className={classes.navIconCont}>
+                            <span className={classes.langPicker} onClick={() => console.log("Language Change Clicked")}>EN</span>
+                        </div>
+                    </ul>
+
+                    <div className={classes.mobileMenu} id="mobileMenu">
+                        <ul>
+                            <NavigationItem onClick={this.handleClick} link="/" active>Home</NavigationItem>
+                            <NavigationItem onClick={this.handleClick} link="/reservations" active>Zarezerwuj stolik</NavigationItem>
+                            <NavigationItem onClick={this.handleClick} link="/ourstory" active>Nasza historia</NavigationItem>
+                            <NavigationItem onClick={this.handleClick} link="/menu" active>Menu</NavigationItem>
+                            <NavigationItem onClick={this.handleClick} link="/orderonline" active>Zamów do domu!</NavigationItem>
+                            <NavigationItem onClick={this.handleClick} link="/faq" active>Jakieś pytania?</NavigationItem>
+                        </ul>
+                    </div>
+                    <div className={classes.mobileMenuBackgroud} id="darkBG"></div>
                 </Auxi>
 
             )
