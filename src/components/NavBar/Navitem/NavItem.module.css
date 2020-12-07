@@ -1,4 +1,4 @@
-/* li.NavItem{
+li.NavItem{
     padding: 10px;
 }
 .navlink {
@@ -15,7 +15,7 @@
 }
 .navlinkActive {
     color: black;
-} */
+}
 @media (min-width:768px)
 {
     li.NavItem{
