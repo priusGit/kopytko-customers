@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import Auxi from '../../hoc/Auxi'
 import { connect } from 'react-redux';
+import * as actions from '../../store/actions/index';
 import classes from './MainPage.module.css'
 class MainPage extends Component {
-    // componentDidMount() {
-    //     this.props.onScreenResize();
-    //     window.addEventListener('resize', this.props.onScreenResize);
-    // }
+    componentDidMount() {
+        this.props.onScreenResize();
+        window.addEventListener('resize', this.props.onScreenResize);
+    }
 
-    // componentWillUnmount() {
-    //     window.removeEventListener('resize', this.props.onScreenResize);
-    // }
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.props.onScreenResize);
+    }
     render() {
         if (this.props.width < 768) {
             return (
@@ -62,10 +63,10 @@ const mapStateToProps = state => {
     };
 };
 
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         onScreenResize: () => dispatch(actions.onScreenResize())
-//     };
-// };
+const mapDispatchToProps = dispatch => {
+    return {
+        onScreenResize: () => dispatch(actions.onScreenResize())
+    };
+};
 
-export default connect(mapStateToProps, null)(MainPage);
+export default connect(mapStateToProps, mapDispatchToProps)(MainPage);

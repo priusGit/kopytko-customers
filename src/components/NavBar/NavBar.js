@@ -21,26 +21,29 @@ class NavBar extends Component {
     }
     render() {
         let prevScrollpos = window.pageYOffset;
-        window.onscroll = function () {
-            console.log(window.pageYOffset);
-            let flag;
-            if (document.getElementById("OrderCategories")) {
-                flag = true;
-            }
-            var currentScrollPos = window.pageYOffset;
-            if (prevScrollpos > currentScrollPos) {
-                document.getElementById("NavBar").style.top = "0";
-                if (flag === true) {
-                    document.getElementById("OrderCategories").style.top = "60px";
+        if (this.props.width >= 768) {
+            window.onscroll = function () {
+                console.log(window.pageYOffset);
+                let flag;
+                if (document.getElementById("OrderCategories")) {
+                    flag = true;
                 }
-            } else {
-                document.getElementById("NavBar").style.top = "-60px";
-                if (flag === true) {
-                    document.getElementById("OrderCategories").style.top = "0px";
+                var currentScrollPos = window.pageYOffset;
+                if (prevScrollpos > currentScrollPos) {
+                    document.getElementById("NavBar").style.top = "0";
+                    if (flag === true) {
+                        document.getElementById("OrderCategories").style.top = "60px";
+                    }
+                } else {
+                    document.getElementById("NavBar").style.top = "-60px";
+                    if (flag === true) {
+                        document.getElementById("OrderCategories").style.top = "0px";
+                    }
                 }
+                prevScrollpos = currentScrollPos;
             }
-            prevScrollpos = currentScrollPos;
         }
+
 
         if (this.props.width < 768) {
             return (
@@ -49,6 +52,7 @@ class NavBar extends Component {
                         NO POKAZ SIE
                     </ul>
                     <ul className={classes.NavBar} id="NavBar" >
+
                         <div className={classes.navIconCont}><div className={classes.navIcon4}
                             id="menuToggleIcon"
                             onClick={this.handleClick}>
@@ -63,6 +67,7 @@ class NavBar extends Component {
                     </ul>
 
                     <div className={classes.mobileMenu} id="mobileMenu">
+
                         <ul>
                             <NavigationItem onClick={this.handleClick} link="/" active>Home</NavigationItem>
                             <NavigationItem onClick={this.handleClick} link="/reservations" active>Zarezerwuj stolik</NavigationItem>
@@ -71,6 +76,8 @@ class NavBar extends Component {
                             <NavigationItem onClick={this.handleClick} link="/orderonline" active>Zamów do domu!</NavigationItem>
                             <NavigationItem onClick={this.handleClick} link="/faq" active>Jakieś pytania?</NavigationItem>
                         </ul>
+
+                        <div className={classes.bar}></div>
                     </div>
                     <div className={classes.mobileMenuBackgroud} id="darkBG"></div>
                 </Auxi>

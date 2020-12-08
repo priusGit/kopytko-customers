@@ -3,10 +3,11 @@
     padding:0;
 }
 :root {
-    --topNavHeight: 55px;
+    --topNavHeight: 65px;
 }
 .NavBar{
     position: fixed;
+    top:0;
     width:100vw;
     list-style: none;
     margin-left: 0;
@@ -20,6 +21,7 @@
     height: var(--topNavHeight);
     display: flex;
     flex-direction: row;
+    border-bottom: 2px solid #b94040;
 }
 .NavBar *{
     display: inline-block;
@@ -41,18 +43,27 @@
 }
 .mobileMenu
 {
+    
+    position: fixed;
     height: calc(100vh - var(--topNavHeight));
     width: 80vw;
-    position: absolute;
     background-color: #b94040;
     z-index: 10;
     left: -80vw;
     top: var(--topNavHeight);
     transition: 0.1s linear;
 }
+.bar{
+    margin-left: 10px;
+    margin-top: 20px;
+    height: 2px;
+    width: 70%;
+    background-color: black;
+}
 .mobileMenuBackgroud
 {
-    position: absolute; 
+    
+    position: fixed;
     z-index: 2;
     top: var(--topNavHeight);
     left: -100vw;
@@ -185,6 +196,7 @@ div.activeBG{
 }
 .langPicker{
     margin-top: calc(50% - 25px);
+    margin-right: -10px;
     color: red;
     font-weight: 500;
     font-size: 25px;
@@ -208,6 +220,7 @@ div.activeBG{
         font-weight: 300;
         z-index: 5;
         transition: 0.2s linear;
+        border: none;
     }
 }
 @media (min-width:1024px)
