@@ -1,11 +1,10 @@
 
 section.Menu{
     margin-top: 20px;
-    border: 60px solid rgba(220, 55, 39);
 }
 .Container{
-    width: 70%;
-    margin-left: 15%;
+    width: 90%;
+    margin-left: 5%;
 }
 .Title, .subTitle,.categoryTitle{  
     display: block;
@@ -14,7 +13,7 @@ section.Menu{
 }
 .Title{
     font-size: 30px;
-    margin-top: 60px;
+    margin-top: 80px;
     color: rgba(220, 55, 39);
     font-family: 'Lora', serif;
     font-weight: 400;
@@ -34,7 +33,7 @@ section.Menu{
 .DishesTable{
     margin-top: 60px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-around;
 }
@@ -44,4 +43,37 @@ section.Menu{
     height: 2px;
     width: 60px;
     background-color: black;
+}
+@media (max-width:400px)
+{
+    
+}
+@media (min-width:480px)
+{
+
+}
+@media (min-width:768px)
+{
+    /* komputery juz */
+    section.Menu{
+        border: 60px solid rgba(220, 55, 39); 
+    }
+    .Container{
+        width: 70%;
+        margin-left: 15%;
+    }
+    .DishesTable{
+        flex-direction: row;
+    }
+    .Title{
+        margin-top: 60px;
+    }
+}
+@media (min-width:1024px)
+{
+    
+}
+@media (min-width:1200px)
+{
+    
 }

@@ -4,8 +4,17 @@ import Dish from '../smallParts/Dish/Dish';
 import axios from '../../axios-orders';
 import OrderElement from '../smallParts/OrderElement/OrderElement'
 import { connect } from 'react-redux';
+import * as actions from '../../store/actions/index';
 import Auxi from '../../hoc/Auxi'
 class OrderPage extends Component {
+    componentDidMount() {
+        this.props.onScreenResize();
+        window.addEventListener('resize', this.props.onScreenResize);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.props.onScreenResize);
+    }
     render() {
         let basket = (
             <Auxi>
@@ -27,6 +36,7 @@ class OrderPage extends Component {
                 <h1>KUCHNIA MY CHCEMY JEŚĆ</h1>
             </Auxi>
         );
+        if (this.props.width < 768) {}
         return (
             <section className={classes.OrderPage}>
                 <aside className={classes.Basket}>
@@ -133,8 +143,14 @@ class OrderPage extends Component {
 const mapStateToProps = state => {
     return {
         orderedItems: state.orderedItems,
-        fullPrice: state.fullPrice
+        fullPrice: state.fullPrice,
+        width: state.windowWidth
+    };
+};
+const mapDispatchToProps = dispatch => {
+    return {
+        onScreenResize: () => dispatch(actions.onScreenResize())
     };
 };
 
-export default connect(mapStateToProps, null)(OrderPage, axios);
+export default connect(mapStateToProps, mapDispatchToProps)(OrderPage, axios);

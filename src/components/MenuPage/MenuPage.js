@@ -2,7 +2,17 @@ import React, { Component } from 'react';
 import classes from './MenuPage.module.css'
 import Dish from '../smallParts/Dish/Dish'
 import Bar from '../smallParts/Bar/Bar'
+import { connect } from 'react-redux';
+import * as actions from '../../store/actions/index';
 class MenuPage extends Component {
+    componentDidMount() {
+        this.props.onScreenResize();
+        window.addEventListener('resize', this.props.onScreenResize);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.props.onScreenResize);
+    }
     render() {
         return (
             <section className={classes.Menu}>
@@ -12,40 +22,51 @@ class MenuPage extends Component {
                     <h1 className={classes.categoryTitle}>Zupy</h1>
                     <Bar style={{ backgroundColor: "red" }} />
                     <div className={classes.DishesTable}>
-                        <Dish title="Kopytka" price="12zł" />
-                        <Dish title="Kopytka" price="12zł" />
-                        <Dish title="Kopytka" price="12zł" />
-                        <Dish title="Kopytka" price="12zł" />
-                        <Dish title="Kopytka" price="12zł" />
-                        <Dish title="Kopytka" price="12zł" />
-                        <Dish title="Kopytka" price="12zł" />
+                        <Dish title="Kopytka" price="12" />
+                        <Dish title="Kopytka" price="12" />
+                        <Dish title="Kopytka" price="12" />
+                        <Dish title="Kopytka" price="12" />
+                        <Dish title="Kopytka" price="12" />
+                        <Dish title="Kopytka" price="12" />
+                        <Dish title="Kopytka" price="12" />
                     </div>
                     <h1 className={classes.categoryTitle}>Zupy</h1>
                     <Bar />
                     <div className={classes.DishesTable}>
-                        <Dish title="Kopytka" price="12zł" />
-                        <Dish title="Kopytka" price="12zł" />
-                        <Dish title="Kopytka" price="12zł" />
-                        <Dish title="Kopytka" price="12zł" />
-                        <Dish title="Kopytka" price="12zł" />
-                        <Dish title="Kopytka" price="12zł" />
-                        <Dish title="Kopytka" price="12zł" />
+                        <Dish title="Kopytka" price="12" />
+                        <Dish title="Kopytka" price="12" />
+                        <Dish title="Kopytka" price="12" />
+                        <Dish title="Kopytka" price="12" />
+                        <Dish title="Kopytka" price="12" />
+                        <Dish title="Kopytka" price="12" />
+                        <Dish title="Kopytka" price="12" />
                     </div>
                     <h1 className={classes.categoryTitle}>Zupy</h1>
                     <Bar />
                     <div className={classes.DishesTable}>
-                        <Dish title="Kopytka" price="12zł" />
-                        <Dish title="Kopytka" price="12zł" />
-                        <Dish title="Kopytka" price="12zł" />
-                        <Dish title="Kopytka" price="12zł" />
-                        <Dish title="Kopytka" price="12zł" />
-                        <Dish title="Kopytka" price="12zł" />
-                        <Dish title="Kopytka" price="12zł" />
+                        <Dish title="Kopytka" price="12" />
+                        <Dish title="Kopytka" price="12" />
+                        <Dish title="Kopytka" price="12" />
+                        <Dish title="Kopytka" price="12" />
+                        <Dish title="Kopytka" price="12" />
+                        <Dish title="Kopytka" price="12" />
+                        <Dish title="Kopytka" price="12" />
                     </div>
                 </section>
             </section>
         )
     }
 }
+const mapStateToProps = state => {
+    return {
+        width: state.windowWidth
+    };
+};
 
-export default MenuPage;
+const mapDispatchToProps = dispatch => {
+    return {
+        onScreenResize: () => dispatch(actions.onScreenResize())
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MenuPage);
