@@ -9,14 +9,13 @@ class OurStory extends Component {
             <section className={classes.OurStory}>
                 <div className={classes.image1}>
                 </div>
-                <div className={classes.text}>
                     <h2>
                         Nasza historia
                     </h2>
                     <h3 >Z miłości do polskiego jedzenia</h3>
                     <p className={classes.animateScroller} > {element}</p>
-                    <p className={classes.move}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus cursus sed ex sit amet porttitor. Duis in fermentum neque. Nunc pellentesque eleifend tristique. Vestibulum ut rhoncus nibh. Nunc pharetra dolor et turpis efficitur molestie. Etiam sodales mollis neque, in scelerisque purus molestie eu. Maecenas pretium auctor diam quis scelerisque. Praesent hendrerit commodo nunc, sit amet congue risus tempus nec. Nunc dapibus faucibus purus non rutrum</p>
-                    <p className={classes.move}>Cras purus velit, lacinia id mauris aliquam, scelerisque mattis eros. Aenean a nunc odio. Nunc blandit ac est ornare cursus. Pellentesque sed dolor suscipit, rutrum orci quis, interdum elit. Nunc hendrerit pretium tellus quis venenatis. Morbi finibus nulla et ante semper rutrum. Maecenas efficitur posuere nibh. Phasellus rhoncus ante eget dignissim convallis.</p>
+                    <p className={classes.OurStoryText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus cursus sed ex sit amet porttitor. Duis in fermentum neque. Nunc pellentesque eleifend tristique. Vestibulum ut rhoncus nibh. Nunc pharetra dolor et turpis efficitur molestie. Etiam sodales mollis neque, in scelerisque purus molestie eu. Maecenas pretium auctor diam quis scelerisque. Praesent hendrerit commodo nunc, sit amet congue risus tempus nec. Nunc dapibus faucibus purus non rutrum</p>
+                    <p className={classes.OurStoryText}>Cras purus velit, lacinia id mauris aliquam, scelerisque mattis eros. Aenean a nunc odio. Nunc blandit ac est ornare cursus. Pellentesque sed dolor suscipit, rutrum orci quis, interdum elit. Nunc hendrerit pretium tellus quis venenatis. Morbi finibus nulla et ante semper rutrum. Maecenas efficitur posuere nibh. Phasellus rhoncus ante eget dignissim convallis.</p>
                     <h2 className={classes.owner}>
                         Właściciel, założyciel i szef kuchni
                     </h2>
@@ -34,8 +33,8 @@ class OurStory extends Component {
                         <div className={classes.image2}>
                         </div>
                     </div>
-                    <p className={classes.move}>Cras purus velit, lacinia id mauris aliquam, scelerisque mattis eros. Aenean a nunc odio. Nunc blandit ac est ornare cursus. Pellentesque sed dolor suscipit, rutrum orci quis, interdum elit. Nunc hendrerit pretium tellus quis venenatis. Morbi finibus nulla et ante semper rutrum. Maecenas efficitur posuere nibh. Phasellus rhoncus ante eget dignissim convallis.</p>
-                </div>
+                    <p className={classes.OurStoryText}>Cras purus velit, lacinia id mauris aliquam, scelerisque mattis eros. Aenean a nunc odio. Nunc blandit ac est ornare cursus. Pellentesque sed dolor suscipit, rutrum orci quis, interdum elit. Nunc hendrerit pretium tellus quis venenatis. Morbi finibus nulla et ante semper rutrum. Maecenas efficitur posuere nibh. Phasellus rhoncus ante eget dignissim convallis.</p>
+                
             </section>
         )
     }
