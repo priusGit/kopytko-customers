@@ -29,14 +29,24 @@ class OrderPage extends Component {
                 {this.props.fullPrice >= 100 ? null : <p>Do darmowa dostawa od 60zł! Brakuje Ci: {60 - this.props.fullPrice}zł</p>}
                 <a href="/checkout" class={classes.orderButton}>Kasa ({this.props.fullPrice + (this.props.fullPrice < 100 ? 15 : 0)}zł)</a>
             </Auxi>
-
         );
+        if(this.props.width < 768){
+            let basketView = (
+            <aside className={classes.Basket}>
+                <h1>Koszyk</h1>
+                <div className={classes.endLine}></div>
+                {this.props.orderedItems.length === 0 ? emptyBasket : basket}
+                <div></div>
+            </aside>)
+        }
+        else{
+
+        }
         let emptyBasket = (
             <Auxi>
                 <h1>KUCHNIA MY CHCEMY JEŚĆ</h1>
             </Auxi>
         );
-        if (this.props.width < 768) {}
         return (
             <section className={classes.OrderPage}>
                 <aside className={classes.Basket}>
