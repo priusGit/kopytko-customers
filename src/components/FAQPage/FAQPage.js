@@ -5,7 +5,9 @@ import axios from '../../axios-orders';
 import * as actions from '../../store/actions/index';
 import { connect } from 'react-redux';
 class FAQPage extends Component {
-
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    }
     state = {
         messageForm: {
             name: {

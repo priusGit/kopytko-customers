@@ -9,6 +9,7 @@ import Spinner from '../smallParts/Spinner/Spinner';
 class ReservationsPage extends Component {
     componentDidMount() {
         let link = this.getDate();
+            window.scrollTo(0, 0);
         this.props.onFetchReservations(link);
     }
     state = {

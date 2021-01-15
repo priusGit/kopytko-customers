@@ -9,6 +9,7 @@ import Auxi from '../../hoc/Auxi'
 class OrderPage extends Component {
     componentDidMount() {
         this.props.onScreenResize();
+        window.scrollTo(0, 0);
         window.addEventListener('resize', this.props.onScreenResize);
     }
 
@@ -27,38 +28,33 @@ class OrderPage extends Component {
                     this.props.fullPrice + (this.props.fullPrice < 100 ? 15 : 0)
                 }</h1>
                 {this.props.fullPrice >= 100 ? null : <p>Do darmowa dostawa od 60zł! Brakuje Ci: {60 - this.props.fullPrice}zł</p>}
-                <a href="/checkout" class={classes.orderButton}>Kasa ({this.props.fullPrice + (this.props.fullPrice < 100 ? 15 : 0)}zł)</a>
+                <a href="/checkout" class={classes.orderButton}>Kasa ({this.props.fullPrice + ((this.props.fullPrice < 100) && (this.props.fullPrice !== 0) ? 15 : 0)}zł)</a>
             </Auxi>
         );
-        if(this.props.width < 768){
-            let basketView = (
-            <aside className={classes.Basket}>
-                <h1>Koszyk</h1>
-                <div className={classes.endLine}></div>
-                {this.props.orderedItems.length === 0 ? emptyBasket : basket}
-                <div></div>
-            </aside>)
-        }
-        else{
-
-        }
         let emptyBasket = (
             <Auxi>
                 <h1>KUCHNIA MY CHCEMY JEŚĆ</h1>
             </Auxi>
         );
-        return (
-            <section className={classes.OrderPage}>
+            let basketPC = 
+            (
                 <aside className={classes.Basket}>
                     <h1>Koszyk</h1>
                     <div className={classes.endLine}></div>
                     {this.props.orderedItems.length === 0 ? emptyBasket : basket}
                     <div></div>
                 </aside>
-                <section className={classes.Container}>
-                    <h1 className={classes.Title}>Zamów do domu!</h1>
-                    <p className={classes.subTitle}>Masz ochotę zjeść w domowym zaciszu? Nic trudnego, twoje zamówienie dowieziemy ci pod sam dom! Codziennie, w godzinach działalności restauracji. Dodaj danie do koszyka poprzez kliknięcie na nie, tak po prostu!</p>
-                    <ul className={classes.OrderCategories} id="OrderCategories">
+            );
+
+            let basketMobile = 
+            (
+                <div className={classes.mobileBasket} id="MobileBasket">
+                    <a href="/checkout" class={classes.orderButton}>Koszyk ({this.props.fullPrice + ((this.props.fullPrice < 100)&& (this.props.fullPrice !== 0) ? 15 : 0)}zł)</a>
+                </div>
+            );
+            let categoriesPC = 
+            (
+                <ul className={classes.OrderCategories} id="OrderCategories">
                         <li id="recommended" onClick={() => document.getElementById('recommended').scrollIntoView({ behavior: 'smooth', block: 'center' })}>Szef Kuchni Poleca</li>
                         <li id="soups" onClick={() => document.getElementById('soup').scrollIntoView({ behavior: 'smooth', block: 'center' })}>Zupy</li>
                         <li id="mainmeals" onClick={() => document.getElementById('main').scrollIntoView({ behavior: 'smooth', block: 'center' })}>Dania Główne</li>
@@ -67,6 +63,18 @@ class OrderPage extends Component {
                         <li id="alcohol" onClick={() => document.getElementById('alco').scrollIntoView({ behavior: 'smooth', block: 'center' })}>Alkohole</li>
                         <li id="drink" onClick={() => document.getElementById('drinks').scrollIntoView({ behavior: 'smooth', block: 'center' })}>Napoje</li>
                     </ul>
+            ); 
+            let categoriesMobile = 
+            (
+                <div></div>
+            );
+        return (
+            <section className={classes.OrderPage}>
+                {this.props.width < 768 ? basketMobile : basketPC}
+                <section className={classes.Container}>
+                    <h1 className={classes.Title}>Zamów do domu!</h1>
+                    <p className={classes.subTitle}>Masz ochotę zjeść w domowym zaciszu? Nic trudnego, twoje zamówienie dowieziemy ci pod sam dom! Codziennie, w godzinach działalności restauracji. Dodaj danie do koszyka poprzez kliknięcie na nie, tak po prostu!</p>
+                    {this.props.width < 768 ? categoriesMobile : categoriesPC}
                     <h1 className={classes.categoryTitle}>Szef Kuchni Poleca</h1>
                     <div className={classes.bar}></div>
                     <div className={classes.DishesTable} id="recommended">

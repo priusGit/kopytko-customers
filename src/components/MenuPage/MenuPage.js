@@ -7,6 +7,7 @@ import * as actions from '../../store/actions/index';
 class MenuPage extends Component {
     componentDidMount() {
         this.props.onScreenResize();
+            window.scrollTo(0, 0);
         window.addEventListener('resize', this.props.onScreenResize);
     }
 

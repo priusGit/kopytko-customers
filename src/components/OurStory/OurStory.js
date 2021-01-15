@@ -3,6 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import classes from './OurStory.module.css';
 class OurStory extends Component {
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    }
     render() {
         const element = <FontAwesomeIcon icon={faAngleDown} />
         return (

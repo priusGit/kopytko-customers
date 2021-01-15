@@ -48,9 +48,6 @@ class NavBar extends Component {
         if (this.props.width < 768) {
             return (
                 <Auxi>
-                    <ul className={classes.MobileBotBar} id="BotNavBar">
-                        NO POKAZ SIE
-                    </ul>
                     <ul className={classes.NavBar} id="NavBar" >
 
                         <div className={classes.navIconCont}><div className={classes.navIcon4}

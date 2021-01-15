@@ -10,6 +10,7 @@ class ReservationsPage extends Component {
     componentDidMount() {
         let link = this.getDate();
         this.props.onFetchReservations(link);
+            window.scrollTo(0, 0);
     }
     state = {
         reservationForm: {
