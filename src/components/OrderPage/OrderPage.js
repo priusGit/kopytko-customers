@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import classes from './OrderPage.module.css';
+import { NavLink } from 'react-router-dom'
 import Dish from '../smallParts/Dish/Dish';
 import axios from '../../axios-orders';
 import OrderElement from '../smallParts/OrderElement/OrderElement'
@@ -49,8 +50,7 @@ class OrderPage extends Component {
                 <h1>Cena całkowita: {
                     this.props.fullPrice + (this.props.fullPrice < 100 ? 15 : 0)
                 }</h1>
-                {this.props.fullPrice >= 100 ? null : <p>Darmowa dostawa od 60zł! Brakuje Ci: {60 - this.props.fullPrice}zł</p>}
-                <a href="/checkout" className={classes.orderButton}>Kasa ({this.props.fullPrice + ((this.props.fullPrice < 100) && (this.props.fullPrice !== 0) ? 15 : 0)}zł)</a>
+                {this.props.fullPrice >= 100 ? null : <p>Darmowa dostawa od 60zł! Brakuje Ci: {60 - this.props.fullPrice}zł</p>}<NavLink className={classes.orderButton} exact to={"/checkout"}>Kasa ({this.props.fullPrice + ((this.props.fullPrice < 100) && (this.props.fullPrice !== 0) ? 15 : 0)}zł)</NavLink>
             </Auxi>
         );
         let emptyBasket = (
@@ -71,7 +71,7 @@ class OrderPage extends Component {
             let basketMobile = 
             (
                 <div className={classes.mobileBasket} id="MobileBasket">
-                    <a href="/basket" className={classes.orderButton}>Koszyk ({this.props.fullPrice + ((this.props.fullPrice < 100)&& (this.props.fullPrice !== 0) ? 15 : 0)}zł)</a>
+                    <NavLink className={classes.orderButton} exact to={"/basket"}>Kasa ({this.props.fullPrice + ((this.props.fullPrice < 100) && (this.props.fullPrice !== 0) ? 15 : 0)}zł)</NavLink>
                 </div>
             );
             let categoriesPC = 

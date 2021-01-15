@@ -28,4 +28,4 @@ const mapDispatchToPrsops = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToPrsops)(BasketElement, axios);
+export default connect(mapStateToProps, mapDispatchToPrsops)(BasketElement);
