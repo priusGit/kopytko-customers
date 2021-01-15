@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from '../../../axios-orders';
 import * as actions from '../../../store/actions/index';
 import { connect } from 'react-redux';
 import classes from './OrderElement.module.css'

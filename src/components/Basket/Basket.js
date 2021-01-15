@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import classes from './Basket.module.css';
 import { NavLink } from 'react-router-dom'
-import * as actions from '../../store/actions/index';
 import { connect } from 'react-redux';
 import BasketElement from '../smallParts/BasketElement/BasketElement';
 import Auxi from '../../hoc/Auxi'
