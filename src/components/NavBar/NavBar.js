@@ -20,31 +20,6 @@ class NavBar extends Component {
         document.getElementById("darkBG").classList.toggle(classes.activeBG);
     }
     render() {
-        let prevScrollpos = window.pageYOffset;
-        if (this.props.width >= 768) {
-            window.onscroll = function () {
-                console.log(window.pageYOffset);
-                let flag;
-                if (document.getElementById("OrderCategories")) {
-                    flag = true;
-                }
-                var currentScrollPos = window.pageYOffset;
-                if (prevScrollpos > currentScrollPos) {
-                    document.getElementById("NavBar").style.top = "0";
-                    if (flag === true) {
-                        document.getElementById("OrderCategories").style.top = "60px";
-                    }
-                } else {
-                    document.getElementById("NavBar").style.top = "-60px";
-                    if (flag === true) {
-                        document.getElementById("OrderCategories").style.top = "0px";
-                    }
-                }
-                prevScrollpos = currentScrollPos;
-            }
-        }
-
-
         if (this.props.width < 768) {
             return (
                 <Auxi>

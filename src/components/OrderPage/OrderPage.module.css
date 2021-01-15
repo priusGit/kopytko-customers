@@ -1,11 +1,10 @@
 
 section.OrderPage{
     margin-top: 20px;
-    overflow: hidden;
 }
 .Container{
-    width: 80%;
-    margin-left: 10%;
+    width: 90%;
+    margin-left: 5%;
 }
 .Title, .subTitle,.categoryTitle{  
     display: block;
@@ -33,12 +32,11 @@ section.OrderPage{
     font-weight: 400;
 }
 .DishesTable{
-    margin-top: 60px;
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin-left: 7.5%;
 }
 .bar{
     margin: 0 auto;
@@ -52,8 +50,8 @@ section.OrderPage{
 }
 .DishesTable > *{
     border: 1px solid#ccc;
-    width: 60vw;
-    padding: 10px 20px;
+    width: 100%;
+    padding: 5px 10px;
     transition: 0.05s linear;
 }
 .DishesTable > *:hover{
@@ -62,7 +60,7 @@ section.OrderPage{
 }
 .Basket{
     position: fixed;
-    top: 60px;
+    top: 65px;
     right: 0;
     height: calc(100vh - 60px);
     border: 1px solid #c0c0c0;
@@ -81,6 +79,8 @@ section.OrderPage{
     background-color: #fff;
     z-index: 5;
     transition: 0.2s linear;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
 }
 .OrderCategories li{
     display: inline-block;
@@ -157,6 +157,7 @@ section.OrderPage{
 {
     /* komputery juz */
     .Container{
+        width:80%;
         margin-left: 5%;
     }
     .Title{
@@ -196,6 +197,16 @@ section.OrderPage{
     .orderButton:active {
         background-color: rgba(220, 55, 39);
         top:1px;
+    }
+    .DishesTable{
+        margin-top: 60px;
+        margin-left: 7.5%;
+    }
+    .DishesTable > *{
+        border: 1px solid#ccc;
+        width: 60vw;
+        padding: 10px 20px;
+        transition: 0.05s linear;
     }
 }
 @media (min-width:1024px)

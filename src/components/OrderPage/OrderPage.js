@@ -17,6 +17,28 @@ class OrderPage extends Component {
         window.removeEventListener('resize', this.props.onScreenResize);
     }
     render() {
+        let prevScrollpos = window.pageYOffset;
+        if (this.props.width >= 768) {
+            window.onscroll = function () {
+                let flag;
+                if (document.getElementById("OrderCategories")) {
+                    flag = true;
+                }
+                var currentScrollPos = window.pageYOffset;
+                if (prevScrollpos > currentScrollPos) {
+                    document.getElementById("NavBar").style.top = "0";
+                    if (flag === true) {
+                        document.getElementById("OrderCategories").style.top = "65px";
+                    }
+                } else {
+                    document.getElementById("NavBar").style.top = "-65px";
+                    if (flag === true) {
+                        document.getElementById("OrderCategories").style.top = "0px";
+                    }
+                }
+                prevScrollpos = currentScrollPos;
+            }
+        }
         let basket = (
             <Auxi>
                 {this.props.orderedItems.map((orderItem, i) => (
@@ -27,8 +49,8 @@ class OrderPage extends Component {
                 <h1>Cena całkowita: {
                     this.props.fullPrice + (this.props.fullPrice < 100 ? 15 : 0)
                 }</h1>
-                {this.props.fullPrice >= 100 ? null : <p>Do darmowa dostawa od 60zł! Brakuje Ci: {60 - this.props.fullPrice}zł</p>}
-                <a href="/checkout" class={classes.orderButton}>Kasa ({this.props.fullPrice + ((this.props.fullPrice < 100) && (this.props.fullPrice !== 0) ? 15 : 0)}zł)</a>
+                {this.props.fullPrice >= 100 ? null : <p>Darmowa dostawa od 60zł! Brakuje Ci: {60 - this.props.fullPrice}zł</p>}
+                <a href="/checkout" className={classes.orderButton}>Kasa ({this.props.fullPrice + ((this.props.fullPrice < 100) && (this.props.fullPrice !== 0) ? 15 : 0)}zł)</a>
             </Auxi>
         );
         let emptyBasket = (
@@ -49,7 +71,7 @@ class OrderPage extends Component {
             let basketMobile = 
             (
                 <div className={classes.mobileBasket} id="MobileBasket">
-                    <a href="/checkout" class={classes.orderButton}>Koszyk ({this.props.fullPrice + ((this.props.fullPrice < 100)&& (this.props.fullPrice !== 0) ? 15 : 0)}zł)</a>
+                    <a href="/basket" className={classes.orderButton}>Koszyk ({this.props.fullPrice + ((this.props.fullPrice < 100)&& (this.props.fullPrice !== 0) ? 15 : 0)}zł)</a>
                 </div>
             );
             let categoriesPC = 

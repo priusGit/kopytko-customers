@@ -9,6 +9,7 @@ import OrderPage from './components/OrderPage/OrderPage';
 import OurStory from './components/OurStory/OurStory';
 import ReservationsPage from './components/ResevationsPage/ReservationsPage';
 import Checkout from './components/CheckoutPage/CheckoutPage';
+import Basket from './components/Basket/Basket';
 import Auxi from './hoc/Auxi';
 class App extends Component {
   render() {
@@ -21,6 +22,7 @@ class App extends Component {
         <Route path="/orderonline" exact component={OrderPage} />
         <Route path="/faq" exact component={FAQPage} />
         <Route path="/checkout" exact component={Checkout} />
+        <Route path="/basket" exact component={Basket} />
       </Switch>
     );
     return (
