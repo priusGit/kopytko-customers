@@ -70,9 +70,16 @@
 	
 }
 .ReservationsPage button:hover{
-	background-color: rgb(220, 55, 39);
+    background-color: transparent;
     color: white;
+    animation: ReservationButton 0.15s linear;
+    cursor: pointer;
 }
+@keyframes ReservationButton {
+    0% {background-color: #fff;}
+    50% {background-color:rgb(220, 55, 39);}
+    100% {background-color: #fff;}
+  }
 label{
     font-family: 'Poppins', sans-serif;
 }
@@ -111,7 +118,10 @@ input[type="date"]{
         width: 70%;
     margin: 25px 15% 0 15%;
     }
-
+    .ReservationsPage button:hover{
+        background-color: rgb(220, 55, 39);
+        animation: none;
+    }
 }
 @media (min-width:1024px)
 {

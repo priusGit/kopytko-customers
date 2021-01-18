@@ -69,9 +69,15 @@ section.FAQ{
 	
 }
 .FAQ button:hover{
-	background-color: rgb(220, 55, 39);
-    color: white;
+	background-color: transparent;
+    animation: FAQPageButton 0.15s linear;
+    cursor: pointer;
 }
+@keyframes FAQPageButton {
+    0% {background-color: #fff; color: rgb(220, 55, 39);}
+    50% {background-color:rgb(220, 55, 39); color:#fff;}
+    100% {background-color: #fff; color: rgb(220, 55, 39);}
+  }
 textarea{
     height: 100px;
 }
@@ -107,6 +113,12 @@ textarea{
         margin-left: 50%;
         transform: translateX(-50%);
         width: 50%;
+    }
+    .FAQ button:hover{
+        background-color: rgb(220, 55, 39);
+        color: white;
+        animation: none;
+        cursor: pointer;
     }
     
 }

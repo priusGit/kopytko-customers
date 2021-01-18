@@ -3,6 +3,7 @@ import Auxi from '../../hoc/Auxi'
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
 import classes from './MainPage.module.css'
+// import * as Language from '../smallParts/lang/lang';
 class MainPage extends Component {
     componentDidMount() {
         this.props.onScreenResize();
@@ -22,6 +23,7 @@ class MainPage extends Component {
                             <div className={classes.mobileMain}>
                                 <h1>KOPYTKO</h1>
                                 <p>Rodzinnie i cieple - po polsku!</p>
+                                {/* <p>{Language.MainPageSubTitle}</p> */}
                                 <a className={classes.buttonMainPage} href="/menu">Zobacz Menu</a>
                             </div>
                         </div>

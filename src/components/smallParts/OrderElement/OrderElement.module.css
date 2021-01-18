@@ -1,7 +1,7 @@
 .OrderElement{
     transition: .1s linear;
 }
-.OrderElement:hover{
+.OrderElement:hover, .OrderElement:active,.OrderElement:focus{
     background-color: lightcoral;
     cursor: pointer;
 }

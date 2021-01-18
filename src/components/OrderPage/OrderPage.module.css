@@ -55,9 +55,15 @@ section.OrderPage{
     transition: 0.05s linear;
 }
 .DishesTable > *:hover{
-    background-color: #ccc;
     cursor: pointer;
+    background-color: transparent;
+    animation: bgc 0.15s linear;
 }
+@keyframes bgc {
+    0% {background-color: #fff;}
+    50% {background-color: #ccc;}
+    100% {background-color: #fff;}
+  }
 .Basket{
     position: fixed;
     top: 65px;
@@ -207,6 +213,11 @@ section.OrderPage{
         width: 60vw;
         padding: 10px 20px;
         transition: 0.05s linear;
+    }
+    .DishesTable > *:hover{
+        cursor: pointer;
+        background-color: #ccc;
+        animation: none;
     }
 }
 @media (min-width:1024px)
