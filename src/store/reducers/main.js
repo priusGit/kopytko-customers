@@ -46,12 +46,60 @@ const fetchReservationFail = (state, action) => {
     return updateObject(state, { loading: false, numberOfReservations: action.numberOfReservations });
 };
 const addItem = (state, action) => {
-    const newItem = { item: action.item, price: 12 };
+    let newItem = { item: action.item, price: action.price,amount:1 },found=false;
     const newPrice = Number(action.price) + state.fullPrice;
-    return updateObject(state, {
-        orderedItems: state.orderedItems.concat(newItem),
-        fullPrice: newPrice
+    const updatedOrderedItems = state.orderedItems.map(obj=>{
+        if(obj.item===action.item){
+            obj.amount=obj.amount+1;
+            found=true;
+            return obj; 
+        }
+        return obj;
     });
+    if(found){
+        return updateObject(state, {
+            orderedItems: updatedOrderedItems,
+            fullPrice: newPrice
+        });
+    }
+    else{
+        return updateObject(state, {
+            orderedItems: state.orderedItems.concat(newItem),
+            fullPrice: newPrice
+        });
+    }
+    // while(i<state.orderedItems.length)
+    // {
+    //     if(state.orderedItems[i].item === action.item)
+    //     {
+    //         if(state.orderedItems[i].amount>=1)
+    //         {
+    //             let newamount = state.orderedItems[i].amount+1;
+
+    //             // return updateObject(state, {
+    //             //     orderedItems: {...state.orderedItems,...state.orderedItems[i].amount},
+    //             //     fullPrice: newPrice
+    //             // });
+    //             newItem = { item: action.item, price: action.price,amount:newamount};
+    //             console.log(newItem);
+    //             return update(state, { 
+    //                 orderedItems: { 
+    //                     [i]: {
+    //                         amount:{
+    //                             $set:newamount
+    //                         }
+    //                   }
+    //                 },fullPrice: newPrice
+    //               });
+    //         }
+    //     }
+    //     i++;
+    // }
+    // console.log("hello there");
+    // return updateObject(state, {
+    //     orderedItems: state.orderedItems.concat(newItem),
+    //     fullPrice: newPrice
+    // });
 };
 
 const screenResize = (state, action) => {
@@ -63,11 +111,11 @@ const screenResize = (state, action) => {
 };
 
 const deleteItem = (state, action) => {
-    let test = [...state.orderedItems];
+    let newState = [...state.orderedItems];
     const newPrice = state.fullPrice - Number(action.price);
-    test.splice(action.item, 1);
+    newState.splice(action.item, 1);
     return {
-        ...state, orderedItems: test, fullPrice: newPrice
+        ...state, orderedItems: newState, fullPrice: newPrice
     };
 };
 
