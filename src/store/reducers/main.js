@@ -68,38 +68,6 @@ const addItem = (state, action) => {
             fullPrice: newPrice
         });
     }
-    // while(i<state.orderedItems.length)
-    // {
-    //     if(state.orderedItems[i].item === action.item)
-    //     {
-    //         if(state.orderedItems[i].amount>=1)
-    //         {
-    //             let newamount = state.orderedItems[i].amount+1;
-
-    //             // return updateObject(state, {
-    //             //     orderedItems: {...state.orderedItems,...state.orderedItems[i].amount},
-    //             //     fullPrice: newPrice
-    //             // });
-    //             newItem = { item: action.item, price: action.price,amount:newamount};
-    //             console.log(newItem);
-    //             return update(state, { 
-    //                 orderedItems: { 
-    //                     [i]: {
-    //                         amount:{
-    //                             $set:newamount
-    //                         }
-    //                   }
-    //                 },fullPrice: newPrice
-    //               });
-    //         }
-    //     }
-    //     i++;
-    // }
-    // console.log("hello there");
-    // return updateObject(state, {
-    //     orderedItems: state.orderedItems.concat(newItem),
-    //     fullPrice: newPrice
-    // });
 };
 
 const screenResize = (state, action) => {
@@ -111,12 +79,35 @@ const screenResize = (state, action) => {
 };
 
 const deleteItem = (state, action) => {
-    let newState = [...state.orderedItems];
+    let helper;
     const newPrice = state.fullPrice - Number(action.price);
-    newState.splice(action.item, 1);
-    return {
-        ...state, orderedItems: newState, fullPrice: newPrice
-    };
+    const updatedOrderedItems = state.orderedItems.map(obj=>{
+        if(obj.item===action.item){
+            helper = obj.amount;
+            if(obj.amount>1)
+            {
+                obj.amount=obj.amount-1;
+            }
+            console.log(obj.item+" "+action.item+" "+obj.amount+" "+helper);
+            return obj; 
+        }
+        return obj;
+    });
+    if(helper>1){
+        return updateObject(state, {
+            orderedItems: updatedOrderedItems,
+            fullPrice: newPrice
+        });
+    }
+    else{
+        let newState = [...state.orderedItems];
+        console.log(action.id);
+        console.log(newState);
+        console.log(newState.splice(action.id, 1));
+        return {
+            ...state, orderedItems: newState, fullPrice: newPrice
+        };
+    } 
 };
 
 const reducer = (state = initialState, action) => {

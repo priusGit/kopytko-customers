@@ -13,7 +13,7 @@ class Basket extends Component {
         let basket = (
             <Auxi>
                 {this.props.orderedItems.map((orderItem, i) => (
-                    <BasketElement key={i} id={i} title={orderItem.item} price={orderItem.price} />
+                    <BasketElement key={i} id={i} title={orderItem.item} price={orderItem.price} amount={orderItem.amount} />
                 ))}
                 <p>Razem: {this.props.fullPrice}zł</p>
                 <p>Koszt dostawy: {this.props.fullPrice < 100 ? "15zł" : "DARMOWA"}</p>

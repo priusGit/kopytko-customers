@@ -9,7 +9,7 @@ class Dish extends Component {
             <div className={classes.Dish} onClick={() => this.props.onItemClicked(this.props.title, this.props.price)}>
                 <p className={classes.DishTitle}>{this.props.title}</p>
                 <p className={classes.DishDisc}>I’m a dish description. Click “Edit Menu” to open the Restaurant Menu editor and change my text.</p>
-                <p className={classes.DishPrice}>{this.props.price}zł</p>
+                <p className={classes.DishPrice}>{this.props.price}zł</p><p className={classes.DishPrice}>{this.props.amount}zł</p>
             </div>
         )
     }

@@ -7,11 +7,12 @@ class OrderElement extends Component {
     render() {
         return (
             <div className={classes.OrderElement}
-                onClick={() => this.props.onOrderElementClick(this.props.id, this.props.price)}
+                onClick={() => this.props.onOrderElementClick(this.props.title, this.props.price, this.props.id)}
             >
                 <p className={classes.DishTitle}>{this.props.title}</p>
                 <p>Dodaj notatkę</p>
                 <p>{this.props.price}zł</p>
+                <p>{this.props.amount}</p>
                 <div className={classes.endLine}></div>
             </div>
         )
@@ -19,7 +20,7 @@ class OrderElement extends Component {
 }
 const mapDispatchToPrsops = dispatch => {
     return {
-        onOrderElementClick: (item, price) => dispatch(actions.deleteItemFromBasketAction(item, price))
+        onOrderElementClick: (item, price,id) => dispatch(actions.deleteItemFromBasketAction(item, price,id))
     };
 };
 export default connect(null, mapDispatchToPrsops)(OrderElement, axios);

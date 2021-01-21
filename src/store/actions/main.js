@@ -119,16 +119,17 @@ export const addItemOnClickAction = (item, price) => {
         dispatch(addItem(item, price));
     }
 }
-export const deleteItem = (item, price) => {
+export const deleteItem = (item, price,id) => {
     return {
         type: actionTypes.DELETE_ITEM,
         item: item,
-        price: price
+        price: price,
+        id:id
     };
 };
-export const deleteItemFromBasketAction = (item, price) => {
+export const deleteItemFromBasketAction = (item, price,id) => {
     return dispatch => {
-        dispatch(deleteItem(item, price));
+        dispatch(deleteItem(item, price,id));
     }
 };
 export const onScreenResize = () => {

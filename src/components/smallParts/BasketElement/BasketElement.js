@@ -5,11 +5,12 @@ import classes from './OrderElement.module.css'
 class BasketElement extends Component {
     render() {
         return (
-            <div className={classes.OrderElement} onClick={() => this.props.onOrderElementClick(this.props.id, this.props.price)}
+            <div className={classes.OrderElement} onClick={() => this.props.onOrderElementClick(this.props.title, this.props.price, this.props.id)}
             >
                 <p className={classes.DishTitle}>{this.props.title}</p>
                 <p>Dodaj notatkę</p>
                 <p>{this.props.price}zł</p>
+                <p>{this.props.amount}</p>
                 <div className={classes.endLine}></div>
             </div>
         )
@@ -23,7 +24,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToPrsops = dispatch => {
     return {
-        onOrderElementClick: (item, price) => dispatch(actions.deleteItemFromBasketAction(item, price))
+        onOrderElementClick: (item, price,id) => dispatch(actions.deleteItemFromBasketAction(item, price,id))
     };
 };
 
