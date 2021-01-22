@@ -101,9 +101,7 @@ const deleteItem = (state, action) => {
     }
     else{
         let newState = [...state.orderedItems];
-        console.log(action.id);
-        console.log(newState);
-        console.log(newState.splice(action.id, 1));
+        newState.splice(action.id, 1);
         return {
             ...state, orderedItems: newState, fullPrice: newPrice
         };

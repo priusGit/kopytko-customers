@@ -24,4 +24,3 @@ const mapDispatchToPrsops = dispatch => {
     };
 };
 export default connect(null, mapDispatchToPrsops)(OrderElement, axios);
-//export default OrderElement;

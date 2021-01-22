@@ -1,0 +1,59 @@
+.MobileBasketElement{
+    transition: .1s linear;
+}
+.MobileBasketElement p{
+    color:#0a3847;
+}
+.MobileBasketElement:hover, .MobileBasketElement:active,.MobileBasketElement:focus{
+    background-color: rgb(240, 128, 128);
+    cursor: pointer;
+}
+.DishTitle{
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-family: 'Lora', serif;
+    color: rgba(220, 55, 39);
+}
+.endLine{
+        margin: 0 auto;
+        margin-top: 10px;
+        height: 1px;
+        width: 100%;
+        background-color: lightgray;
+}
+.MobileBasketElement:hover{
+    background-color: transparent;
+    animation: MobileBasketElement 0.15s linear;
+    cursor: pointer;
+}
+.mBasketContainer{
+    display: flex;
+    flex-direction: row;
+    padding: 10px 0;
+}
+.mBasketLeft{
+    flex-basis: 15%;
+    text-align: center;
+}
+.mBasketMid{
+    flex-basis: 60%;
+    text-align: left;
+}
+.mBasketRight{
+    flex-basis: 25%;
+    
+    text-align: right;
+}
+.addDelete span{
+    box-sizing: content-box;
+    display: inline-block;
+    width: 20px;
+    line-height: 20px;
+    border: 1px solid green;
+}
+@keyframes MobileBasketElement {
+    0% {background-color: #fff;color:#0a3847;}
+    50% {background-color:rgb(240, 128, 128); 
+        color: #fff;}
+    100% {background-color: #fff;color:#0a3847;}
+  }

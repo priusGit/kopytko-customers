@@ -1,10 +1,10 @@
-.ReservationsPage{
+.MobileBasket{
     /* border: 1px solid green; */
     width: 100vw;
     box-sizing: border-box;
     padding: 0 20px;
 }
-.ReservationsPage h1{
+.MobileBasket h1{
     color: rgb(220, 55, 39);
     font-family: 'Merriweather', serif;
     font-weight: 400;
@@ -14,11 +14,10 @@
     letter-spacing: 2px;
     margin-bottom: 15px;
 }
-.ReservationsPage p{
+.MobileBasket p{
     font-weight: 400;
     font-family: 'Poppins', sans-serif;
-    text-align: center;
-    font-size: 18px;
+    font-size: 15px;
 }
 .bar{
     margin: 0 auto;
@@ -45,7 +44,7 @@
     transform: translateX(-50%);
     box-sizing: border-box;
 }
-.ReservationsPage button{
+.MobileBasket .proceedToCheckout{
     background-color:transparent;
 	border:solid rgba(220, 55, 39, 1) 1px;
 	display:inline-block;
@@ -64,21 +63,22 @@
     font-weight: 300;
     outline:none;
     transition: 0.15s ease-in;
+    text-align: center;
 }
-.ReservationsPage button:focus{
+.MobileBasket .proceedToCheckout:focus{
 	border:solid rgba(220, 55, 39, 1) 1px;
 	
 }
-.ReservationsPage button:hover{
+.MobileBasket .proceedToCheckout:hover{
     background-color: transparent;
-    color: white;
-    animation: ReservationButton 0.15s linear;
+    animation: MobileBasketButton 0.15s linear;
     cursor: pointer;
 }
-@keyframes ReservationButton {
-    0% {background-color: #fff;}
-    50% {background-color:rgb(220, 55, 39);}
-    100% {background-color: #fff;}
+@keyframes MobileBasketButton {
+    0% {background-color: #fff;color: rgb(220, 55, 39);}
+    50% {background-color:rgb(220, 55, 39); 
+        color: #fff;}
+    100% {background-color: #fff;color: rgb(220, 55, 39);}
   }
 label{
     font-family: 'Poppins', sans-serif;
@@ -97,7 +97,7 @@ input[type="date"]{
 @media (min-width:768px)
 {
     /* komputery juz */
-    .ReservationsPage h1{
+    .MobileBasket h1{
         color: rgb(220, 55, 39);
         font-family: 'Merriweather', serif;
         font-weight: 400;
@@ -106,19 +106,19 @@ input[type="date"]{
         text-align: center;
         letter-spacing: 2px;
     }
-    .ReservationsPage p{ font-size: 24px;}
-    .ReservationsPage form{
+    .MobileBasket p{ font-size: 24px;}
+    .MobileBasket form{
         box-sizing: border-box;
         margin-left: 50%;
         transform: translateX(-50%);
         width: 50%;
     }
-    .ReservationsPage button{
+    .MobileBasket button{
         margin-bottom: 0px;
         width: 70%;
     margin: 25px 15% 0 15%;
     }
-    .ReservationsPage button:hover{
+    .MobileBasket button:hover{
         background-color: rgb(220, 55, 39);
         animation: none;
     }

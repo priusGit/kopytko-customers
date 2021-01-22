@@ -16,16 +16,16 @@ class Basket extends Component {
                     <BasketElement key={i} id={i} title={orderItem.item} price={orderItem.price} amount={orderItem.amount} />
                 ))}
                 <p>Razem: {this.props.fullPrice}zł</p>
-                <p>Koszt dostawy: {this.props.fullPrice < 100 ? "15zł" : "DARMOWA"}</p>
-                <h1>Cena całkowita: {
-                    this.props.fullPrice + (this.props.fullPrice < 100 ? 15 : 0)
-                }</h1>
-                {this.props.fullPrice >= 100 ? null : <p>Darmowa dostawa od 60zł! Brakuje Ci: {60 - this.props.fullPrice}zł</p>}
-                <NavLink className={classes.orderButton} exact to={"/checkout"}>Kasa ({this.props.fullPrice + ((this.props.fullPrice < 100) && (this.props.fullPrice !== 0) ? 15 : 0)}zł)</NavLink>
+                <p>Koszt dostawy: {this.props.fullPrice < 60 ? "15zł" : "DARMOWA"}</p>
+                <p>Cena całkowita: {
+                    this.props.fullPrice + (this.props.fullPrice < 60 ? 15 : 0)
+                }zł</p>
+                {this.props.fullPrice >= 60 ? null : <p>Darmowa dostawa od 60zł! Brakuje Ci: {60 - this.props.fullPrice}zł</p>}
+                <NavLink className={classes.proceedToCheckout} exact to={"/checkout"}>Kasa ({this.props.fullPrice + ((this.props.fullPrice < 60) && (this.props.fullPrice !== 0) ? 15 : 0)}zł)</NavLink>
             </Auxi>
         );
         return (
-            <section className={classes.ReservationsPage}>
+            <section className={classes.MobileBasket}>
                 <h1>Koszyk</h1>
                 {basket}
             </section>
@@ -35,7 +35,8 @@ class Basket extends Component {
 
 const mapStateToProps = state => {
     return {
-        orderedItems: state.orderedItems
+        orderedItems: state.orderedItems,
+        fullPrice: state.fullPrice
     };
 };
 

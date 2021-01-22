@@ -106,31 +106,21 @@ export const fetchReservations = (link) => {
             });
     }
 }
-export const addItem = (item, price) => {
+
+export const addItemOnClickAction = (item, price) => {
     return {
         type: actionTypes.ADD_ITEM,
         item: item,
         price: price
     };
-};
-
-export const addItemOnClickAction = (item, price) => {
-    return dispatch => {
-        dispatch(addItem(item, price));
-    }
 }
-export const deleteItem = (item, price,id) => {
+export const deleteItemFromBasketAction = (item, price,id) => {
     return {
         type: actionTypes.DELETE_ITEM,
         item: item,
         price: price,
         id:id
     };
-};
-export const deleteItemFromBasketAction = (item, price,id) => {
-    return dispatch => {
-        dispatch(deleteItem(item, price,id));
-    }
 };
 export const onScreenResize = () => {
     return {
