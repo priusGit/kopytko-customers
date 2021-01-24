@@ -140,7 +140,7 @@ section.OrderPage{
 {
     position: fixed;
     height: calc(var(--topNavHeight) + 10px);
-    top: 0;
+    bottom: 0;
     width:100vw;
     list-style: none;
     padding-top: 10px;
