@@ -4,11 +4,9 @@ import classes from './CheckoutPage.module.css';
 import axios from '../../axios-orders';
 import * as actions from '../../store/actions/index';
 import { connect } from 'react-redux';
-import Auxi from '../../hoc/Auxi';
-import Spinner from '../smallParts/Spinner/Spinner';
 class ReservationsPage extends Component {
     componentDidMount() {
-        let link = this.getDate();
+        //let link = this.getDate();
             window.scrollTo(0, 0);
     }
     state = {
