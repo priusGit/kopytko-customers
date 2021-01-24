@@ -10,23 +10,16 @@ class ReservationsPage extends Component {
     componentDidMount() {
         let link = this.getDate();
             window.scrollTo(0, 0);
-        this.props.onFetchReservations(link);
     }
     state = {
-        reservationForm: {
-            reservationDate: {
-                label: "Podaj datę, na jaką ma być rezerwacja:",
-                elementType: 'date',
-                validation: {},
-                value: this.getDate(),
-                valid: true
-            },
-            name: {
-                label: "Imię:",
+            reservationForm: {
+
+                namesurname: {
+                label: "Imię i nazwisko:",
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
-                    placeholder: 'Imię'
+                    placeholder: 'Wpisz swoję imię i nazwisko'
                 },
                 value: '',
                 validation: {
@@ -35,12 +28,12 @@ class ReservationsPage extends Component {
                 valid: false,
                 touched: false
             },
-            surName: {
-                label: "Nazwisko:",
+            email: {
+                label: "Adres mailowy:",
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
-                    placeholder: 'Nazwisko'
+                    placeholder: 'Wpisz swój adres mailowy'
                 },
                 value: '',
                 validation: {
@@ -49,12 +42,12 @@ class ReservationsPage extends Component {
                 valid: false,
                 touched: false
             },
-            phoneNumber: {
+            phone: {
                 label: "Numer telefonu:",
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
-                    placeholder: 'Numer Telefonu'
+                    placeholder: 'Wpisz swój numer telefonu'
                 },
                 value: '',
                 validation: {
@@ -63,7 +56,134 @@ class ReservationsPage extends Component {
                 },
                 valid: false,
                 touched: false
-            }
+            },
+            ulica: {
+                label: "Ulica:",
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Wpisz nazwę ulicy'
+                },
+                value: '',
+                validation: {
+                    required: true
+                },
+                valid: false,
+                touched: false
+            },
+            adressnumber: {
+                label: "Numer budynku:",
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Wpisz numer budynku'
+                },
+                value: '',
+                validation: {
+                    required: true,
+                    isNumeric: true
+                },
+                valid: false,
+                touched: false
+            },
+            postcode: {
+                label: "Kod pocztowy",
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Wpisz swój kod pocztowy'
+                },
+                value: '',
+                validation: {
+                    required: true,
+                    isNumeric: true
+                },
+                valid: false,
+                touched: false
+            },
+            city: {
+                label: "Miasto",
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Wpisz swoje miasto'
+                },
+                value: '',
+                validation: {
+                    required: true
+                },
+                valid: false,
+                touched: false
+            },
+            flatNumber: {
+                label: "Numer mieszkania (opcjonalne)",
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Wpisz numer mieszkania'
+                },
+                value: '',
+                validation: {
+                    isNumeric: true
+                },
+                valid: false,
+                touched: false
+            },
+            floor: {
+                label: "Piętro (opcjonalne)",
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Wpisz swoje piętro'
+                },
+                value: '',
+                validation: {
+                    isNumeric: true
+                },
+                valid: false,
+                touched: false
+            },
+            stairwaykey: {
+                label: "Kod do bramy (opcjonalne)",
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Wpisz kod do bramy'
+                },
+                value: '',
+                validation: {
+                    isNumeric: true
+                },
+                valid: false,
+                touched: false
+            },
+            companyname: {
+                label: "Nazwa firmy (opcjonalne)",
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Wpisz nazwę firmy'
+                },
+                value: '',
+                validation: {
+                },
+                valid: false,
+                touched: false
+            },
+            note: {
+                label: "Dodaj notatkę (opcjonalne)",
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'np. Proszę nie używać dzwonka. Dziekco śpi.'
+                },
+                value: '',
+                validation: {
+                },
+                valid: false,
+                touched: false
+            },
+
         },
         formIsValid: false
     }
@@ -112,20 +232,7 @@ class ReservationsPage extends Component {
             formIsValid = updatedreservationForm[inputIdentifier].valid && formIsValid;
         }
         this.setState({ reservationForm: updatedreservationForm, formIsValid: formIsValid });
-        if (elementType === "date") {
-            this.props.onFetchReservations(updatedreservationForm.reservationDate.value);
-        }
     }
-    reservationHandler = (event) => {
-        event.preventDefault();
-        const formData = {};
-        for (let formElementIdentifier in this.state.reservationForm) {
-            formData[formElementIdentifier] = this.state.reservationForm[formElementIdentifier].value;
-        }
-        console.log(formData);
-        this.props.onReservationSent(formData);
-    }
-
     render() {
         const formElementsArray = [];
         for (let key in this.state.reservationForm) {
@@ -152,40 +259,11 @@ class ReservationsPage extends Component {
                 <button>ZAREZERWUJ!</button>
             </form>
         );
-        let content = <Spinner />;
-        let wolneStoliki = 32 - this.props.numberOfReservations;
-        if (!this.props.loading) {
-            if (wolneStoliki > 0) {
-                wolneStoliki = "Liczba wolnych stolików na dziś: " + wolneStoliki;
-                content = (
-                    <Auxi>
-                        <p>{wolneStoliki}</p>
-                        <div className={classes.datePicker}>
-                            {form}
-                        </div>
-                    </Auxi>
-                );
-            }
-            else {
-                wolneStoliki = "Niestety, na dzisiejszy wieczór wszystkie stoliki zostały już zarezerwowane";
-                content = (
-                    <Auxi>
-                        <p>{wolneStoliki}</p>
-                        <div className={classes.datePicker}>
-
-                        </div>
-                    </Auxi>
-                );
-            }
-        }
+        
         return (
-            <section className={classes.ReservationsPage}>
+            <section className={classes.CheckoutPage}>
                 <h1>Kasa</h1>
-                <p>TUTAJ BEDZIE JUTRO KASA</p>
-                {content}
-                {/* <div className={classes.prewiew}>
-
-                </div> */}
+                {form}
             </section>
         )
     }
@@ -193,8 +271,6 @@ class ReservationsPage extends Component {
 
 const mapStateToProps = state => {
     return {
-        numberOfReservations: state.numberOfReservations,
-        loading: state.loading
     };
 };
 
