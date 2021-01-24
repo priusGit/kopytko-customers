@@ -5,7 +5,7 @@ import classes from './BasketElement.module.css'
 class BasketElement extends Component {
     render() {
         return (
-            <div className={classes.MobileBasketElement} onClick={() => this.props.onOrderElementClick(this.props.title, this.props.price, this.props.id)}
+            <div className={classes.MobileBasketElement}
             >
                 {this.props.id===0 ? <div className={classes.endLine}></div> : null}
                 <div className={classes.mBasketContainer}>
@@ -18,8 +18,8 @@ class BasketElement extends Component {
                 <div className={classes.mBasketRight}>
                     <p>{this.props.amount * this.props.price}zł</p>
                     <div className={classes.addDelete}>
-                        <span>+</span>
-                        <span>-</span>
+                        <p onClick={() => this.props.addItem(this.props.title, this.props.price, this.props.id)}>+</p>
+                        <p onClick={() => this.props.deleteItem(this.props.title, this.props.price, this.props.id)}>-</p>
                     </div>
                 </div>
                 </div>
@@ -36,7 +36,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToPrsops = dispatch => {
     return {
-        onOrderElementClick: (item, price,id) => dispatch(actions.deleteItemFromBasketAction(item, price,id))
+        deleteItem: (item, price,id) => dispatch(actions.deleteItemFromBasketAction(item, price,id)),
+        addItem: (item, price,id) => dispatch(actions.addItemOnClickAction(item, price,id))
     };
 };
 // eslint-disable-next-line no-lone-blocks

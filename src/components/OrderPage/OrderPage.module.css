@@ -13,7 +13,7 @@ section.OrderPage{
 }
 .Title{
     font-size: 30px;
-    margin-top: 60px;
+    margin-top: 80px;
     color: rgba(220, 55, 39);
     font-family: 'Lora', serif;
     font-weight: 400;
@@ -54,8 +54,7 @@ section.OrderPage{
     padding: 5px 10px;
     transition: 0.05s linear;
 }
-.DishesTable > *:hover{
-    cursor: pointer;
+.DishesTable > *:active{
     background-color: transparent;
     animation: bgc 0.15s linear;
 }
@@ -218,6 +217,10 @@ section.OrderPage{
         cursor: pointer;
         background-color: #ccc;
         animation: none;
+    }
+    .DishesTable > *:active{
+        background-color: inherit;
+        animation:none;
     }
 }
 @media (min-width:1024px)

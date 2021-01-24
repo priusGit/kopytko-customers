@@ -4,10 +4,6 @@
 .MobileBasketElement p{
     color:#0a3847;
 }
-.MobileBasketElement:hover, .MobileBasketElement:active,.MobileBasketElement:focus{
-    background-color: rgb(240, 128, 128);
-    cursor: pointer;
-}
 .DishTitle{
     font-size: 24px;
     margin-bottom: 10px;
@@ -20,11 +16,6 @@
         height: 1px;
         width: 100%;
         background-color: lightgray;
-}
-.MobileBasketElement:hover{
-    background-color: transparent;
-    animation: MobileBasketElement 0.15s linear;
-    cursor: pointer;
 }
 .mBasketContainer{
     display: flex;
@@ -44,16 +35,27 @@
     
     text-align: right;
 }
-.addDelete span{
-    box-sizing: content-box;
+.addDelete p{
+    font-family: 'Poppins';
     display: inline-block;
-    width: 20px;
-    line-height: 20px;
-    border: 1px solid green;
+    font-weight: 200;
+    width: 35px;
+    line-height: 35px;
+    text-align: center;
+    font-size: 30px;
+    background-color: #ddd;
 }
+.addDelete p:active{
+    animation: MobileBasketElement 0.15s linear;
+}
+.addDelete p:first-child
+{
+    margin-right: 7px;
+}
+
 @keyframes MobileBasketElement {
-    0% {background-color: #fff;color:#0a3847;}
+    0% {background-color: #ddd;color:#0a3847;}
     50% {background-color:rgb(240, 128, 128); 
         color: #fff;}
-    100% {background-color: #fff;color:#0a3847;}
+    100% {background-color: #ddd;color:#0a3847;}
   }
