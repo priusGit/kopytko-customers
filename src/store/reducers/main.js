@@ -45,6 +45,17 @@ const fetchReservationSuccess = (state, action) => {
 const fetchReservationFail = (state, action) => {
     return updateObject(state, { loading: false, numberOfReservations: action.numberOfReservations });
 };
+const sendOrderStart = (state, action) => {
+    return updateObject(state, { loading: true });
+};
+
+const sendOrderSuccess = (state, action) => {
+    return updateObject(state, { loading: false});
+};
+
+const sendOrderFail = (state, action) => {
+    return updateObject(state, { loading: false});
+};
 const addItem = (state, action) => {
     let newItem = { item: action.item, price: action.price,amount:1 },found=false;
     const newPrice = Number(action.price) + state.fullPrice;
@@ -122,6 +133,9 @@ const reducer = (state = initialState, action) => {
         case actionTypes.ADD_ITEM: return addItem(state, action);
         case actionTypes.DELETE_ITEM: return deleteItem(state, action);
         case actionTypes.SCREEN_RESIZE: return screenResize(state, action);
+        case actionTypes.SEND_ORDER_START: return sendOrderStart(state, action);
+        case actionTypes.SEND_ORDER_SUCCESS: return sendOrderSuccess(state, action);
+        case actionTypes.SEND_ORDER_FAIL: return sendOrderFail(state, action);
         default: return state;
     }
 };

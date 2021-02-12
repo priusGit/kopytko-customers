@@ -4,14 +4,12 @@ import classes from './CheckoutPage.module.css';
 import axios from '../../axios-orders';
 import * as actions from '../../store/actions/index';
 import { connect } from 'react-redux';
-class ReservationsPage extends Component {
+class OrderPage extends Component {
     componentDidMount() {
-        //let link = this.getDate();
             window.scrollTo(0, 0);
     }
     state = {
-            reservationForm: {
-
+            orderForm: {
                 namesurname: {
                 label: "Imię i nazwisko:",
                 elementType: 'input',
@@ -55,7 +53,7 @@ class ReservationsPage extends Component {
                 valid: false,
                 touched: false
             },
-            ulica: {
+            street: {
                 label: "Ulica:",
                 elementType: 'input',
                 elementConfig: {
@@ -173,7 +171,7 @@ class ReservationsPage extends Component {
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
-                    placeholder: 'np. Proszę nie używać dzwonka. Dziekco śpi.'
+                    placeholder: 'np. Proszę nie używać dzwonka. Dziecko śpi.'
                 },
                 value: '',
                 validation: {
@@ -185,22 +183,6 @@ class ReservationsPage extends Component {
         },
         formIsValid: false
     }
-
-    getDate() {
-        let date = new Date();
-        let day = String(date.getDate());
-        let month = String(date.getMonth() + 1);
-        let year = String(date.getFullYear());
-        if (date.getDate() < 10) {
-            day = '0' + day;
-        }
-        if (date.getMonth() + 1 < '10') {
-            month = 0 + month;
-        }
-        let link = year + '-' + month + '-' + day;
-        return link;
-    }
-
     checkValidity(value, rules) {
         let isValid = true;
         if (!rules) {
@@ -214,34 +196,47 @@ class ReservationsPage extends Component {
     }
 
     inputChangedHandler = (elementType, event, inputIdentifier) => {
-        const updatedreservationForm = {
-            ...this.state.reservationForm
+        const updatedorderForm = {
+            ...this.state.orderForm
         };
         const updatedFormElement = {
-            ...updatedreservationForm[inputIdentifier]
+            ...updatedorderForm[inputIdentifier]
         };
         updatedFormElement.value = event.target.value;
         updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation);
         updatedFormElement.touched = true;
-        updatedreservationForm[inputIdentifier] = updatedFormElement;
+        updatedorderForm[inputIdentifier] = updatedFormElement;
 
         let formIsValid = true;
-        for (let inputIdentifier in updatedreservationForm) {
-            formIsValid = updatedreservationForm[inputIdentifier].valid && formIsValid;
+        for (let inputIdentifier in updatedorderForm) {
+            formIsValid = updatedorderForm[inputIdentifier].valid && formIsValid;
         }
-        this.setState({ reservationForm: updatedreservationForm, formIsValid: formIsValid });
+        this.setState({ orderForm: updatedorderForm, formIsValid: formIsValid });
+    }
+    orderSendHandler = (event) => {
+        event.preventDefault();
+        const formData = {};
+        for (let formElementIdentifier in this.state.orderForm) {
+            formData[formElementIdentifier] = this.state.orderForm[formElementIdentifier].value;
+        }
+        const data = {
+            deliveryData: formData,
+            order: this.props.orderedItems,
+            price: this.props.fullPrice
+        };
+        this.props.onOrderSent(data);
     }
     render() {
         const formElementsArray = [];
-        for (let key in this.state.reservationForm) {
+        for (let key in this.state.orderForm) {
             formElementsArray.push({
                 id: key,
-                config: this.state.reservationForm[key]
+                config: this.state.orderForm[key]
             });
         }
 
         let form = (
-            <form onSubmit={this.reservationHandler}>
+            <form onSubmit={this.orderSendHandler}>
                 {formElementsArray.map(formElement => (
                     <Input
                         key={formElement.id}
@@ -254,10 +249,9 @@ class ReservationsPage extends Component {
                         touched={formElement.config.touched}
                         changed={(event) => this.inputChangedHandler(formElement.config.elementType, event, formElement.id)} />
                 ))}
-                <button>ZAREZERWUJ!</button>
+                <button >Zamów!</button>
             </form>
         );
-        
         return (
             <section className={classes.CheckoutPage}>
                 <h1>Kasa</h1>
@@ -269,14 +263,15 @@ class ReservationsPage extends Component {
 
 const mapStateToProps = state => {
     return {
+        orderedItems: state.orderedItems,
+        fullPrice: state.fullPrice
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        onReservationSent: (reservationDate) => dispatch(actions.sendReservation(reservationDate)),
-        onFetchReservations: (link) => dispatch(actions.fetchReservations(link))
+        onOrderSent: (data) => dispatch(actions.onOrderSent(data))
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ReservationsPage, axios);
+export default connect(mapStateToProps, mapDispatchToProps)(OrderPage, axios);

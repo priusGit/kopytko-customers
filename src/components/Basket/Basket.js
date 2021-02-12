@@ -9,7 +9,6 @@ class Basket extends Component {
         window.scrollTo(0, 0);
     }
     render() {
-        console.log(this.props.orderedItems);
         let basket = (
             <Auxi>
                 {this.props.orderedItems.map((orderItem, i) => (

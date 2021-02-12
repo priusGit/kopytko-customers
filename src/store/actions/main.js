@@ -128,3 +128,37 @@ export const onScreenResize = () => {
         width: window.innerWidth
     };
 };
+export const sendOrderStart = () => {
+
+    return {
+        type: actionTypes.SEND_ORDER_START
+    };
+};
+
+export const sendOrderSuccess = () => {
+
+    return {
+        type: actionTypes.SEND_ORDER_SUCCESS
+    };
+};
+
+export const sendOrderFail = (error) => {
+    return {
+        type: actionTypes.SEND_ORDER_FAIL,
+        error: error
+    };
+}
+
+export const onOrderSent = (data) => {
+    return dispatch => {
+        dispatch(sendOrderStart());
+        axios.post('/orders.json', data)
+            .then(response => {
+                dispatch(sendOrderSuccess());
+            })
+            .catch(error => {
+                console.log(error);
+                dispatch(sendOrderFail(error));
+            });
+    }
+}
