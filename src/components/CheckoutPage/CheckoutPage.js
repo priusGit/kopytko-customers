@@ -4,6 +4,7 @@ import classes from './CheckoutPage.module.css';
 import axios from '../../axios-orders';
 import * as actions from '../../store/actions/index';
 import { connect } from 'react-redux';
+import PurchasedModal from '../smallParts/PurchasedModal/PurchasedModal'
 class OrderPage extends Component {
     componentDidMount() {
             window.scrollTo(0, 0);
@@ -11,7 +12,7 @@ class OrderPage extends Component {
     state = {
             orderForm: {
                 namesurname: {
-                label: "Imię i nazwisko:",
+                label: "Imię i nazwisko: *",
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
@@ -25,7 +26,7 @@ class OrderPage extends Component {
                 touched: false
             },
             email: {
-                label: "Adres mailowy:",
+                label: "Adres mailowy: *",
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
@@ -39,7 +40,7 @@ class OrderPage extends Component {
                 touched: false
             },
             phone: {
-                label: "Numer telefonu:",
+                label: "Numer telefonu: *",
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
@@ -54,7 +55,7 @@ class OrderPage extends Component {
                 touched: false
             },
             street: {
-                label: "Ulica:",
+                label: "Ulica: *",
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
@@ -68,7 +69,7 @@ class OrderPage extends Component {
                 touched: false
             },
             adressnumber: {
-                label: "Numer budynku:",
+                label: "Numer budynku: *",
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
@@ -83,7 +84,7 @@ class OrderPage extends Component {
                 touched: false
             },
             postcode: {
-                label: "Kod pocztowy",
+                label: "Kod pocztowy *",
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
@@ -98,7 +99,7 @@ class OrderPage extends Component {
                 touched: false
             },
             city: {
-                label: "Miasto",
+                label: "Miasto *",
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
@@ -235,27 +236,36 @@ class OrderPage extends Component {
             });
         }
 
-        let form = (
-            <form onSubmit={this.orderSendHandler}>
-                {formElementsArray.map(formElement => (
-                    <Input
-                        key={formElement.id}
-                        elementType={formElement.config.elementType}
-                        elementConfig={formElement.config.elementConfig}
-                        value={formElement.config.value}
-                        label={formElement.config.label}
-                        invalid={!formElement.config.valid}
-                        shouldValidate={formElement.config.validation}
-                        touched={formElement.config.touched}
-                        changed={(event) => this.inputChangedHandler(formElement.config.elementType, event, formElement.id)} />
-                ))}
-                <button >Zamów!</button>
-            </form>
-        );
+        
+        let form= (
+                <form onSubmit={this.orderSendHandler}>
+                    {formElementsArray.map(formElement => (
+                        <Input
+                            key={formElement.id}
+                            elementType={formElement.config.elementType}
+                            elementConfig={formElement.config.elementConfig}
+                            value={formElement.config.value}
+                            label={formElement.config.label}
+                            invalid={!formElement.config.valid}
+                            shouldValidate={formElement.config.validation}
+                            touched={formElement.config.touched}
+                            required={formElement.config.validation.required}
+                            changed={(event) => this.inputChangedHandler(formElement.config.elementType, event, formElement.id)} />
+                    ))}
+                    <button >Zamów!</button>
+                </form>
+            );
+        let modal;
+        if(this.props.orderStatus)
+        {
+            modal = <PurchasedModal/>
+     }
         return (
             <section className={classes.CheckoutPage}>
                 <h1>Kasa</h1>
+                <p>* - pole wymagane</p>
                 {form}
+                {modal}
             </section>
         )
     }
@@ -264,7 +274,8 @@ class OrderPage extends Component {
 const mapStateToProps = state => {
     return {
         orderedItems: state.orderedItems,
-        fullPrice: state.fullPrice
+        fullPrice: state.fullPrice,
+        orderStatus: state.orderStatus
     };
 };
 

@@ -162,3 +162,9 @@ export const onOrderSent = (data) => {
             });
     }
 }
+export const afterPurchase = (data) => {
+    return {
+        type: actionTypes.AFTER_PURCHASE,
+        data : data
+    };
+}

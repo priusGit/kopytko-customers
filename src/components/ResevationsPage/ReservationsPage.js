@@ -15,14 +15,16 @@ class ReservationsPage extends Component {
     state = {
         reservationForm: {
             reservationDate: {
-                label: "Podaj datę, na jaką ma być rezerwacja:",
+                label: "Podaj datę, na jaką ma być rezerwacja: *",
                 elementType: 'date',
-                validation: {},
+                validation: {
+                    required: true
+                },
                 value: this.getDate(),
                 valid: true
             },
             name: {
-                label: "Imię:",
+                label: "Imię: *",
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
@@ -36,7 +38,7 @@ class ReservationsPage extends Component {
                 touched: false
             },
             surName: {
-                label: "Nazwisko:",
+                label: "Nazwisko: *",
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
@@ -50,7 +52,7 @@ class ReservationsPage extends Component {
                 touched: false
             },
             phoneNumber: {
-                label: "Numer telefonu:",
+                label: "Numer telefonu: *",
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
@@ -122,10 +124,8 @@ class ReservationsPage extends Component {
         for (let formElementIdentifier in this.state.reservationForm) {
             formData[formElementIdentifier] = this.state.reservationForm[formElementIdentifier].value;
         }
-        console.log(formData);
         this.props.onReservationSent(formData);
     }
-
     render() {
         const formElementsArray = [];
         for (let key in this.state.reservationForm) {
@@ -136,7 +136,7 @@ class ReservationsPage extends Component {
         }
 
         let form = (
-            <form onSubmit={this.reservationHandler}>
+            <form className={classes.reservationsForm} onSubmit={this.reservationHandler}>
                 {formElementsArray.map(formElement => (
                     <Input
                         key={formElement.id}
@@ -147,6 +147,7 @@ class ReservationsPage extends Component {
                         invalid={!formElement.config.valid}
                         shouldValidate={formElement.config.validation}
                         touched={formElement.config.touched}
+                        required={formElement.config.validation.required}
                         changed={(event) => this.inputChangedHandler(formElement.config.elementType, event, formElement.id)} />
                 ))}
                 <button>ZAREZERWUJ!</button>

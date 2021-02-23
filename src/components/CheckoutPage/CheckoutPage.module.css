@@ -1,6 +1,4 @@
 .CheckoutPage{
-    /* border: 1px solid green; */
-    width: 100vw;
     box-sizing: border-box;
     padding: 0 20px;
 }
@@ -109,9 +107,8 @@
         width: 50%;
     }
     .CheckoutPage button{
-        margin-bottom: 0px;
         width: 70%;
-    margin: 25px 15% 0 15%;
+    margin: 25px 15% 30px 15%;
     }
 
 }

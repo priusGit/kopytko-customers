@@ -1,1 +1,1 @@
-export { sendMessage, sendReservation, fetchReservations, addItemOnClickAction, deleteItemFromBasketAction, onScreenResize, onOrderSent } from './main';
+export { sendMessage, sendReservation, fetchReservations, addItemOnClickAction, deleteItemFromBasketAction, onScreenResize, onOrderSent,afterPurchase } from './main';

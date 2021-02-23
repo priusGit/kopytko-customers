@@ -8,7 +8,9 @@ const initialState = {
     ],
     fullPrice: 0,
     windowWidth: undefined,
-    language: "pl"
+    language: "pl",
+    orderStatus:null,
+    error:null
 };
 
 const sendMessageStart = (state, action) => {
@@ -46,15 +48,15 @@ const fetchReservationFail = (state, action) => {
     return updateObject(state, { loading: false, numberOfReservations: action.numberOfReservations });
 };
 const sendOrderStart = (state, action) => {
-    return updateObject(state, { loading: true });
+    return updateObject(state, { loading: true, orderStatus:"sent" });
 };
 
 const sendOrderSuccess = (state, action) => {
-    return updateObject(state, { loading: false});
+    return updateObject(state, { loading: false, orderStatus:"success" });
 };
 
 const sendOrderFail = (state, action) => {
-    return updateObject(state, { loading: false});
+    return updateObject(state, { loading: false, orderStatus:"failed" });
 };
 const addItem = (state, action) => {
     let newItem = { item: action.item, price: action.price,amount:1 },found=false;
@@ -119,6 +121,17 @@ const deleteItem = (state, action) => {
     } 
 };
 
+const afterPurchase = (state, action) => {
+    if(action.data==="success")
+    {
+        return updateObject(state, { fullPrice:0,orderedItems: [],orderStatus:null });
+    }
+    else{
+        return updateObject(state, { orderStatus:null });
+    }
+        
+}
+
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.SEND_MESSAGE_START: return sendMessageStart(state, action);
@@ -136,6 +149,7 @@ const reducer = (state = initialState, action) => {
         case actionTypes.SEND_ORDER_START: return sendOrderStart(state, action);
         case actionTypes.SEND_ORDER_SUCCESS: return sendOrderSuccess(state, action);
         case actionTypes.SEND_ORDER_FAIL: return sendOrderFail(state, action);
+        case actionTypes.AFTER_PURCHASE: return afterPurchase(state, action);
         default: return state;
     }
 };

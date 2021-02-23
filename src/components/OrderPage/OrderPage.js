@@ -46,11 +46,11 @@ class OrderPage extends Component {
                     <OrderElement key={i} id={i} title={orderItem.item} price={orderItem.price} amount={orderItem.amount}/>
                 ))}
                 <p>Razem: {this.props.fullPrice}zł</p>
-                <p>Koszt dostawy: {this.props.fullPrice < 100 ? "15zł" : "DARMOWA"}</p>
+                <p>Koszt dostawy: {this.props.fullPrice < 60 ? "15zł" : "DARMOWA"}</p>
                 <h1>Cena całkowita: {
-                    this.props.fullPrice + (this.props.fullPrice < 100 ? 15 : 0)
+                    this.props.fullPrice + (this.props.fullPrice < 60 ? 15 : 0)
                 }</h1>
-                {this.props.fullPrice >= 100 ? null : <p>Darmowa dostawa od 60zł! Brakuje Ci: {60 - this.props.fullPrice}zł</p>}<NavLink className={classes.orderButton} exact to={"/checkout"}>Kasa ({this.props.fullPrice + ((this.props.fullPrice < 100) && (this.props.fullPrice !== 0) ? 15 : 0)}zł)</NavLink>
+                {this.props.fullPrice >= 60 ? null : <p>Darmowa dostawa od 60zł! Brakuje Ci: {60 - this.props.fullPrice}zł</p>}<NavLink className={classes.orderButton} exact to={"/checkout"}>Kasa ({this.props.fullPrice + ((this.props.fullPrice < 60) && (this.props.fullPrice !== 0) ? 15 : 0)}zł)</NavLink>
             </Auxi>
         );
         let emptyBasket = (
