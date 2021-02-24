@@ -40,10 +40,4 @@ const mapDispatchToPrsops = dispatch => {
         addItem: (item, price,id) => dispatch(actions.addItemOnClickAction(item, price,id))
     };
 };
-// eslint-disable-next-line no-lone-blocks
-{/* <p className={classes.DishTitle}>{this.props.title}</p>
-                <p>Dodaj notatkę</p>
-                <p>{this.props.price}zł</p>
-                <p>{this.props.amount}</p>
-                <div className={classes.endLine}></div> */}
 export default connect(mapStateToProps, mapDispatchToPrsops)(BasketElement);

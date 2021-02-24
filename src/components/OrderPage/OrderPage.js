@@ -7,6 +7,7 @@ import OrderElement from '../smallParts/OrderElement/OrderElement'
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
 import Auxi from '../../hoc/Auxi'
+import Basket from '../Basket/Basket'
 class OrderPage extends Component {
     componentDidMount() {
         this.props.onScreenResize();
@@ -18,6 +19,7 @@ class OrderPage extends Component {
         window.removeEventListener('resize', this.props.onScreenResize);
     }
     render() {
+        ///Top bar hider with basket position fix
         let prevScrollpos = window.pageYOffset;
         if (this.props.width >= 768) {
             window.onscroll = function () {
@@ -30,48 +32,24 @@ class OrderPage extends Component {
                     document.getElementById("NavBar").style.top = "0";
                     if (flag === true) {
                         document.getElementById("OrderCategories").style.top = "65px";
+                        document.getElementById("pcBasket").style.top = "65px";
+                        document.getElementById("pcBasket").style.height = "calc(100vh - 65px)";
                     }
                 } else {
                     document.getElementById("NavBar").style.top = "-65px";
                     if (flag === true) {
                         document.getElementById("OrderCategories").style.top = "0px";
+                        document.getElementById("pcBasket").style.top = "0px";
+                        document.getElementById("pcBasket").style.height = "100vh";
                     }
                 }
                 prevScrollpos = currentScrollPos;
             }
         }
-        let basket = (
-            <Auxi>
-                {this.props.orderedItems.map((orderItem, i) => (
-                    <OrderElement key={i} id={i} title={orderItem.item} price={orderItem.price} amount={orderItem.amount}/>
-                ))}
-                <p>Razem: {this.props.fullPrice}zł</p>
-                <p>Koszt dostawy: {this.props.fullPrice < 60 ? "15zł" : "DARMOWA"}</p>
-                <h1>Cena całkowita: {
-                    this.props.fullPrice + (this.props.fullPrice < 60 ? 15 : 0)
-                }</h1>
-                {this.props.fullPrice >= 60 ? null : <p>Darmowa dostawa od 60zł! Brakuje Ci: {60 - this.props.fullPrice}zł</p>}<NavLink className={classes.orderButton} exact to={"/checkout"}>Kasa ({this.props.fullPrice + ((this.props.fullPrice < 60) && (this.props.fullPrice !== 0) ? 15 : 0)}zł)</NavLink>
-            </Auxi>
-        );
-        let emptyBasket = (
-            <Auxi>
-                <h1>KUCHNIA MY CHCEMY JEŚĆ</h1>
-            </Auxi>
-        );
-            let basketPC = 
+            let proceedtoBasketButton = 
             (
-                <aside className={classes.Basket}>
-                    <h1>Koszyk</h1>
-                    <div className={classes.endLine}></div>
-                    {this.props.orderedItems.length === 0 ? emptyBasket : basket}
-                    <div></div>
-                </aside>
-            );
-
-            let basketMobile = 
-            (
-                <div className={classes.mobileBasket} id="MobileBasket">
-                    <NavLink className={classes.orderButton} exact to={"/basket"}>Kasa ({this.props.fullPrice + ((this.props.fullPrice < 100) && (this.props.fullPrice !== 0) ? 15 : 0)}zł)</NavLink>
+                <div className={classes.bottomButtonContainer} id="proceedtoBasketButton">
+                    <NavLink className={classes.proceedtoBasketButton} exact to={"/basket"}>Kasa ({this.props.fullPrice + ((this.props.fullPrice < 100) && (this.props.fullPrice !== 0) ? 15 : 0)}zł)</NavLink>
                 </div>
             );
             let categoriesPC = 
@@ -92,7 +70,7 @@ class OrderPage extends Component {
             );
         return (
             <section className={classes.OrderPage}>
-                {this.props.width < 768 ? basketMobile : basketPC}
+                {this.props.width < 768 ? proceedtoBasketButton : <Basket/>}
                 <section className={classes.Container}>
                     <h1 className={classes.Title}>Zamów do domu!</h1>
                     <p className={classes.subTitle}>Masz ochotę zjeść w domowym zaciszu? Nic trudnego, twoje zamówienie dowieziemy ci pod sam dom! Codziennie, w godzinach działalności restauracji. Dodaj danie do koszyka poprzez kliknięcie na nie, tak po prostu!</p>
@@ -100,7 +78,8 @@ class OrderPage extends Component {
                     <h1 className={classes.categoryTitle}>Szef Kuchni Poleca</h1>
                     <div className={classes.bar}></div>
                     <div className={classes.DishesTable} id="recommended">
-                        <Dish title="1Reco" price="12" />
+                        <Dish title="Cynamonka z jajkiem i boczkiem
+ " price="12" />
                         <Dish title="2Reco" price="12" />
                         <Dish title="3Reco" price="12" />
                         <Dish title="4Reco" price="12" />

@@ -19,6 +19,22 @@
     font-family: 'Poppins', sans-serif;
     font-size: 15px;
 }
+.Basket{
+    position: fixed;
+    top: 65px;
+    right: 0;
+    height: 100vh;
+    border: 1px solid #c0c0c0;
+    width: 350px;
+    background-color: #fff;
+    overflow-y:auto;
+    transition: 0.2s linear;
+    padding: 0 10px;
+}
+.Basket h1{
+    text-align: center;
+}
+
 .bar{
     margin: 0 auto;
     margin-top: 70px;
@@ -27,24 +43,18 @@
     background-color: rgb(220, 55, 39);
     display:none;
 }
-.prewiew{
-    border: 3px solid black;
-    height: calc(80vh - 40px);
-    width: 70vw;
-    margin-top: 60px;
+.endLine{
+    margin: 0 auto;
+    height: 1px;
+    width: 90%;
+    background-color: lightgray;
+}
+
+.bas{
     margin-left: 50%;
     transform: translateX(-50%);
-    box-sizing: border-box;
 }
-.datePicker{
-    height: 200px;
-    width: 70vw;
-    margin-top: 30px;
-    margin-left: 50%;
-    transform: translateX(-50%);
-    box-sizing: border-box;
-}
-.MobileBasket .proceedToCheckout{
+.orderButton{
     background-color:transparent;
 	border:solid rgba(220, 55, 39, 1) 1px;
 	display:inline-block;
@@ -65,14 +75,21 @@
     transition: 0.15s ease-in;
     text-align: center;
 }
-.MobileBasket .proceedToCheckout:focus{
+.MobileBasket .orderButton:focus{
 	border:solid rgba(220, 55, 39, 1) 1px;
 	
 }
-.MobileBasket .proceedToCheckout:hover{
+.MobileBasket .orderButton:hover{
     background-color: transparent;
     animation: MobileBasketButton 0.15s linear;
     cursor: pointer;
+}
+.emptyBasketCopy{
+    color: grey;
+    text-align: center;
+}
+.basketTitle{
+    margin: 10px 0;
 }
 @keyframes MobileBasketButton {
     0% {background-color: #fff;color: rgb(220, 55, 39);}
@@ -80,12 +97,6 @@
         color: #fff;}
     100% {background-color: #fff;color: rgb(220, 55, 39);}
   }
-label{
-    font-family: 'Poppins', sans-serif;
-}
-input[type="date"]{
-    font-family: 'Poppins', sans-serif;
-}
 @media (max-width:400px)
 {
     
@@ -97,30 +108,33 @@ input[type="date"]{
 @media (min-width:768px)
 {
     /* komputery juz */
+    .MobileBasket{
+        width: 100%;
+    }
     .MobileBasket h1{
-        color: rgb(220, 55, 39);
-        font-family: 'Merriweather', serif;
-        font-weight: 400;
-        font-size: 30px;
-        margin-top: 60px;
+        margin-top: 20px;
+    }
+    .orderButton {
+        background-color: rgb(236, 51, 34);
+        border-radius:4px;
+        border:1px solid rgb(189, 46, 33);
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:'Poppins';
+        font-size:17px;
+        width: 98%;
         text-align: center;
-        letter-spacing: 2px;
+        padding:8px 35px;
+        margin-left: 1%;
+        text-decoration:none;
     }
-    .MobileBasket p{ font-size: 24px;}
-    .MobileBasket form{
-        box-sizing: border-box;
-        margin-left: 50%;
-        transform: translateX(-50%);
-        width: 50%;
+    .orderButton:active {
+        background-color: rgba(220, 55, 39);
+        top:1px;
     }
-    .MobileBasket button{
-        margin-bottom: 0px;
-        width: 70%;
-    margin: 25px 15% 0 15%;
-    }
-    .MobileBasket button:hover{
-        background-color: rgb(220, 55, 39);
-        animation: none;
+    .bas{
+        margin-top: 10vh;
     }
 }
 @media (min-width:1024px)

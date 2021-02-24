@@ -23,11 +23,11 @@
     padding: 10px 0;
 }
 .mBasketLeft{
-    flex-basis: 15%;
+    flex-basis: 5%;
     text-align: center;
 }
 .mBasketMid{
-    flex-basis: 60%;
+    flex-basis: 70%;
     text-align: left;
 }
 .mBasketRight{
@@ -59,3 +59,9 @@
         color: #fff;}
     100% {background-color: #ddd;color:#0a3847;}
   }
+  @media (min-width:768px)
+{
+    /* komputery juz */
+    .mBasketLeft{
+    text-align: left;}
+}

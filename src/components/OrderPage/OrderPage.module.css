@@ -4,7 +4,7 @@ section.OrderPage{
 }
 .Container{
     width: 90%;
-    margin-left: 5%;
+    padding-left: 5%;
 }
 .Title, .subTitle,.categoryTitle{  
     display: block;
@@ -63,16 +63,7 @@ section.OrderPage{
     50% {background-color: #ccc;}
     100% {background-color: #fff;}
   }
-.Basket{
-    position: fixed;
-    top: 65px;
-    right: 0;
-    height: calc(100vh - 60px);
-    border: 1px solid #c0c0c0;
-    width: 20vw;
-    background-color: #fff;
-    overflow-y:auto
-}
+
 .OrderCategories{
     display: flex;
     position: sticky;
@@ -109,12 +100,30 @@ section.OrderPage{
   
 .endLine{
     margin: 0 auto;
-    margin-top: 10px;
     height: 1px;
     width: 90%;
     background-color: lightgray;
 }
-.orderButton {
+
+.orderButton:active {
+	background-color: rgba(220, 55, 39);
+}
+.bottomButtonContainer
+{
+    position: fixed;
+    height: calc(var(--topNavHeight) + 10px);
+    bottom: 0;
+    width:100vw;
+    list-style: none;
+    padding-top: 10px;
+    background-color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    z-index: 1;
+    border-top: 1px solid#ebebeb ;
+    transition: 0.05s linear;
+}
+.proceedtoBasketButton {
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
@@ -132,24 +141,6 @@ section.OrderPage{
     padding: 13px;
     background-color: rgb(236, 51, 34);
 }
-.orderButton:active {
-	background-color: rgba(220, 55, 39);
-}
-.mobileBasket
-{
-    position: fixed;
-    height: calc(var(--topNavHeight) + 10px);
-    bottom: 0;
-    width:100vw;
-    list-style: none;
-    padding-top: 10px;
-    background-color: #fff;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 300;
-    z-index: 1;
-    border-top: 1px solid#ebebeb ;
-    transition: 0.05s linear;
-}
 @media (max-width:400px)
 {
     
@@ -163,7 +154,6 @@ section.OrderPage{
     /* komputery juz */
     .Container{
         width:80%;
-        margin-left: 5%;
     }
     .Title{
         margin-left: -50px;
