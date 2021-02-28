@@ -11,10 +11,56 @@
 {
     position: fixed;
     height: 70vh;
-    width: 60vw;
-    top: 10vh;
-    left: 20vw;
+    width: 90vw;
+    top: 15vh;
+    left: 5vw;
     background-color: white;
     padding: 10px 15px;
     overflow: hidden;
+}
+.PurchasedModal .ModalH{
+    margin-top: 30px;
+}
+.toMainPage{
+    background-color:transparent;
+	border:solid rgba(220, 55, 39, 1) 1px;
+	display:inline-block;
+	cursor:pointer;
+	color: rgb(220, 55, 39);
+	font-size:16px;
+	font-weight:bold;
+    padding:9px 55px;
+    width: 300px;
+    text-decoration:none;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    outline:none;
+    transition: 0.15s ease-in;
+    text-align: center;
+    margin-left: calc(45vw - 165px);
+}
+.toMainPage:focus{
+	border:solid rgba(220, 55, 39, 1) 1px;
+}
+.toMainPage:hover{
+	background-color: rgb(220, 55, 39);
+    color: white;
+}
+@media (min-width:768px)
+{
+    /* komputery juz */
+    .PurchasedModal
+    {
+        
+        width: 60vw;
+        top: 10vh;
+        left: 20vw;
+        
+    }
+
+    .toMainPage{
+        margin-left: calc(30vw - 165px);
+    }
 }

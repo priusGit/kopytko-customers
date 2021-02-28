@@ -17,7 +17,7 @@ class PurchasedModal extends Component {
             {  
                 modalConent =(
                     <Auxi>
-                        <h1>Garnki w ruch!</h1>
+                        <h1 className={classes.ModalH}>Garnki w ruch!</h1>
                         <p>twoje zamówienie zostało przyjęte przez restaurację</p>
                         <p>Wysyłka za około: 45 minut</p>
                         <NavLink onClick={()=> this.props.afterPurchase(this.props.orderStatus)} className={classes.toMainPage} exact to={"/"}>Strona główna</NavLink>

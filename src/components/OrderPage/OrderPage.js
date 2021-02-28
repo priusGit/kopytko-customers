@@ -3,10 +3,8 @@ import classes from './OrderPage.module.css';
 import { NavLink } from 'react-router-dom'
 import Dish from '../smallParts/Dish/Dish';
 import axios from '../../axios-orders';
-import OrderElement from '../smallParts/OrderElement/OrderElement'
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
-import Auxi from '../../hoc/Auxi'
 import Basket from '../Basket/Basket'
 class OrderPage extends Component {
     componentDidMount() {

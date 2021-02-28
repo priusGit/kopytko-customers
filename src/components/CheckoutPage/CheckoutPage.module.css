@@ -64,7 +64,6 @@
 }
 .CheckoutPage button:focus{
 	border:solid rgba(220, 55, 39, 1) 1px;
-	
 }
 .CheckoutPage button:hover{
 	background-color: rgb(220, 55, 39);
