@@ -59,9 +59,20 @@
         color: #fff;}
     100% {background-color: #ddd;color:#0a3847;}
   }
+
   @media (min-width:768px)
 {
-    /* komputery juz */
-    .mBasketLeft{
-    text-align: left;}
+    .mBasketRight{
+        flex-basis: 50%;
+        text-align: right;
+    }
+   
+}
+@media (min-width:1024px)
+{
+    
+}
+@media (min-width:1200px)
+{
+    
 }
