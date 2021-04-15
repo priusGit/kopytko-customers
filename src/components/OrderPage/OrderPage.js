@@ -29,12 +29,12 @@ class OrderPage extends Component {
                 if (prevScrollpos > currentScrollPos) {
                     document.getElementById("NavBar").style.top = "0";
                     if (flag === true) {
-                        document.getElementById("OrderCategories").style.top = "65px";
-                        document.getElementById("pcBasket").style.top = "65px";
-                        document.getElementById("pcBasket").style.height = "calc(100vh - 65px)";
+                        document.getElementById("OrderCategories").style.top = "75px";
+                        document.getElementById("pcBasket").style.top = "75px";
+                        document.getElementById("pcBasket").style.height = "calc(100vh - 75px)";
                     }
                 } else {
-                    document.getElementById("NavBar").style.top = "-65px";
+                    document.getElementById("NavBar").style.top = "-75px";
                     if (flag === true) {
                         document.getElementById("OrderCategories").style.top = "0px";
                         document.getElementById("pcBasket").style.top = "0px";
