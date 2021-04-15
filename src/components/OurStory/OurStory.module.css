@@ -118,9 +118,40 @@ h2.owner{
 
 @media (max-width:400px)
 {
-    
+    .OurStory .image1{
+        height: 300px;
+    }
+    .animateScroller{
+        margin-top: 0;
+    }
+    .image2,.wideBar,.quote{
+        display: none;
+    }
 }
-@media (min-width:480px)
+@media (min-width:401px) and (max-width:767px)
+{
+    .OurStory .image1{
+        height: 400px;
+    }
+    .animateScroller{
+        margin-top: 0;
+    }
+    .OurStory .image2{
+        position: absolute;
+        left: -25px;
+        width: 110vw;
+    }
+    .OurStory .bar{
+        margin-top: 30px;
+    }
+    .OurStory .wideBar{
+        margin-top: 60px;
+    }
+    .OurStory .quote{
+        display: none;
+    }
+}
+@media (min-width:480px) and (max-width:767px)
 {
 
 }
@@ -150,7 +181,7 @@ h2.owner{
         transform: translateX(50%);
         display: block;
     }
-    .text .quote{
+    .wideBar .quote{
         width: 49%;
         height: 100%;
         position: absolute;

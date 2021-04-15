@@ -10,8 +10,7 @@ class OurStory extends Component {
         const element = <FontAwesomeIcon icon={faAngleDown} />
         return (
             <section className={classes.OurStory}>
-                <div className={classes.image1}>
-                </div>
+                    <div className={classes.image1}></div>
                     <h2>
                         Nasza historia
                     </h2>
