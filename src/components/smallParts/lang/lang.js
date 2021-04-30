@@ -1,1 +1,1 @@
-export const MainPageSubTitle = 'Cozy and warm - with polish food!';
+export const MainPageSubTitle = "Cozy and warm - with polish food!";
