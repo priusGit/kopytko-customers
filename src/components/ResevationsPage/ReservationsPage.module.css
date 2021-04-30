@@ -1,122 +1,115 @@
-.ReservationsPage{
-    box-sizing: border-box;
-    padding: 0 20px;
+.ReservationsPage {
+  box-sizing: border-box;
+  padding: 0 20px;
 }
-.ReservationsPage h1{
+.ReservationsPage h1 {
+  color: rgb(220, 55, 39);
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+  font-size: 30px;
+  margin-top: 80px;
+  text-align: center;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+.ReservationsPage p {
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  font-size: 18px;
+}
+.bar {
+  margin: 0 auto;
+  margin-top: 70px;
+  height: 2px;
+  width: 90%;
+  background-color: rgb(220, 55, 39);
+  display: none;
+}
+.prewiew {
+  border: 3px solid black;
+  height: calc(80vh - 40px);
+  width: 70vw;
+  margin-top: 60px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  box-sizing: border-box;
+}
+.datePicker {
+  height: 200px;
+  width: 70vw;
+  margin-top: 30px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  box-sizing: border-box;
+}
+.ReservationsPage button {
+  background-color: transparent;
+  border: solid rgba(220, 55, 39, 1) 1px;
+  display: inline-block;
+  cursor: pointer;
+  color: rgb(220, 55, 39);
+  font-family: Arial;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 9px 55px;
+  width: calc(100% - 20px);
+  text-decoration: none;
+  margin-left: 10px;
+  margin-top: 25px;
+  margin-bottom: 80px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  outline: none;
+  transition: 0.15s ease-in;
+}
+.ReservationsPage button:focus {
+  border: solid rgba(220, 55, 39, 1) 1px;
+}
+.ReservationsPage button:hover {
+  background-color: rgb(220, 55, 39);
+  color: white;
+}
+label {
+  font-family: "Poppins", sans-serif;
+}
+input[type="date"] {
+  font-family: "Poppins", sans-serif;
+}
+@media (max-width: 400px) {
+}
+@media (min-width: 480px) {
+}
+@media (min-width: 768px) {
+  /* komputery juz */
+  .ReservationsPage h1 {
     color: rgb(220, 55, 39);
-    font-family: 'Merriweather', serif;
+    font-family: "Merriweather", serif;
     font-weight: 400;
     font-size: 30px;
-    margin-top: 80px;
+    margin-top: 60px;
     text-align: center;
     letter-spacing: 2px;
-    margin-bottom: 15px;
-}
-.ReservationsPage p{
-    font-weight: 400;
-    font-family: 'Poppins', sans-serif;
-    text-align: center;
-    font-size: 18px;
-}
-.bar{
-    margin: 0 auto;
-    margin-top: 70px;
-    height: 2px;
-    width: 90%;
-    background-color: rgb(220, 55, 39);
-    display:none;
-}
-.prewiew{
-    border: 3px solid black;
-    height: calc(80vh - 40px);
-    width: 70vw;
-    margin-top: 60px;
+  }
+  .ReservationsPage p {
+    font-size: 24px;
+  }
+  .ReservationsPage form {
+    box-sizing: border-box;
     margin-left: 50%;
     transform: translateX(-50%);
-    box-sizing: border-box;
-}
-.datePicker{
-    height: 200px;
-    width: 70vw;
-    margin-top: 30px;
-    margin-left: 50%;
-    transform: translateX(-50%);
-    box-sizing: border-box;
-}
-.ReservationsPage button{
-    background-color:transparent;
-	border:solid rgba(220, 55, 39, 1) 1px;
-	display:inline-block;
-	cursor:pointer;
-	color: rgb(220, 55, 39);
-	font-family:Arial;
-	font-size:16px;
-	font-weight:bold;
-    padding:9px 55px;
-    width: calc(100% - 20px);
-    text-decoration:none;
-    margin-left: 10px;
-    margin-top: 25px;
-    margin-bottom: 80px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 300;
-    outline:none;
-    transition: 0.15s ease-in;
-}
-.ReservationsPage button:focus{
-	border:solid rgba(220, 55, 39, 1) 1px;
-	
-}
-.ReservationsPage button:hover{
-	background-color: rgb(220, 55, 39);
-    color: white;
-}
-label{
-    font-family: 'Poppins', sans-serif;
-}
-input[type="date"]{
-    font-family: 'Poppins', sans-serif;
-}
-@media (max-width:400px)
-{
-    
-}
-@media (min-width:480px)
-{
-
-}
-@media (min-width:768px)
-{
-    /* komputery juz */
-    .ReservationsPage h1{
-        color: rgb(220, 55, 39);
-        font-family: 'Merriweather', serif;
-        font-weight: 400;
-        font-size: 30px;
-        margin-top: 60px;
-        text-align: center;
-        letter-spacing: 2px;
-    }
-    .ReservationsPage p{ font-size: 24px;}
-    .ReservationsPage form{
-        box-sizing: border-box;
-        margin-left: 50%;
-        transform: translateX(-50%);
-        width: 50%;
-    }
-    .ReservationsPage button{
-        margin-bottom: 0px;
-        width: 70%;
+    width: 50%;
+  }
+  .ReservationsPage button {
+    margin-bottom: 0px;
+    width: 70%;
     margin: 25px 15% 0 15%;
-    }
-
+  }
 }
-@media (min-width:1024px)
-{
-    
+@media (min-width: 1024px) {
+  .ReservationsPage h1 {
+    margin-top: 80px;
+  }
 }
-@media (min-width:1200px)
-{
-    
+@media (min-width: 1200px) {
 }
-        
