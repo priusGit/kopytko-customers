@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Auxi from "../../hoc/Auxi";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions/index";
-import classes from "./MainPage.module.css";
+import MainPagePC from "./MainPagePC/MainPagePC";
+import MainPageMobile from "./MainPageMobile/MainPageMobile";
 // import * as Language from '../smallParts/lang/lang';
 class MainPage extends Component {
   componentDidMount() {
@@ -10,51 +10,17 @@ class MainPage extends Component {
     window.scrollTo(0, 0);
     window.addEventListener("resize", this.props.onScreenResize);
   }
-
   componentWillUnmount() {
     window.removeEventListener("resize", this.props.onScreenResize);
   }
   render() {
+    let content;
     if (this.props.width < 768) {
-      return (
-        <Auxi>
-          <section className={classes.MainPage}>
-            <div className={classes.Left}>
-              <div className={classes.mobileMain}>
-                <h1>KOPYTKO</h1>
-                <p>Rodzinnie i cieple - po polsku!</p>
-                {/* <p>{Language.MainPageSubTitle}</p> */}
-                <a className={classes.buttonMainPage} href="/menu">
-                  Zobacz Menu
-                </a>
-              </div>
-            </div>
-          </section>
-        </Auxi>
-      );
+      content = <MainPageMobile />;
     } else {
-      return (
-        <Auxi>
-          <section className={classes.MainPage}>
-            <div className={classes.Left}>
-              <div className={classes.leftContent}>
-                <h1>KOPYTKO</h1>
-                <p>Rodzinnie i cieple - po polsku!</p>
-                <a className={classes.buttonMainPage} href="/menu">
-                  Zobacz Menu
-                </a>
-              </div>
-            </div>
-            <div className={classes.Right}>
-              <div className={classes.topleft}></div>
-              <div className={classes.topright}></div>
-              <div className={classes.botleft}></div>
-              <div className={classes.botright}></div>
-            </div>
-          </section>
-        </Auxi>
-      );
+      content = <MainPagePC />;
     }
+    return content;
   }
 }
 const mapStateToProps = (state) => {
