@@ -1,0 +1,93 @@
+section.MainPage {
+  height: 100vh;
+  overflow: hidden;
+}
+.Left {
+  padding: 0 30px;
+}
+.Right {
+  width: 100%;
+  height: 25%;
+}
+.mobileMain {
+  margin-top: 55vh;
+  transform: translateY(-50%);
+}
+.leftContent {
+  margin-top: 30vh;
+  transform: translateY(-50%);
+}
+.topleft {
+  background-image: url(../../../assets/babka.jpg);
+  background-position: top;
+  background-size: 180%;
+}
+.topright {
+  background-image: url(../../../assets/grochowka.webp);
+  background-position: center;
+  background-size: 200%;
+}
+.botleft {
+  background-image: url(../../../assets/zurek.jpg);
+  background-position: center;
+  background-size: 150%;
+}
+
+.botright {
+  background-image: url(../../../assets/murzynek.jpg);
+  background-position: center;
+  background-size: 150%;
+}
+.Left h1 {
+  font-family: "Oswald", sans-serif;
+  text-align: center;
+  font-size: 90px;
+  color: rgb(220, 55, 39);
+  margin-bottom: 0;
+  letter-spacing: 3px;
+}
+.Left p {
+  font-family: "Poppins", sans-serif;
+  margin-top: 0;
+  text-align: center;
+  font-size: 30px;
+  color: black;
+  font-weight: 300;
+}
+a.buttonMainPage {
+  background-color: transparent;
+  border: solid rgba(220, 55, 39, 1) 1px;
+  display: inline-block;
+  cursor: pointer;
+  color: rgb(220, 55, 39);
+  font-family: Arial;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 9px 55px;
+  text-decoration: none;
+  margin-left: calc(50% - 110px);
+  margin-top: 30px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  transition: 0.15s ease-in;
+}
+a.buttonMainPage:hover {
+  background-color: rgb(220, 55, 39);
+  color: white;
+}
+a.buttonMainPage:active {
+  position: relative;
+  top: 1px;
+}
+@media (max-width: 400px) {
+  .Left h1 {
+    font-family: "Oswald", sans-serif;
+    text-align: center;
+    font-size: 60px;
+    color: rgb(220, 55, 39);
+    margin-bottom: 0;
+    letter-spacing: 3px;
+  }
+}
+@media (min-width: 480px) {
+}
