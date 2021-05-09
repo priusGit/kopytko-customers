@@ -25,7 +25,6 @@ class NavBar extends Component {
 const mapStateToProps = (state) => {
   return {
     width: state.windowWidth,
-    lang: state.language,
   };
 };
 

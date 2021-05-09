@@ -1,0 +1,106 @@
+.MobileBasket {
+  /* border: 1px solid green; */
+  width: 100vw;
+  box-sizing: border-box;
+  padding: 0 20px;
+}
+.MobileBasket h1 {
+  color: rgb(220, 55, 39);
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+  font-size: 30px;
+  margin-top: 80px;
+  text-align: center;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+.MobileBasket p {
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+}
+.Basket {
+  position: fixed;
+  top: 70px;
+  right: 0;
+  height: 100vh;
+  border: 1px solid #c0c0c0;
+  width: 350px;
+  background-color: #fff;
+  overflow-y: auto;
+  transition: 0.2s linear;
+  padding: 0 10px;
+}
+.Basket h1 {
+  text-align: center;
+}
+
+.bar {
+  margin: 0 auto;
+  margin-top: 70px;
+  height: 2px;
+  width: 90%;
+  background-color: rgb(220, 55, 39);
+  display: none;
+}
+.endLine {
+  margin: 0 auto;
+  height: 1px;
+  width: 90%;
+  background-color: lightgray;
+}
+
+.bas {
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+.orderButton {
+  background-color: transparent;
+  border: solid rgba(220, 55, 39, 1) 1px;
+  display: inline-block;
+  cursor: pointer;
+  color: rgb(220, 55, 39);
+  font-family: Arial;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 9px 55px;
+  width: calc(100% - 20px);
+  text-decoration: none;
+  margin-left: 10px;
+  margin-top: 25px;
+  margin-bottom: 80px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  outline: none;
+  transition: 0.15s ease-in;
+  text-align: center;
+}
+.MobileBasket .orderButton:focus {
+  border: solid rgba(220, 55, 39, 1) 1px;
+}
+.MobileBasket .orderButton:hover {
+  background-color: transparent;
+  animation: MobileBasketButton 0.15s linear;
+  cursor: pointer;
+}
+.emptyBasketCopy {
+  color: grey;
+  text-align: center;
+}
+.basketTitle {
+  margin: 10px 0;
+}
+@keyframes MobileBasketButton {
+  0% {
+    background-color: #fff;
+    color: rgb(220, 55, 39);
+  }
+  50% {
+    background-color: rgb(220, 55, 39);
+    color: #fff;
+  }
+  100% {
+    background-color: #fff;
+    color: rgb(220, 55, 39);
+  }
+}

@@ -6,6 +6,7 @@ import axios from "../../axios-orders";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions/index";
 import Basket from "../Basket/Basket";
+import CategoriesPC from "./components/CategoriesPC";
 class OrderPage extends Component {
   componentDidMount() {
     this.props.onScreenResize();
@@ -55,81 +56,7 @@ class OrderPage extends Component {
         </NavLink>
       </div>
     );
-    let categoriesPC = (
-      <ul className={classes.OrderCategories} id="OrderCategories">
-        <li
-          id="recommended"
-          onClick={() =>
-            document
-              .getElementById("recommended")
-              .scrollIntoView({ behavior: "smooth", block: "center" })
-          }
-        >
-          Szef Kuchni Poleca
-        </li>
-        <li
-          id="soups"
-          onClick={() =>
-            document
-              .getElementById("soup")
-              .scrollIntoView({ behavior: "smooth", block: "center" })
-          }
-        >
-          Zupy
-        </li>
-        <li
-          id="mainmeals"
-          onClick={() =>
-            document
-              .getElementById("main")
-              .scrollIntoView({ behavior: "smooth", block: "center" })
-          }
-        >
-          Dania Główne
-        </li>
-        <li
-          id="kidss"
-          onClick={() =>
-            document
-              .getElementById("kids")
-              .scrollIntoView({ behavior: "smooth", block: "center" })
-          }
-        >
-          Dla dzieci
-        </li>
-        <li
-          id="deserts"
-          onClick={() =>
-            document
-              .getElementById("sweet")
-              .scrollIntoView({ behavior: "smooth", block: "center" })
-          }
-        >
-          Desery
-        </li>
-        <li
-          id="alcohol"
-          onClick={() =>
-            document
-              .getElementById("alco")
-              .scrollIntoView({ behavior: "smooth", block: "center" })
-          }
-        >
-          Alkohole
-        </li>
-        <li
-          id="drink"
-          onClick={() =>
-            document
-              .getElementById("drinks")
-              .scrollIntoView({ behavior: "smooth", block: "center" })
-          }
-        >
-          Napoje
-        </li>
-      </ul>
-    );
-    let categoriesMobile = <div></div>;
+
     return (
       <section className={classes.OrderPage}>
         {this.props.width < 768 ? proceedtoBasketButton : <Basket />}
@@ -141,7 +68,7 @@ class OrderPage extends Component {
             restauracji. Dodaj danie do koszyka poprzez kliknięcie na nie, tak
             po prostu!
           </p>
-          {this.props.width < 768 ? categoriesMobile : categoriesPC}
+          {this.props.width < 768 ? null : <CategoriesPC />}
           <h1 className={classes.categoryTitle}>Szef Kuchni Poleca</h1>
           <div className={classes.bar}></div>
           <div className={classes.DishesTable} id="recommended">
