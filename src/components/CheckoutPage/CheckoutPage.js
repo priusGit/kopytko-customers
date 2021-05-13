@@ -62,35 +62,31 @@ class OrderPage extends Component {
         validation: {
           required: true,
         },
-        valid: false,
-        touched: false,
+        pattern: "\\p{L}+",
       },
       email: {
         label: "Adres mailowy: *",
         elementType: "input",
         elementConfig: {
-          type: "text",
+          type: "email",
           placeholder: "Wpisz swój adres mailowy",
         },
         validation: {
           required: true,
         },
-        valid: false,
-        touched: false,
       },
       phone: {
         label: "Numer telefonu: *",
         elementType: "input",
         elementConfig: {
-          type: "text",
+          type: "tel",
           placeholder: "Wpisz swój numer telefonu",
         },
         validation: {
           required: true,
           isNumeric: true,
         },
-        valid: false,
-        touched: false,
+        pattern: "[0-9]{8,14}",
       },
       street: {
         label: "Ulica: *",
@@ -102,8 +98,6 @@ class OrderPage extends Component {
         validation: {
           required: true,
         },
-        valid: false,
-        touched: false,
       },
       adressnumber: {
         label: "Numer budynku: *",
@@ -116,8 +110,6 @@ class OrderPage extends Component {
           required: true,
           isNumeric: true,
         },
-        valid: false,
-        touched: false,
       },
       postcode: {
         label: "Kod pocztowy *",
@@ -130,8 +122,6 @@ class OrderPage extends Component {
           required: true,
           isNumeric: true,
         },
-        valid: false,
-        touched: false,
       },
       city: {
         label: "Miasto *",
@@ -143,8 +133,6 @@ class OrderPage extends Component {
         validation: {
           required: true,
         },
-        valid: false,
-        touched: false,
       },
       flatNumber: {
         label: "Numer mieszkania (opcjonalne)",
@@ -156,8 +144,6 @@ class OrderPage extends Component {
         validation: {
           isNumeric: true,
         },
-        valid: false,
-        touched: false,
       },
       floor: {
         label: "Piętro (opcjonalne)",
@@ -169,8 +155,6 @@ class OrderPage extends Component {
         validation: {
           isNumeric: true,
         },
-        valid: false,
-        touched: false,
       },
       stairwaykey: {
         label: "Kod do bramy (opcjonalne)",
@@ -182,8 +166,6 @@ class OrderPage extends Component {
         validation: {
           isNumeric: true,
         },
-        valid: false,
-        touched: false,
       },
       companyname: {
         label: "Nazwa firmy (opcjonalne)",
@@ -193,8 +175,6 @@ class OrderPage extends Component {
           placeholder: "Wpisz nazwę firmy",
         },
         validation: {},
-        valid: false,
-        touched: false,
       },
       note: {
         label: "Dodaj notatkę (opcjonalne)",
@@ -204,8 +184,6 @@ class OrderPage extends Component {
           placeholder: "np. Proszę nie używać dzwonka. Dziecko śpi.",
         },
         validation: {},
-        valid: false,
-        touched: false,
       },
     },
   };
@@ -246,23 +224,31 @@ class OrderPage extends Component {
 
     let form = (
       <form onSubmit={this.orderSendHandler}>
-        {formElementsArray.map((formElement) => (
-          <Input
-            key={formElement.id}
-            elementType={formElement.config.elementType}
-            elementConfig={formElement.config.elementConfig}
-            label={formElement.config.label}
-            required={formElement.config.validation.required}
-            changed={(event) =>
-              this.inputChangedHandler(
-                formElement.config.elementType,
-                event,
-                formElement.id
-              )
-            }
-          />
-        ))}
-        <button>Zamów! </button>
+        {formElementsArray.map(
+          (formElement) => (
+            console.log(formElement.config.pattern),
+            (
+              <Input
+                key={formElement.id}
+                elementType={formElement.config.elementType}
+                elementConfig={formElement.config.elementConfig}
+                label={formElement.config.label}
+                required={formElement.config.validation.required}
+                pattern={
+                  formElement.config.pattern ? formElement.config.pattern : null
+                }
+                changed={(event) =>
+                  this.inputChangedHandler(
+                    formElement.config.elementType,
+                    event,
+                    formElement.id
+                  )
+                }
+              />
+            )
+          )
+        )}
+        <button type="submit">Zamów! </button>
       </form>
     );
     let modal;

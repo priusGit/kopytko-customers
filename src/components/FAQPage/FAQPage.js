@@ -33,8 +33,6 @@ class FAQPage extends Component {
         validation: {
           required: true,
         },
-        valid: false,
-        touched: false,
       },
       email: {
         elementType: "input",
@@ -46,8 +44,6 @@ class FAQPage extends Component {
           required: true,
           isEmail: true,
         },
-        valid: false,
-        touched: false,
       },
       message: {
         elementType: "textarea",
@@ -58,8 +54,6 @@ class FAQPage extends Component {
         validation: {
           required: true,
         },
-        valid: false,
-        touched: false,
       },
     },
     formIsValid: false,
@@ -110,7 +104,7 @@ class FAQPage extends Component {
             changed={(event) => this.inputChangedHandler(event, formElement.id)}
           />
         ))}
-        <button>WYŚLIJ</button>
+        <button type="submit">WYŚLIJ</button>
       </form>
     );
     return (

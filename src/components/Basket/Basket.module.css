@@ -21,11 +21,11 @@
 }
 .Basket {
   position: fixed;
-  top: 70px;
+  top: 75px;
   right: 0;
   height: 100vh;
   border: 1px solid #c0c0c0;
-  width: 350px;
+  width: 250px;
   background-color: #fff;
   overflow-y: auto;
   transition: 0.2s linear;
@@ -171,5 +171,8 @@
     margin-top: 10vh;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1330px) {
+  .Basket {
+    width: 350px;
+  }
 }

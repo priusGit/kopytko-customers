@@ -5,10 +5,6 @@ const input = (props) => {
   let inputElement = null;
   const inputClasses = [classes.InputElement];
 
-  if (props.invalid && props.shouldValidate && props.touched) {
-    inputClasses.push(classes.Invalid);
-  }
-
   switch (props.elementType) {
     case "input":
       inputElement = (
@@ -16,6 +12,7 @@ const input = (props) => {
           className={inputClasses.join(" ")}
           {...props.elementConfig}
           value={props.value}
+          pattern={props.pattern}
           required={props.required}
           onChange={props.changed}
         />
@@ -55,6 +52,30 @@ const input = (props) => {
           {...props.elementConfig}
           value={props.value}
           type="date"
+          onChange={props.changed}
+        />
+      );
+      break;
+    case "tel":
+      inputElement = (
+        <input
+          className={inputClasses.join(" ")}
+          {...props.elementConfig}
+          value={props.value}
+          type="tel"
+          pattern={props.pattern}
+          onChange={props.changed}
+        />
+      );
+      break;
+    case "email":
+      inputElement = (
+        <input
+          className={inputClasses.join(" ")}
+          {...props.elementConfig}
+          value={props.value}
+          type="email"
+          pattern={props.pattern}
           onChange={props.changed}
         />
       );
