@@ -6,7 +6,7 @@ import * as actions from "../../store/actions/index";
 import { connect } from "react-redux";
 import Auxi from "../../hoc/Auxi";
 import Spinner from "../smallParts/Spinner/Spinner";
-import getDate from './functions/getDate'
+import getDate from "./functions/getDate";
 
 class ReservationsPage extends Component {
   componentDidMount() {
@@ -16,12 +16,28 @@ class ReservationsPage extends Component {
   state = {
     reservationForm: {
       reservationDate: {
+        value: getDate(),
+      },
+      name: {
+        value: "",
+      },
+      surName: {
+        value: "",
+      },
+      phoneNumber: {
+        value: "",
+      },
+    },
+  };
+
+  form = {
+    reservationForm: {
+      reservationDate: {
         label: "Podaj datę, na jaką ma być rezerwacja: *",
         elementType: "date",
         validation: {
           required: true,
         },
-        value: getDate(),
         valid: true,
       },
       name: {
@@ -31,7 +47,6 @@ class ReservationsPage extends Component {
           type: "text",
           placeholder: "Imię",
         },
-        value: "",
         validation: {
           required: true,
         },
@@ -45,7 +60,6 @@ class ReservationsPage extends Component {
           type: "text",
           placeholder: "Nazwisko",
         },
-        value: "",
         validation: {
           required: true,
         },
@@ -59,7 +73,6 @@ class ReservationsPage extends Component {
           type: "text",
           placeholder: "Numer Telefonu",
         },
-        value: "",
         validation: {
           required: true,
           isNumeric: true,
@@ -67,8 +80,9 @@ class ReservationsPage extends Component {
         valid: false,
         touched: false,
       },
-    }
+    },
   };
+
   inputChangedHandler = (elementType, event, inputIdentifier) => {
     const updatedreservationForm = {
       ...this.state.reservationForm,
@@ -78,9 +92,8 @@ class ReservationsPage extends Component {
     };
     updatedFormElement.value = event.target.value;
     updatedreservationForm[inputIdentifier] = updatedFormElement;
-    let formIsValid = true;
     this.setState({
-      reservationForm: updatedreservationForm
+      reservationForm: updatedreservationForm,
     });
     if (elementType === "date") {
       this.props.onFetchReservations(
@@ -100,10 +113,10 @@ class ReservationsPage extends Component {
   };
   render() {
     const formElementsArray = [];
-    for (let key in this.state.reservationForm) {
+    for (let key in this.form.reservationForm) {
       formElementsArray.push({
         id: key,
-        config: this.state.reservationForm[key],
+        config: this.form.reservationForm[key],
       });
     }
 
@@ -117,11 +130,8 @@ class ReservationsPage extends Component {
             key={formElement.id}
             elementType={formElement.config.elementType}
             elementConfig={formElement.config.elementConfig}
-            value={formElement.config.value}
+            value={this.state.reservationForm[formElement.id].value}
             label={formElement.config.label}
-            invalid={!formElement.config.valid}
-            shouldValidate={formElement.config.validation}
-            touched={formElement.config.touched}
             required={formElement.config.validation.required}
             changed={(event) =>
               this.inputChangedHandler(
@@ -180,7 +190,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onReservationSent: (reservationDate) =>
-    dispatch(actions.sendReservation(reservationDate)),
+      dispatch(actions.sendReservation(reservationDate)),
     onFetchReservations: (link) => dispatch(actions.fetchReservations(link)),
   };
 };

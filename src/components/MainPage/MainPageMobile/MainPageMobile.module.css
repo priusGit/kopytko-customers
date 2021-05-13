@@ -17,27 +17,6 @@ section.MainPage {
   margin-top: 30vh;
   transform: translateY(-50%);
 }
-.topleft {
-  background-image: url(../../../assets/babka.jpg);
-  background-position: top;
-  background-size: 180%;
-}
-.topright {
-  background-image: url(../../../assets/grochowka.webp);
-  background-position: center;
-  background-size: 200%;
-}
-.botleft {
-  background-image: url(../../../assets/zurek.jpg);
-  background-position: center;
-  background-size: 150%;
-}
-
-.botright {
-  background-image: url(../../../assets/murzynek.jpg);
-  background-position: center;
-  background-size: 150%;
-}
 .Left h1 {
   font-family: "Oswald", sans-serif;
   text-align: center;
@@ -78,6 +57,12 @@ a.buttonMainPage:hover {
 a.buttonMainPage:active {
   position: relative;
   top: 1px;
+}
+.chefHat {
+  position: absolute;
+  width: 100px;
+  left: 50%;
+  transform: translate(-50%, -80px);
 }
 @media (max-width: 400px) {
   .Left h1 {

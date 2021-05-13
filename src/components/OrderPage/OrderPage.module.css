@@ -1,304 +1,311 @@
-
-section.OrderPage{
-    margin-top: 20px;
+section.OrderPage {
+  margin-top: 20px;
 }
-.Container{
-    width: 90%;
-    padding-left: 5%;
+.Container {
+  width: 90%;
+  padding-left: 5%;
 }
-.Title, .subTitle,.categoryTitle{  
-    display: block;
-    width: 100%;
-    text-align: center;
+.Title,
+.subTitle,
+.categoryTitle {
+  display: block;
+  width: 100%;
+  text-align: center;
 }
-.Title{
-    font-size: 30px;
-    margin-top: 80px;
-    color: rgba(220, 55, 39);
-    font-family: 'Lora', serif;
-    font-weight: 400;
+.Title {
+  font-size: 30px;
+  margin-top: 80px;
+  color: rgba(220, 55, 39);
+  font-family: "Lora", serif;
+  font-weight: 400;
 }
-.subTitle{
-    font-size: 17px;
-    margin-top: 40px;
-    width: 100%;
-    font-family: 'Poppins', serif;
+.subTitle {
+  font-size: 17px;
+  margin-top: 40px;
+  width: 100%;
+  font-family: "Poppins", serif;
 }
-.categoryTitle{
-    font-size: 30px;
-    margin-top: 60px;
-    color: rgba(220, 55, 39);
-    font-family: 'Lora', serif;
-    font-weight: 400;
+.categoryTitle {
+  font-size: 30px;
+  margin-top: 60px;
+  color: rgba(220, 55, 39);
+  font-family: "Lora", serif;
+  font-weight: 400;
 }
-.DishesTable{
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-around;
+.DishesTable {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
-.bar{
-    margin: 0 auto;
-    margin-top: 30px;
-    height: 2px;
-    width: 60px;
-    background-color: black;
+.bar {
+  margin: 0 auto;
+  margin-top: 30px;
+  height: 2px;
+  width: 60px;
+  background-color: black;
 }
-.DishesTable *{
-    text-align: left;
+.DishesTable * {
+  text-align: left;
 }
-.DishesTable > *{
-    border: 1px solid#ccc;
-    width: 100%;
-    padding: 5px 10px;
-    transition: 0.05s linear;
+.DishesTable > * {
+  border: 1px solid#ccc;
+  width: 100%;
+  padding: 5px 10px;
+  transition: 0.05s linear;
 }
-.DishesTable > *:active{
-    background-color: transparent;
-    animation: bgc 0.15s linear;
+.DishesTable > *:active {
+  background-color: transparent;
+  animation: bgc 0.15s linear;
 }
 @keyframes bgc {
-    0% {background-color: #fff;}
-    50% {background-color: #ccc;}
-    100% {background-color: #fff;}
-  }
-
-.OrderCategories{
-    display: flex;
-    position: sticky;
-    width: 90%;
-    margin-left: 0%;
-    margin-top: 30px;
-    font-size: 17px;
-    top: 0px;
+  0% {
     background-color: #fff;
-    z-index: 5;
-    transition: 0.2s linear;
-    border-bottom: 1px solid #ccc;
-    border-top: 1px solid #ccc;
+  }
+  50% {
+    background-color: #ccc;
+  }
+  100% {
+    background-color: #fff;
+  }
 }
-.OrderCategories li{
-    display: inline-block;
-    height: 60px;
-    flex-basis: 20%;
-    text-align: center;
-    padding-top:20px;
-    background-color: white;
-    font-weight: 500;
-    color:  rgba(220, 55, 39);
+
+.OrderCategories {
+  display: flex;
+  position: sticky;
+  width: 90%;
+  margin-left: 0%;
+  margin-top: 30px;
+  font-size: 17px;
+  top: 0px;
+  background-color: #fff;
+  z-index: 5;
+  transition: 0.2s linear;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
 }
-.OrderCategories li:hover{
-    color: black;
-    cursor: pointer;
+.OrderCategories li {
+  display: inline-block;
+  height: 60px;
+  flex-basis: 20%;
+  text-align: center;
+  padding-top: 20px;
+  background-color: white;
+  font-weight: 500;
+  color: rgba(220, 55, 39);
+}
+.OrderCategories li:hover {
+  color: black;
+  cursor: pointer;
 }
 .sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-  }
-  
-.endLine{
-    margin: 0 auto;
-    height: 1px;
-    width: 90%;
-    background-color: lightgray;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.endLine {
+  margin: 0 auto;
+  height: 1px;
+  width: 90%;
+  background-color: lightgray;
 }
 
 .orderButton:active {
-	background-color: rgba(220, 55, 39);
+  background-color: rgba(220, 55, 39);
 }
-.bottomButtonContainer
-{
-    position: fixed;
-    height: calc(var(--topNavHeight) + 10px);
-    bottom: 0;
-    width:100vw;
-    list-style: none;
-    padding-top: 10px;
-    background-color: #fff;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 300;
-    z-index: 1;
-    border-top: 1px solid#ebebeb ;
-    transition: 0.05s linear;
+.bottomButtonContainer {
+  position: fixed;
+  height: calc(var(--topNavHeight) + 10px);
+  bottom: 0;
+  width: 100vw;
+  list-style: none;
+  padding-top: 10px;
+  background-color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  z-index: 1;
+  border-top: 1px solid#ebebeb;
+  transition: 0.05s linear;
 }
 .proceedtoBasketButton {
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:'Poppins';
-    font-size:19px;
-    width: 100%;
-    text-align: center;
-    text-decoration:none;
-    transition: 0.1s linear;
-    height: 100%;
-    width: calc(100vw - 20px);
-    height: calc(var(--topNavHeight) - 10px);
-    width:calc(100vw - 20px);
-    margin-left: 10px;
-    padding: 13px;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: "Poppins";
+  font-size: 19px;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.1s linear;
+  height: 100%;
+  width: calc(100vw - 20px);
+  height: calc(var(--topNavHeight) - 10px);
+  width: calc(100vw - 20px);
+  margin-left: 10px;
+  padding: 13px;
+  background-color: rgb(236, 51, 34);
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* komputery juz */
+  .Container {
+    width: 80%;
+  }
+  .Title {
+    width: 40vw;
+    margin-left: calc((100vw - 250px - 5%) / 2);
+    transform: translateX(-50%);
+  }
+  .subTitle {
+    font-size: 17px;
+    margin-top: 40px;
+    width: 40vw;
+    margin-left: calc((100vw - 250px - 5%) / 2);
+    transform: translateX(-50%);
+    font-family: "Poppins", serif;
+  }
+  .categoryTitle {
+    margin-left: -50px;
+  }
+  .bar {
+    transform: translateX(-50px);
+    margin-top: 50px;
+  }
+  .orderButton {
     background-color: rgb(236, 51, 34);
+    border-radius: 4px;
+    border: 1px solid rgb(189, 46, 33);
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: "Poppins";
+    font-size: 17px;
+    width: 98%;
+    text-align: center;
+    padding: 8px 35px;
+    margin-left: 1%;
+    text-decoration: none;
+  }
+  .orderButton:active {
+    background-color: rgba(220, 55, 39);
+    top: 1px;
+  }
+  .DishesTable {
+    margin-top: 60px;
+  }
+  .DishesTable > * {
+    border: 1px solid#ccc;
+    width: 60vw;
+    padding: 10px 20px;
+    transition: 0.05s linear;
+  }
+  .DishesTable > *:hover {
+    cursor: pointer;
+    background-color: #ccc;
+    animation: none;
+  }
+  .DishesTable > *:active {
+    background-color: inherit;
+    animation: none;
+  }
+  .OrderCategories {
+    width: 65vw;
+    padding: 0 10vw;
+    display: table;
+    columns: 3;
+    text-align: center;
+    /* margin-left: calc((100vw - 250px - 5%) / 2);
+    transform: translateX(-50%); */
+  }
+  @media (min-width: 768px) and (max-width: 900px) {
+    .OrderCategories {
+      width: 60vw;
+      padding: 0 5vw;
+    }
+  }
+  .OrderCategories li {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: 5px;
+    background-color: white;
+    font-weight: 500;
+    color: rgba(220, 55, 39);
+  }
 }
-@media (min-width:768px) and (max-width:1023px)
-{
-    /* komputery juz */
-    .Container{
-        width:80%;
-    }
-    .Title{
-        width: 40vw;
-        margin-left: calc((100vw - 250px - 5%)/2);
-        transform: translateX(-50%);
-    }
-    .subTitle{
-        font-size: 17px;
-        margin-top: 40px;
-        width: 40vw;
-        margin-left: calc((100vw - 250px - 5%)/2);
-        transform: translateX(-50%);
-        font-family: 'Poppins', serif;
-    }
-    .categoryTitle{
-    
-        margin-left: -50px;
-    }
-    .bar{
-        transform: translateX(-50px);
-        margin-top: 50px;
-    }
-    .orderButton {
-        background-color: rgb(236, 51, 34);
-        border-radius:4px;
-        border:1px solid rgb(189, 46, 33);
-        display:inline-block;
-        cursor:pointer;
-        color:#ffffff;
-        font-family:'Poppins';
-        font-size:17px;
-        width: 98%;
-        text-align: center;
-        padding:8px 35px;
-        margin-left: 1%;
-        text-decoration:none;
-    }
-    .orderButton:active {
-        background-color: rgba(220, 55, 39);
-        top:1px;
-    }
-    .DishesTable{
-        margin-top: 60px;
-    }
-    .DishesTable > *{
-        border: 1px solid#ccc;
-        width: 60vw;
-        padding: 10px 20px;
-        transition: 0.05s linear;
-    }
-    .DishesTable > *:hover{
-        cursor: pointer;
-        background-color: #ccc;
-        animation: none;
-    }
-    .DishesTable > *:active{
-        background-color: inherit;
-        animation:none;
-    }
-    .OrderCategories{
-        width: 450px;
-        margin-left: 0%;
-        display: table;
-        columns: 3;
-        text-align: center;
-        margin-left: calc((100vw - 250px - 5%)/2);
-        transform: translateX(-50%);
-    }
-    .OrderCategories li{
-        display: inline-block;
-        vertical-align: middle;
-        text-align: center;
-        padding-left: 5px;
-        padding-right: 5px;
-        margin:5px;
-        background-color: white;
-        font-weight: 500;
-        color:  rgba(220, 55, 39);
-    }
+@media (min-width: 1024px) {
+  .Container {
+    width: 80%;
+  }
+  .categoryTitle {
+    margin-left: -25px;
+  }
+  .bar {
+    transform: translateX(-25px);
+    margin-top: 50px;
+  }
+  .orderButton {
+    background-color: rgb(236, 51, 34);
+    border-radius: 4px;
+    border: 1px solid rgb(189, 46, 33);
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: "Poppins";
+    font-size: 17px;
+    width: 98%;
+    text-align: center;
+    padding: 8px 35px;
+    margin-left: 1%;
+    text-decoration: none;
+  }
+  .orderButton:active {
+    background-color: rgba(220, 55, 39);
+    top: 1px;
+  }
+  .DishesTable {
+    margin-top: 60px;
+    margin-left: 7.5%;
+  }
+  .DishesTable > * {
+    border: 1px solid#ccc;
+    width: 60vw;
+    padding: 10px 20px;
+    transition: 0.05s linear;
+  }
+  .DishesTable > *:hover {
+    cursor: pointer;
+    background-color: #ccc;
+    animation: none;
+  }
+  .DishesTable > *:active {
+    background-color: inherit;
+    animation: none;
+  }
+  .OrderCategories {
+    box-sizing: content-box;
+  }
+  .Title {
+    width: 40vw;
+    margin-left: calc((100vw - 250px - 5% - 25px) / 2);
+    transform: translateX(-50%);
+  }
+  .subTitle {
+    font-size: 17px;
+    margin-top: 40px;
+    width: 40vw;
+    margin-left: calc((100vw - 250px - 5% - 25px) / 2);
+    transform: translateX(-50%);
+    font-family: "Poppins", serif;
+  }
+  .OrderCategories li {
+    box-sizing: content-box;
+    overflow: hidden;
+    flex-grow: 1;
+  }
 }
-@media (min-width:1024px)
-{
-    .Container{
-        width:80%;
-    }
-    .categoryTitle{
-        margin-left: -25px;
-    }
-    .bar{
-        transform: translateX(-25px);
-        margin-top: 50px;
-    }
-    .orderButton {
-        background-color: rgb(236, 51, 34);
-        border-radius:4px;
-        border:1px solid rgb(189, 46, 33);
-        display:inline-block;
-        cursor:pointer;
-        color:#ffffff;
-        font-family:'Poppins';
-        font-size:17px;
-        width: 98%;
-        text-align: center;
-        padding:8px 35px;
-        margin-left: 1%;
-        text-decoration:none;
-    }
-    .orderButton:active {
-        background-color: rgba(220, 55, 39);
-        top:1px;
-    }
-    .DishesTable{
-        margin-top: 60px;
-        margin-left: 7.5%;
-    }
-    .DishesTable > *{
-        border: 1px solid#ccc;
-        width: 60vw;
-        padding: 10px 20px;
-        transition: 0.05s linear;
-    }
-    .DishesTable > *:hover{
-        cursor: pointer;
-        background-color: #ccc;
-        animation: none;
-    }
-    .DishesTable > *:active{
-        background-color: inherit;
-        animation:none;
-    }
-    .OrderCategories{
-        box-sizing: content-box;
-    }
-    .Title{
-        width: 40vw;
-        margin-left: calc((100vw - 250px - 5% - 25px)/2);
-        transform: translateX(-50%);
-    }
-    .subTitle{
-        font-size: 17px;
-        margin-top: 40px;
-        width: 40vw;
-        margin-left: calc((100vw - 250px - 5% - 25px)/2);
-        transform: translateX(-50%);
-        font-family: 'Poppins', serif;
-    }
-    .OrderCategories li{
-        box-sizing: content-box;
-        overflow: hidden;
-        flex-grow: 1;
-    }
-}
-@media (min-width:1200px)
-{
-    
+@media (min-width: 1330px) {
 }

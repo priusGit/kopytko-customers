@@ -187,8 +187,7 @@ div.activeBG {
   left: 8px;
 }
 .langPicker {
-  margin-top: calc(50% - 25px);
-  margin-right: -10px;
+  line-height: 65px;
   color: red;
   font-weight: 500;
   font-size: 25px;

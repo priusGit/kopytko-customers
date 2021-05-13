@@ -27,7 +27,7 @@ section.MainPage {
   box-sizing: border-box;
 }
 .leftContent {
-  margin-top: 50%;
+  margin-top: 45vh;
   transform: translateY(-50%);
 }
 .topleft {

@@ -30,7 +30,7 @@ class OrderPage extends Component {
         if (prevScrollpos > currentScrollPos) {
           document.getElementById("NavBar").style.top = "0";
           if (flag === true) {
-            document.getElementById("OrderCategories").style.top = "70px";
+            document.getElementById("OrderCategories").style.top = "75px";
             document.getElementById("pcBasket").style.top = "75px";
             document.getElementById("pcBasket").style.height =
               "calc(100vh - 75px)";
