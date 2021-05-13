@@ -11,7 +11,10 @@ class OrderPage extends Component {
   }
   state = {
     orderForm: {
-      namesurname: {
+      name: {
+        value: "",
+      },
+      surname: {
         value: "",
       },
       email: {
@@ -52,8 +55,20 @@ class OrderPage extends Component {
   };
   form = {
     orderForm: {
-      namesurname: {
-        label: "Imię i nazwisko: *",
+      name: {
+        label: "Imię: *",
+        elementType: "input",
+        elementConfig: {
+          type: "text",
+          placeholder: "Wpisz swoję imię i nazwisko",
+        },
+        validation: {
+          required: true,
+        },
+        pattern: "\\p{L}+",
+      },
+      surname: {
+        label: "Nazwisko: *",
         elementType: "input",
         elementConfig: {
           type: "text",
