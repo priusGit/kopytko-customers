@@ -16,12 +16,7 @@ class MainPage extends Component {
               </a>
             </div>
           </div>
-          <div className={classes.Right}>
-            <div className={classes.topleft}></div>
-            <div className={classes.topright}></div>
-            <div className={classes.botleft}> </div>
-            <div className={classes.botright}></div>
-          </div>
+          <div className={classes.Right}></div>
         </section>
       </Auxi>
     );

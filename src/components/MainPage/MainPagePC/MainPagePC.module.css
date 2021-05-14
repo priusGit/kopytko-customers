@@ -3,6 +3,9 @@ section.MainPage {
   display: flex;
   flex-flow: row;
   overflow: hidden;
+  background-image: url(../../../assets/bgMain.jpg);
+  background-position: top;
+  background-size: cover;
 }
 .main {
   padding: 0;
@@ -13,9 +16,10 @@ section.MainPage {
   height: 100%;
   margin-top: 60px;
 }
-
+.Left {
+  background-color: rgba(255, 255, 255, 0.95);
+}
 .Right {
-  background-color: white;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
