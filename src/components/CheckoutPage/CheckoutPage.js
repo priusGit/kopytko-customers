@@ -239,30 +239,25 @@ class OrderPage extends Component {
 
     let form = (
       <form onSubmit={this.orderSendHandler}>
-        {formElementsArray.map(
-          (formElement) => (
-            console.log(formElement.config.pattern),
-            (
-              <Input
-                key={formElement.id}
-                elementType={formElement.config.elementType}
-                elementConfig={formElement.config.elementConfig}
-                label={formElement.config.label}
-                required={formElement.config.validation.required}
-                pattern={
-                  formElement.config.pattern ? formElement.config.pattern : null
-                }
-                changed={(event) =>
-                  this.inputChangedHandler(
-                    formElement.config.elementType,
-                    event,
-                    formElement.id
-                  )
-                }
-              />
-            )
-          )
-        )}
+        {formElementsArray.map((formElement) => (
+          <Input
+            key={formElement.id}
+            elementType={formElement.config.elementType}
+            elementConfig={formElement.config.elementConfig}
+            label={formElement.config.label}
+            required={formElement.config.validation.required}
+            pattern={
+              formElement.config.pattern ? formElement.config.pattern : null
+            }
+            changed={(event) =>
+              this.inputChangedHandler(
+                formElement.config.elementType,
+                event,
+                formElement.id
+              )
+            }
+          />
+        ))}
         <button type="submit">Zamów! </button>
       </form>
     );
