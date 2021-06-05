@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import NavigationItem from "../Navitem/NavItem";
 import classes from "./NavBarMobile.module.css";
-import Auxi from "../../../hoc/Auxi";
 import { connect } from "react-redux";
 class NavBar extends Component {
   componentDidMount() {
@@ -19,7 +18,7 @@ class NavBar extends Component {
   }
   render() {
     return (
-      <Auxi>
+      <>
         <ul className={classes.NavBar} id="NavBar">
           <div className={classes.navIconCont}>
             <div
@@ -82,7 +81,7 @@ class NavBar extends Component {
           <div className={classes.bar}></div>
         </div>
         <div className={classes.mobileMenuBackgroud} id="darkBG"></div>
-      </Auxi>
+      </>
     );
   }
 }

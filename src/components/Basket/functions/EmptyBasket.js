@@ -1,9 +1,8 @@
 import React from "react";
-import Auxi from "../../../hoc/Auxi";
 import classes from "../Basket.module.css";
 function emptyBasket() {
   let emptyBasket = (
-    <Auxi>
+    <>
       <h1 className={classes.basketTitle}>Koszyk</h1>
       <div className={classes.endLine}></div>
       <svg
@@ -25,7 +24,7 @@ function emptyBasket() {
         Kliknij na danie które chcesz dodać do zamówienia, i ciesz się pysznym
         jedzeniem!
       </p>
-    </Auxi>
+    </>
   );
   return emptyBasket;
 }

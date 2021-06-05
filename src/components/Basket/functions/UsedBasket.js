@@ -1,12 +1,11 @@
 import React from "react";
-import Auxi from "../../../hoc/Auxi";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import BasketElement from "../BasketElement/BasketElement";
 import classes from "../Basket.module.css";
 function usedBasket(props) {
   let basketItems = (
-    <Auxi>
+    <>
       <h1 className={classes.basketTitle}>Koszyk</h1>
       {props.orderedItems.map((orderItem, i) => (
         <BasketElement
@@ -31,7 +30,7 @@ function usedBasket(props) {
           (props.fullPrice < 60 && props.fullPrice !== 0 ? 15 : 0)}
         zł)
       </NavLink>
-    </Auxi>
+    </>
   );
   return basketItems;
 }

@@ -1,16 +1,15 @@
-import React, { Component } from 'react';
-import { Switch, withRouter, Route } from 'react-router-dom';
-import './App.css';
-import Layout from './components/Layout/Layout';
-import MainPage from './components/MainPage/MainPage';
-import FAQPage from './components/FAQPage/FAQPage';
-import MenuPage from './components/MenuPage/MenuPage';
-import OrderPage from './components/OrderPage/OrderPage';
-import OurStory from './components/OurStory/OurStory';
-import ReservationsPage from './components/ResevationsPage/ReservationsPage';
-import Checkout from './components/CheckoutPage/CheckoutPage';
-import Basket from './components/Basket/Basket';
-import Auxi from './hoc/Auxi';
+import React, { Component } from "react";
+import { Switch, withRouter, Route } from "react-router-dom";
+import "./App.css";
+import Layout from "./components/Layout/Layout";
+import MainPage from "./components/MainPage/MainPage";
+import FAQPage from "./components/FAQPage/FAQPage";
+import MenuPage from "./components/MenuPage/MenuPage";
+import OrderPage from "./components/OrderPage/OrderPage";
+import OurStory from "./components/OurStory/OurStory";
+import ReservationsPage from "./components/ResevationsPage/ReservationsPage";
+import Checkout from "./components/CheckoutPage/CheckoutPage";
+import Basket from "./components/Basket/Basket";
 class App extends Component {
   render() {
     let routes = (
@@ -26,12 +25,10 @@ class App extends Component {
       </Switch>
     );
     return (
-      <Auxi>
-        <Layout>
-          {routes}
-        </Layout>
-      </Auxi>
-    )
+      <>
+        <Layout>{routes}</Layout>
+      </>
+    );
   }
 }
 export default withRouter(App);

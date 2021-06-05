@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import Auxi from "../../../hoc/Auxi";
 import classes from "./MainPagePC.module.css";
 // import * as Language from '../smallParts/lang/lang';
 class MainPage extends Component {
   render() {
     return (
-      <Auxi>
+      <>
         <section className={classes.MainPage}>
           <div className={classes.Left}>
             <div className={classes.leftContent}>
@@ -18,7 +17,7 @@ class MainPage extends Component {
           </div>
           <div className={classes.Right}></div>
         </section>
-      </Auxi>
+      </>
     );
   }
 }

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import NavigationItem from "../Navitem/NavItem";
 import classes from "./NavBarPC.module.css";
-import Auxi from "../../../hoc/Auxi";
 import { connect } from "react-redux";
 class NavBar extends Component {
   componentDidMount() {
@@ -12,7 +11,7 @@ class NavBar extends Component {
   }
   render() {
     return (
-      <Auxi>
+      <>
         <ul className={classes.NavBar} id="NavBar">
           <NavigationItem link="/" active>
             Home
@@ -34,7 +33,7 @@ class NavBar extends Component {
           </NavigationItem>
           {/* <NavigationItem link="/checkout" active>Kasa</NavigationItem> */}
         </ul>
-      </Auxi>
+      </>
     );
   }
 }
