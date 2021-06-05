@@ -3,7 +3,6 @@ import * as actions from "../../../store/actions/index";
 import { connect } from "react-redux";
 import classes from "./PurchasedModal.module.css";
 import Spinner from "../Spinner/Spinner";
-import Auxi from "../../../hoc/Auxi";
 import { NavLink } from "react-router-dom";
 import pan from "../../../assets/svg/cooking.svg";
 import nosignal from "../../../assets/svg/no-signal.svg";
@@ -15,7 +14,7 @@ class PurchasedModal extends Component {
     } else {
       if (this.props.orderStatus === "success") {
         modalConent = (
-          <Auxi>
+          <>
             <h1 className={classes.ModalH}>Garnki w ruch!</h1>
             <p>twoje zamówienie zostało przyjęte przez restaurację</p>
             <p>Wysyłka za około: 45 minut</p>
@@ -32,11 +31,11 @@ class PurchasedModal extends Component {
             >
               Strona główna
             </NavLink>
-          </Auxi>
+          </>
         );
       } else {
         modalConent = (
-          <Auxi>
+          <>
             <h1 className={classes.ModalH}>
               Niestety, transakcja nie powiodła się
             </h1>
@@ -49,7 +48,7 @@ class PurchasedModal extends Component {
             <NavLink className={classes.toMainPage} exact to={"/"}>
               Strona główna
             </NavLink>
-          </Auxi>
+          </>
         );
       }
     }

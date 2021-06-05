@@ -4,7 +4,6 @@ import classes from "./ReservationsPage.module.css";
 import axios from "../../axios-orders";
 import * as actions from "../../store/actions/index";
 import { connect } from "react-redux";
-import Auxi from "../../hoc/Auxi";
 import Spinner from "../smallParts/Spinner/Spinner";
 import getDate from "./functions/getDate";
 
@@ -151,19 +150,19 @@ class ReservationsPage extends Component {
       if (wolneStoliki > 0) {
         wolneStoliki = "Liczba wolnych stolików na dziś: " + wolneStoliki;
         content = (
-          <Auxi>
+          <>
             <p>{wolneStoliki}</p>
             <div className={classes.datePicker}>{form}</div>
-          </Auxi>
+          </>
         );
       } else {
         wolneStoliki =
           "Niestety, na dzisiejszy wieczór wszystkie stoliki zostały już zarezerwowane";
         content = (
-          <Auxi>
+          <>
             <p>{wolneStoliki}</p>
             <div className={classes.datePicker}></div>
-          </Auxi>
+          </>
         );
       }
     }

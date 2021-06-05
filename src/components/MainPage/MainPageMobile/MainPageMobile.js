@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import Auxi from "../../../hoc/Auxi";
 import classes from "./MainPageMobile.module.css";
 import hat from "../../../assets/svg/hat.svg";
 // import * as Language from '../smallParts/lang/lang';
 class MainPage extends Component {
   render() {
     return (
-      <Auxi>
+      <>
         <section className={classes.MainPage}>
           <div className={classes.Left}>
             <div className={classes.mobileMain}>
@@ -20,7 +19,7 @@ class MainPage extends Component {
             </div>
           </div>
         </section>
-      </Auxi>
+      </>
     );
   }
 }
