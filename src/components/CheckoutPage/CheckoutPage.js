@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Input from "../smallParts/Input/Input";
 import classes from "./CheckoutPage.module.css";
-import axios from "../../axios-orders";
-import * as actions from "../../store/actions/index";
+import axios from "axios-orders";
+import * as actions from "store/actions/index";
 import { connect } from "react-redux";
 import PurchasedModal from "../smallParts/PurchasedModal/PurchasedModal";
 class OrderPage extends Component {
@@ -217,9 +217,8 @@ class OrderPage extends Component {
     event.preventDefault();
     const formData = {};
     for (let formElementIdentifier in this.state.orderForm) {
-      formData[formElementIdentifier] = this.state.orderForm[
-        formElementIdentifier
-      ].value;
+      formData[formElementIdentifier] =
+        this.state.orderForm[formElementIdentifier].value;
     }
     const data = {
       deliveryData: formData,
