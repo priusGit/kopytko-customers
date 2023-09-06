@@ -2,25 +2,24 @@ import React from "react";
 import { useSelector } from "react-redux";
 import EmptyBasket from "../EmptyBasket";
 import UsedBasket from "../UsedBasket";
-import classes from "../Basket.module.css";
+import { isAnyItemsOrdered as isAnyItemsOrderedSelector } from "store/selectors";
+import { MobileBasketContainer } from "../styles";
 
 const BasketMobile = () => {
-  const isAnyItemsOrdered = useSelector(
-    (state) => state.orderedItems.length === 0
-  );
+  const isAnyItemsOrdered = useSelector(isAnyItemsOrderedSelector);
 
   if (isAnyItemsOrdered) {
     return (
-      <section className={classes.MobileBasket}>
+      <MobileBasketContainer>
         <EmptyBasket />
-      </section>
+      </MobileBasketContainer>
     );
   }
 
   return (
-    <section className={classes.MobileBasket}>
+    <MobileBasketContainer>
       <UsedBasket />
-    </section>
+    </MobileBasketContainer>
   );
 };
 

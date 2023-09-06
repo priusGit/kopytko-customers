@@ -1,27 +1,28 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
 import BasketElement from "./BasketElement";
-import classes from "./Basket.module.css";
+import { useCalculateBasket } from "./hooks";
+import { OrderButton, BasketContentTitle } from "./styles";
 
 const UsedBasket = () => {
-  const orderedItems = useSelector((state) => state.orderedItems);
-  const fullPrice = useSelector((state) => state.fullPrice);
-  const isPaidDelivery = fullPrice < 60;
-  const deliveryPrice = isPaidDelivery ? "15zł" : "DARMOWA";
-  const calculatedFullPrice = fullPrice + (isPaidDelivery ? 15 : 0);
-  const untillFreeDelivery = 60 - fullPrice;
+  const {
+    orderedItems,
+    fullPrice,
+    isPaidDelivery,
+    deliveryPrice,
+    calculatedFullPrice,
+    untillFreeDelivery,
+  } = useCalculateBasket();
 
   return (
     <>
-      <h1 className={classes.basketTitle}>Koszyk</h1>
-      {orderedItems.map((orderItem, i) => (
+      <BasketContentTitle>Koszyk</BasketContentTitle>
+      {orderedItems.map(({ item, price, amount }, i) => (
         <BasketElement
           key={i}
           id={i}
-          title={orderItem.item}
-          price={orderItem.price}
-          amount={orderItem.amount}
+          title={item}
+          price={price}
+          amount={amount}
         />
       ))}
       <p>Razem: {fullPrice}zł</p>
@@ -33,9 +34,9 @@ const UsedBasket = () => {
           {untillFreeDelivery}zł
         </p>
       )}
-      <NavLink className={classes.orderButton} exact to={"/checkout"}>
+      <OrderButton exact to={"/checkout"}>
         Kasa {calculatedFullPrice}zł
-      </NavLink>
+      </OrderButton>
     </>
   );
 };
