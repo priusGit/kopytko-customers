@@ -1,46 +1,30 @@
-import React, { Component } from "react";
+import React from "react";
 import NavigationItem from "../Navitem/NavItem";
-import classes from "./NavBarPC.module.css";
-import { connect } from "react-redux";
-class NavBar extends Component {
-  componentDidMount() {
-    window.addEventListener("resize", this.props.onScreenResize);
-  }
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.props.onScreenResize);
-  }
-  render() {
-    return (
-      <>
-        <ul className={classes.NavBar} id="NavBar">
-          <NavigationItem link="/" active>
-            Home
-          </NavigationItem>
-          <NavigationItem link="/reservations" active>
-            Zarezerwuj stolik
-          </NavigationItem>
-          <NavigationItem link="/ourstory" active>
-            Nasza historia
-          </NavigationItem>
-          <NavigationItem link="/menu" active>
-            Menu
-          </NavigationItem>
-          <NavigationItem link="/orderonline" active>
-            Zamów do domu!
-          </NavigationItem>
-          <NavigationItem link="/faq" active>
-            Jakieś pytania?
-          </NavigationItem>
-          {/* <NavigationItem link="/checkout" active>Kasa</NavigationItem> */}
-        </ul>
-      </>
-    );
-  }
-}
-const mapStateToProps = (state) => {
-  return {
-    lang: state.language,
-  };
-};
+import { NavigationBar } from "./styles";
 
-export default connect(mapStateToProps, null)(NavBar);
+const NavBar = () => (
+  <>
+    <NavigationBar id="NavBar">
+      <NavigationItem link="/" active>
+        Home
+      </NavigationItem>
+      <NavigationItem link="/reservations" active>
+        Zarezerwuj stolik
+      </NavigationItem>
+      <NavigationItem link="/ourstory" active>
+        Nasza historia
+      </NavigationItem>
+      <NavigationItem link="/menu" active>
+        Menu
+      </NavigationItem>
+      <NavigationItem link="/orderonline" active>
+        Zamów do domu!
+      </NavigationItem>
+      <NavigationItem link="/faq" active>
+        Jakieś pytania?
+      </NavigationItem>
+    </NavigationBar>
+  </>
+);
+
+export default NavBar;
