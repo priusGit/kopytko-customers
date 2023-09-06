@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./MainPageMobile.module.css";
-import hat from "../../../assets/svg/hat.svg";
+import hat from "assets/svg/hat.svg";
 
 const MainPage = () => (
   <>

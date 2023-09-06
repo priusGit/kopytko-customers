@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Input from "../smallParts/Input/Input";
 import classes from "./FAQPage.module.css";
-import axios from "../../axios-orders";
-import * as actions from "../../store/actions/index";
+import axios from "axios-orders";
+import * as actions from "store/actions/index";
 import { connect } from "react-redux";
 class FAQPage extends Component {
   componentDidMount() {
@@ -75,9 +75,8 @@ class FAQPage extends Component {
     event.preventDefault();
     const formData = {};
     for (let formElementIdentifier in this.state.messageForm) {
-      formData[formElementIdentifier] = this.state.messageForm[
-        formElementIdentifier
-      ].value;
+      formData[formElementIdentifier] =
+        this.state.messageForm[formElementIdentifier].value;
     }
     this.props.onMessageSent(formData);
   };

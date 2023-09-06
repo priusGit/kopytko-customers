@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { onScreenResize } from "../../store/actions/index";
+import { onScreenResize } from "store/actions/index";
 import MainPagePC from "./MainPagePC/MainPagePC";
 import MainPageMobile from "./MainPageMobile/MainPageMobile";
-import { isMobile as isMobileSelector } from "../../store/selectors";
+import { isMobile as isMobileSelector } from "store/selectors";
 
 const MainPage = () => {
   const dispatch = useDispatch();
