@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Input from "../smallParts/Input/Input";
 import classes from "./ReservationsPage.module.css";
-import axios from "../../axios-orders";
-import * as actions from "../../store/actions/index";
+import axios from "axios-orders";
+import * as actions from "store/actions/index";
 import { connect } from "react-redux";
 import Spinner from "../smallParts/Spinner/Spinner";
 import getDate from "./functions/getDate";
@@ -104,9 +104,8 @@ class ReservationsPage extends Component {
     event.preventDefault();
     const formData = {};
     for (let formElementIdentifier in this.state.reservationForm) {
-      formData[formElementIdentifier] = this.state.reservationForm[
-        formElementIdentifier
-      ].value;
+      formData[formElementIdentifier] =
+        this.state.reservationForm[formElementIdentifier].value;
     }
     this.props.onReservationSent(formData);
   };

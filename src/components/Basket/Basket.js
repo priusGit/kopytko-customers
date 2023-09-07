@@ -1,26 +1,17 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import BasketPC from "./BasketPC/BasketPC";
-import BasketMobile from "./BasketMobile/BasketMobile";
-class Basket extends Component {
-  componentDidMount() {
-    window.scrollTo(0, 0);
-  }
-  render() {
-    if (this.props.width < 768) {
-      return <BasketMobile />;
-    } else {
-      return <BasketPC />;
-    }
-  }
-}
+import React from "react";
+import { useSelector } from "react-redux";
+import BasketPC from "./BasketPC";
+import BasketMobile from "./BasketMobile";
+import { isMobile as isMobileSelector } from "store/selectors";
 
-const mapStateToProps = (state) => {
-  return {
-    orderedItems: state.orderedItems,
-    fullPrice: state.fullPrice,
-    width: state.windowWidth,
-  };
+const Basket = () => {
+  const isMobile = useSelector(isMobileSelector);
+
+  if (isMobile) {
+    return <BasketMobile />;
+  }
+
+  return <BasketPC />;
 };
 
-export default connect(mapStateToProps, null)(Basket);
+export default Basket;

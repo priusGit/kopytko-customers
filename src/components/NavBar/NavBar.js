@@ -1,36 +1,17 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import * as actions from "../../store/actions/index";
+import React from "react";
+import { useSelector } from "react-redux";
+import { isMobile as isMobileSelector } from "store/selectors";
 import NavBarPC from "./NavBarPC/NavBarPc";
 import NavBarMobile from "./NavBarMobile/NavBarMobile";
 
-class NavBar extends Component {
-  componentDidMount() {
-    this.props.onScreenResize();
-    window.addEventListener("resize", this.props.onScreenResize);
+const NavBar = () => {
+  const isMobile = useSelector(isMobileSelector);
+
+  if (isMobile) {
+    return <NavBarMobile />;
   }
 
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.props.onScreenResize);
-  }
-
-  render() {
-    if (this.props.width < 768) {
-      return <NavBarMobile />;
-    } else {
-      return <NavBarPC />;
-    }
-  }
-}
-const mapStateToProps = (state) => {
-  return {
-    width: state.windowWidth,
-  };
+  return <NavBarPC />;
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onScreenResize: () => dispatch(actions.onScreenResize()),
-  };
-};
-export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
+export default NavBar;

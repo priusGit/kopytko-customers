@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import * as actions from "../../../store/actions/index";
+import * as actions from "store/actions/index";
 import { connect } from "react-redux";
 import classes from "./PurchasedModal.module.css";
 import Spinner from "../Spinner/Spinner";
 import { NavLink } from "react-router-dom";
-import pan from "../../../assets/svg/cooking.svg";
-import nosignal from "../../../assets/svg/no-signal.svg";
+import pan from "assets/svg/cooking.svg";
+import nosignal from "assets/svg/no-signal.svg";
 class PurchasedModal extends Component {
   render() {
     let modalConent;
