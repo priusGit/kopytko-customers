@@ -1,21 +1,10 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { onScreenResize } from "store/actions/index";
+import React from "react";
 import MainPagePC from "./MainPagePC/MainPagePC";
 import MainPageMobile from "./MainPageMobile/MainPageMobile";
-import { isMobile as isMobileSelector } from "store/selectors";
+import { useMainPage } from "./hooks";
 
 const MainPage = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(onScreenResize());
-    window.scrollTo(0, 0);
-    window.addEventListener("resize", onScreenResize);
-    return () => window.removeEventListener("resize", onScreenResize);
-  });
-
-  const isMobile = useSelector(isMobileSelector);
+  const { isMobile } = useMainPage();
 
   if (isMobile) {
     return <MainPageMobile />;
