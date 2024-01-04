@@ -1,21 +1,23 @@
 import React from "react";
-import classes from "./MainPagePC.module.css";
+import {
+  MainPageContainer,
+  LeftRibbon,
+  Title,
+  SubTitle,
+  MenuAnchor,
+  LeftRibbonContent,
+} from "./styles";
 
 const MainPage = () => (
-  <>
-    <section className={classes.MainPage}>
-      <div className={classes.Left}>
-        <div className={classes.leftContent}>
-          <h1>KOPYTKO</h1>
-          <p>Rodzinnie i cieple - po polsku!</p>
-          <a className={classes.buttonMainPage} href="/menu">
-            Zobacz Menu
-          </a>
-        </div>
-      </div>
-      <div className={classes.Right}></div>
-    </section>
-  </>
+  <MainPageContainer>
+    <LeftRibbon>
+      <LeftRibbonContent>
+        <Title>KOPYTKO</Title>
+        <SubTitle>Rodzinnie i cieple - po polsku!</SubTitle>
+        <MenuAnchor href="/menu">Zobacz Menu</MenuAnchor>
+      </LeftRibbonContent>
+    </LeftRibbon>
+  </MainPageContainer>
 );
 
 export default MainPage;
