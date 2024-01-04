@@ -6,8 +6,7 @@ export const NavigationBar = styled.ul`
   flex-direction: row;
   font-family: "Poppins", sans-serif;
   font-weight: 300;
-  height: 90px;
-  height: var(--topNavHeight);
+  min-height: 70px;
   list-style: none;
   margin-left: 0;
   margin-top: 0;
