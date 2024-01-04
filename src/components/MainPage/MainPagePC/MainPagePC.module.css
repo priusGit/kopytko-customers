@@ -1,11 +1,12 @@
 section.MainPage {
-  height: 100vh;
-  display: flex;
-  flex-flow: row;
-  overflow: hidden;
   background-image: url(../../../assets/bgMain.jpg);
   background-position: top;
   background-size: cover;
+  display: flex;
+  flex-flow: row;
+  height: 100%;
+  padding-top: 60px;
+  overflow: hidden;
 }
 .main {
   padding: 0;
@@ -14,7 +15,6 @@ section.MainPage {
 .Right {
   width: 50%;
   height: 100%;
-  margin-top: 60px;
 }
 .Left {
   background-color: rgba(255, 255, 255, 0.95);
@@ -91,6 +91,4 @@ a.buttonMainPage:hover {
 a.buttonMainPage:active {
   position: relative;
   top: 1px;
-}
-@media (min-width: 1200px) {
 }
