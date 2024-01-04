@@ -1,12 +1,13 @@
 import React from "react";
-import AsideIconBar from "../AsideIconBar/AsideIconBar";
-import NavBar from "../NavBar/NavBar";
+import AsideIconBar from "components/AsideIconBar/AsideIconBar";
+import NavBar from "components/NavBar";
+import { Main } from "./styles";
 
 const Layout = ({ children }) => (
   <>
     <NavBar />
     <AsideIconBar />
-    <main>{children}</main>
+    <Main>{children}</Main>
   </>
 );
 
