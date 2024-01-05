@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Input from "../smallParts/Input/Input";
+import Input from "../smallParts/Input";
 import classes from "./FAQPage.module.css";
 import axios from "axios-orders";
 import * as actions from "store/actions/index";

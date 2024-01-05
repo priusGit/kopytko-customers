@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./MenuPage.module.css";
-import Dish from "../smallParts/Dish/Dish";
-import Bar from "../smallParts/Bar/Bar";
+import Dish from "../smallParts/Dish";
+import Bar from "../smallParts/Bar";
 
 const MenuPage = () => (
   <section className={classes.Menu}>

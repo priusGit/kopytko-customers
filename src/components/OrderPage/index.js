@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import classes from "./OrderPage.module.css";
 import { NavLink } from "react-router-dom";
-import Dish from "../smallParts/Dish/Dish";
+import Dish from "../smallParts/Dish";
 import axios from "axios-orders";
 import { connect } from "react-redux";
 import * as actions from "store/actions/index";
-import Basket from "../Basket/Basket";
+import Basket from "../Basket";
 import CategoriesPC from "./components/CategoriesPC";
 class OrderPage extends Component {
   componentDidMount() {
