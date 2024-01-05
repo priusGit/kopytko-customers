@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, withRouter, Route } from "react-router-dom";
 import "./App.css";
 import Layout from "./components/Layout/Layout";
-import MainPage from "./components/MainPage/MainPage";
+import MainPage from "./components/MainPage";
 import FAQPage from "./components/FAQPage/FAQPage";
 import MenuPage from "./components/MenuPage/MenuPage";
 import OrderPage from "./components/OrderPage/OrderPage";
