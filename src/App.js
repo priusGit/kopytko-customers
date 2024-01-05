@@ -1,15 +1,15 @@
 import React from "react";
 import { Switch, withRouter, Route } from "react-router-dom";
 import "./App.css";
-import Layout from "./components/Layout/Layout";
+import Layout from "./components/Layout";
 import MainPage from "./components/MainPage";
-import FAQPage from "./components/FAQPage/FAQPage";
-import MenuPage from "./components/MenuPage/MenuPage";
-import OrderPage from "./components/OrderPage/OrderPage";
-import OurStory from "./components/OurStory/OurStory";
-import ReservationsPage from "./components/ResevationsPage/ReservationsPage";
-import Checkout from "./components/CheckoutPage/CheckoutPage";
-import Basket from "./components/Basket/Basket";
+import FAQPage from "./components/FAQPage";
+import MenuPage from "./components/MenuPage";
+import OrderPage from "./components/OrderPage";
+import OurStory from "./components/OurStory";
+import ReservationsPage from "./components/ResevationsPage";
+import Checkout from "./components/CheckoutPage";
+import Basket from "./components/Basket";
 
 const App = () => {
   let routes = (

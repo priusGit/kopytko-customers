@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import Input from "../smallParts/Input/Input";
+import Input from "../smallParts/Input";
 import classes from "./CheckoutPage.module.css";
-import PurchasedModal from "../smallParts/PurchasedModal/PurchasedModal";
+import PurchasedModal from "../smallParts/PurchasedModal";
 import { useCheckoutForm } from "./hooks";
 const OrderPage = () => {
   useEffect(() => {

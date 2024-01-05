@@ -1,5 +1,5 @@
 import React from "react";
-import AsideIconBar from "components/AsideIconBar/AsideIconBar";
+import AsideIconBar from "components/AsideIconBar";
 import NavBar from "components/NavBar";
 import { Main } from "./styles";
 
