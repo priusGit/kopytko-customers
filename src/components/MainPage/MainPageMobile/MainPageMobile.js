@@ -1,23 +1,15 @@
 import React from "react";
-import classes from "./MainPageMobile.module.css";
-import hat from "assets/svg/hat.svg";
+import Hat from "assets/svg/hat.svg";
+import MainPageAnchor from "../MainPageAnchor";
+import { MainPageContainer, Title, SubTitle, ChefHat } from "./styles";
 
 const MainPage = () => (
-  <>
-    <section className={classes.MainPage}>
-      <div className={classes.Left}>
-        <div className={classes.mobileMain}>
-          <img className={classes.chefHat} src={hat} alt="Chef hat" />
-          <h1>KOPYTKO</h1>
-          <p>Rodzinnie i ciepło - po polsku!</p>
-          {/* <p>{Language.MainPageSubTitle}</p> */}
-          <a className={classes.buttonMainPage} href="/menu">
-            Zobacz Menu
-          </a>
-        </div>
-      </div>
-    </section>
-  </>
+  <MainPageContainer>
+    <ChefHat src={Hat} />
+    <Title>KOPYTKO</Title>
+    <SubTitle>Rodzinnie i ciepło - po polsku!</SubTitle>
+    <MainPageAnchor />
+  </MainPageContainer>
 );
 
 export default MainPage;
