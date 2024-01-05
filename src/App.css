@@ -1,7 +1,9 @@
-body{
+body {
   height: 100vh;
 }
-*{
+* {
   user-select: none;
   font-family: Poppins;
+  margin: 0;
+  padding: 0;
 }
