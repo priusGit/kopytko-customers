@@ -2,26 +2,26 @@ import React from "react";
 import NavigationItem from "../../Navitem";
 import { MobileMenuContainer, MobileMenuBackdrop, Bar } from "./styles";
 
-const SideNavigation = ({ toggleOpened, sideMenuOpened }) => (
+const SideNavigation = ({ toggleSideMenu, sideMenuOpened }) => (
   <>
     <MobileMenuContainer open={sideMenuOpened}>
       <ul>
-        <NavigationItem onClick={toggleOpened} link="/" active>
+        <NavigationItem onClick={toggleSideMenu} link="/" active>
           Home
         </NavigationItem>
-        <NavigationItem onClick={toggleOpened} link="/reservations" active>
+        <NavigationItem onClick={toggleSideMenu} link="/reservations" active>
           Zarezerwuj stolik
         </NavigationItem>
-        <NavigationItem onClick={toggleOpened} link="/ourstory" active>
+        <NavigationItem onClick={toggleSideMenu} link="/ourstory" active>
           Nasza historia
         </NavigationItem>
-        <NavigationItem onClick={toggleOpened} link="/menu" active>
+        <NavigationItem onClick={toggleSideMenu} link="/menu" active>
           Menu
         </NavigationItem>
-        <NavigationItem onClick={toggleOpened} link="/orderonline" active>
+        <NavigationItem onClick={toggleSideMenu} link="/orderonline" active>
           Zamów do domu!
         </NavigationItem>
-        <NavigationItem onClick={toggleOpened} link="/faq" active>
+        <NavigationItem onClick={toggleSideMenu} link="/faq" active>
           Jakieś pytania?
         </NavigationItem>
       </ul>

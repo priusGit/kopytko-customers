@@ -37,4 +37,6 @@ export const SubTitle = styled.p`
   text-align: center;
 `;
 
-export const LeftRibbonContent = styled.div``;
+export const LeftRibbonContent = styled.div`
+  text-align: center;
+`;
