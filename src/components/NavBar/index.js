@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { isMobile as isMobileSelector } from "store/selectors";
-import NavBarPC from "./NavBarPC/NavBarPc";
-import NavBarMobile from "./NavBarMobile/NavBarMobile";
+import NavBarPC from "./NavBarPC";
+import NavBarMobile from "./NavBarMobile";
 
 const NavBar = () => {
   const isMobile = useSelector(isMobileSelector);

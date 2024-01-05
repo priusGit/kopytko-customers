@@ -1,6 +1,6 @@
 import React from "react";
-import MainPagePC from "./MainPagePC/MainPagePC";
-import MainPageMobile from "./MainPageMobile/MainPageMobile";
+import MainPagePC from "./MainPagePC";
+import MainPageMobile from "./MainPageMobile";
 import { useMainPage } from "./hooks";
 
 const MainPage = () => {

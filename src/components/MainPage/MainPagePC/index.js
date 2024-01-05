@@ -1,10 +1,10 @@
 import React from "react";
+import MenuAnchor from "../MainPageAnchor";
 import {
   MainPageContainer,
   LeftRibbon,
   Title,
   SubTitle,
-  MenuAnchor,
   LeftRibbonContent,
 } from "./styles";
 

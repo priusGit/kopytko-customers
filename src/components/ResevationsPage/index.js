@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import Input from "../smallParts/Input/Input";
+import Input from "../smallParts/Input";
 import classes from "./ReservationsPage.module.css";
 import axios from "axios-orders";
 import * as actions from "store/actions/index";
 import { connect } from "react-redux";
-import Spinner from "../smallParts/Spinner/Spinner";
+import Spinner from "../smallParts/Spinner";
 import getDate from "./functions/getDate";
 
 class ReservationsPage extends Component {

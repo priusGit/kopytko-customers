@@ -1,5 +1,5 @@
 import React from "react";
-import NavigationItem from "../Navitem/NavItem";
+import NavigationItem from "../Navitem";
 import classes from "./NavBarMobile.module.css";
 
 const NavBar = () => {
