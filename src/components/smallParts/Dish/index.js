@@ -13,10 +13,7 @@ class Dish extends Component {
         }
       >
         <p className={classes.DishTitle}>{this.props.title}</p>
-        <p className={classes.DishDisc}>
-          I’m a dish description. Click “Edit Menu” to open the Restaurant Menu
-          editor and change my text.
-        </p>
+        <p className={classes.DishDisc}>{this.props.description}</p>
         <p className={classes.DishPrice}>{this.props.price}zł</p>
       </div>
     );
